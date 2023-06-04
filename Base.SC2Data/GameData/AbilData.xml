@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilMorphPlacement id="LandCommandCenterLz" parent="TerranBuildingLand" unit="CommandCenterLz">
+        <Name value="Abil/Name/LandCommandCenterLz"/>
+        <InfoArray index="0" Unit="CommandCenterLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="LiftOffCommandCenterLz" parent="TerranBuildingLiftOff" unit="CommandCenterFlyingLz">
+        <Name value="Abil/Name/LiftOffCommandCenterLz"/>
+    </CAbilMorph>
+    <CAbilMorph id="SupplyDepotLowerLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Lower"/>
+        <InfoArray Unit="SupplyDepotLoweredLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Collide">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="SupplyDepotRaiseLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Raise"/>
+        <Flags index="IgnorePlacement" value="0"/>
+        <Flags index="MoveBlockers" value="1"/>
+        <InfoArray Unit="SupplyDepotLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilTrain id="TrainCommandCenterLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Train1" Time="0.1">
+            <Button DefaultButtonFace="SCV">
+                <Flags index="ToSelection" value="1"/>
+            </Button>
+            <Unit value="SCVLz"/>
+        </InfoArray>
+        <Alert value="TrainWorkerComplete"/>
+    </CAbilTrain>
+    <CAbilEffectTarget id="FreeRepairSCVLz">
+        <Alignment value="Positive"/>
+        <AbilSetId value="Repair"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOffOwnerLeave" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="PassengerAcquirePassengers" value="1"/>
+        <TargetFilters value="Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"/>
+        <RangeSlop value="0.2"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastRange value="7"/>
+        <Marker>
+            <MatchFlags index="Link" value="0"/>
+            <MismatchFlags index="Id" value="0"/>
+        </Marker>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <UseMarkerArray index="Cast" value="0"/>
+        <UseMarkerArray index="Channel" value="0"/>
+        <InheritAttackPriorityArray index="Prep" value="1"/>
+        <InheritAttackPriorityArray index="Cast" value="1"/>
+        <InheritAttackPriorityArray index="Channel" value="1"/>
+        <DefaultError value="RequiresRepairTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FreeRepairLz">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilBuild id="TerranBuildLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <FlagArray index="Interruptible" value="1"/>
+        <FlagArray index="PeonDisableCollision" value="1"/>
+        <InfoArray index="Build1" Unit="CommandCenterLz" Time="0.1">
+            <Button DefaultButtonFace="CommandCenter"/>
+        </InfoArray>
+        <InfoArray index="Build2" Unit="SupplyDepotLz" Time="0.1">
+            <Button DefaultButtonFace="SupplyDepot"/>
+        </InfoArray>
+        <InfoArray index="Build3" Unit="Refinery" Time="30">
+            <Button DefaultButtonFace="Refinery" Requirements="HideRefinery"/>
+            <ValidatorArray value="HasVespene"/>
+        </InfoArray>
+        <InfoArray index="Build4" Unit="Barracks" Time="65">
+            <Button DefaultButtonFace="Barracks" State="Restricted"/>
+        </InfoArray>
+        <InfoArray index="Build5" Unit="EngineeringBay" Time="35">
+            <Button DefaultButtonFace="EngineeringBay" Requirements="HaveCommandCenter"/>
+        </InfoArray>
+        <InfoArray index="Build6" Unit="MissileTurret" Time="25">
+            <Button DefaultButtonFace="MissileTurret" Requirements="HaveEngineeringBay"/>
+        </InfoArray>
+        <InfoArray index="Build7" Unit="Bunker" Time="20">
+            <Button DefaultButtonFace="Bunker" State="Restricted" Requirements="HideFortifiedBunker"/>
+        </InfoArray>
+        <InfoArray index="Build8" Unit="PsiDisruptor" Time="50">
+            <Button DefaultButtonFace="PsiDisruptor" Requirements="UsePsiDisruptor"/>
+            <ValidatorArray value="HasVespene"/>
+        </InfoArray>
+        <InfoArray index="Build9" Unit="SensorTower" Time="25">
+            <Button DefaultButtonFace="SensorTower" Requirements="HaveEngineeringBay"/>
+        </InfoArray>
+        <InfoArray index="Build10" Unit="GhostAcademy" Time="40">
+            <Button DefaultButtonFace="GhostAcademy" State="Restricted" Requirements="HaveBarracks"/>
+        </InfoArray>
+        <InfoArray index="Build11" Unit="Factory" Time="60">
+            <Button DefaultButtonFace="Factory" Requirements="HaveBarracks"/>
+        </InfoArray>
+        <InfoArray index="Build12" Unit="Starport" Time="50">
+            <Button DefaultButtonFace="Starport" Requirements="CanBuildStarport"/>
+        </InfoArray>
+        <InfoArray index="Build13" Unit="MercCompound" Time="50">
+            <Button DefaultButtonFace="MercCompound" State="Restricted" Requirements="MercCompoundRequirements"/>
+        </InfoArray>
+        <InfoArray index="Build14" Unit="Armory" Time="65">
+            <Button DefaultButtonFace="Armory" Requirements="CanBuildArmory"/>
+        </InfoArray>
+        <InfoArray index="Build15" Unit="GhostAcademyNova" Time="40">
+            <Button DefaultButtonFace="GhostAcademyNova" State="Restricted" Requirements="NovaGhostAcademy"/>
+        </InfoArray>
+        <InfoArray index="Build16" Unit="FusionCore" Time="65">
+            <Button DefaultButtonFace="FusionCore" Requirements="HaveStarport"/>
+        </InfoArray>
+        <InfoArray index="Build19" Unit="AutomatedRefinery" Time="45">
+            <Button DefaultButtonFace="AutomatedRefinery" Requirements="UseAutomatedRefinery"/>
+        </InfoArray>
+        <InfoArray index="Build20" Unit="PerditionTurret" Time="23">
+            <Button DefaultButtonFace="PerditionTurret" Requirements="HaveFactory"/>
+        </InfoArray>
+        <InfoArray index="Build21" Unit="CommandCenter" Time="100">
+            <Button DefaultButtonFace="CommandCenterOrbRelay" Requirements="UseOrbitalRelay"/>
+        </InfoArray>
+        <InfoArray index="Build22" Unit="HiveMindEmulator" Time="50">
+            <Button DefaultButtonFace="HiveMindEmulator" Requirements="UseHiveMindEmulator"/>
+        </InfoArray>
+        <InfoArray index="Build23" Unit="Bunker" Time="30">
+            <Button DefaultButtonFace="BunkerFortified" Requirements="UseFortifiedBunker"/>
+        </InfoArray>
+        <InfoArray index="Build24" Unit="DrakkenLaserDrillCoop" Time="80">
+            <Button DefaultButtonFace="BuildDrakkenLaserDrill" State="Restricted" Requirements="DrakkenLaserRequirements"/>
+        </InfoArray>
+        <InfoArray index="Build26" Unit="KelMorianMissileTurret" Time="18.75">
+            <Button DefaultButtonFace="BuildKelMorianMissileTurret" Requirements="HaveEngineeringBay"/>
+        </InfoArray>
+        <InfoArray index="Build27" Unit="KelMorianGrenadeTurret" Time="26.25">
+            <Button DefaultButtonFace="BuildKelMorianRocketTurret" Requirements="HaveFactory"/>
+        </InfoArray>
+        <InfoArray index="Build28" Unit="VespeneGasDrill" Time="100">
+            <Button DefaultButtonFace="BuildVespeneGasDrill" State="Restricted"/>
+        </InfoArray>
+        <InfoArray index="Build30" Unit="BomberLaunchPad" Time="30">
+            <Button DefaultButtonFace="BuildBomberLaunchPad" Requirements="HaveFactory"/>
+        </InfoArray>
+        <FidgetDelayMin value="5"/>
+        <FidgetDelayMax value="10"/>
+        <ConstructionMover value="Construction"/>
+    </CAbilBuild>
+    <CAbilMorph id="UpgradeToOrbitalLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="OrbitalCommand" Requirements="CanMorphOrbitalCommand"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="CancelUpgradeMorph"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Birth" value="1"/>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <InfoArray Score="1" Unit="OrbitalCommandLz">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="35"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="35"/>
+                <EffectArray index="Start" value="CommandCenterIsMorphingAB"/>
+                <EffectArray index="Finish" value="CommandCenterIsMorphingRB"/>
+                <EffectArray index="Cancel" value="CommandCenterIsMorphingRB"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="35"/>
+            </SectionArray>
+        </InfoArray>
+        <Alert value="CommandCenterUpgradeComplete"/>
+        <Activity value="UI/Upgrading"/>
+        <ValidatorArray value="HasNoCargo"/>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeToPlanetaryFortressLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeToPlanetaryFortress" Requirements="HaveEngineeringBay"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="CancelUpgradeMorph"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Birth" value="1"/>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <InfoArray Score="1" Unit="PlanetaryFortressLz">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="50"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="50"/>
+                <EffectArray index="Start" value="CommandCenterIsMorphingAB"/>
+                <EffectArray index="Finish" value="CommandCenterIsMorphingRB"/>
+                <EffectArray index="Cancel" value="CommandCenterIsMorphingRB"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="50"/>
+            </SectionArray>
+        </InfoArray>
+        <Alert value="CommandCenterUpgradeComplete"/>
+        <Activity value="UI/Upgrading"/>
+        <ValidatorArray value="HasNoCargo"/>
+    </CAbilMorph>
+</Catalog>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="1">
+        <name value="enemy spawn - random - bot"/>
+        <shape type="rect">
+            <quad value="32,0,96,16"/>
+        </shape>
+    </region>
+    <region id="2">
+        <name value="enemy spawn - random - left"/>
+        <shape type="rect">
+            <quad value="0,32,16,96"/>
+        </shape>
+    </region>
+    <region id="3">
+        <name value="enemy spawn - random - top"/>
+        <shape type="rect">
+            <quad value="32,112,96,128"/>
+        </shape>
+    </region>
+    <region id="4">
+        <name value="enemy spawn - random - right"/>
+        <shape type="rect">
+            <quad value="112,32,128,96"/>
+        </shape>
+    </region>
+    <region id="5">
+        <name value="enemy spawn - core - top"/>
+        <shape type="rect">
+            <quad value="56,112,72,124"/>
+        </shape>
+    </region>
+    <region id="6">
+        <name value="enemy spawn - core - right"/>
+        <shape type="rect">
+            <quad value="112,56,124,72"/>
+        </shape>
+    </region>
+    <region id="7">
+        <name value="enemy spawn - core - bot"/>
+        <shape type="rect">
+            <quad value="56,4,72,16"/>
+        </shape>
+    </region>
+    <region id="8">
+        <name value="enemy spawn - core - left"/>
+        <shape type="rect">
+            <quad value="4,56,16,72"/>
+        </shape>
+    </region>
+</Regions>

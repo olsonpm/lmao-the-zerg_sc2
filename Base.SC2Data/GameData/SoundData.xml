@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="MiningStationSelectedLz" parent="Ambience_Object">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Uni\MiningStation\select-mining-station.wav" FacialGroup=""/>
+        <DupeDestroyCount value="1"/>
+        <DupeMuteCount value="1"/>
+        <Pitch value="-2.000000,-2.000000"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+</Catalog>

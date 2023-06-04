@@ -1,0 +1,4 @@
+﻿Button/Hotkey/BuildCommandCenterLz=C
+Button/Hotkey/BuildSupplyDepotLz=S
+Button/Hotkey/FreeRepairLz=R
+Button/Hotkey/TrainSCVLz=S
