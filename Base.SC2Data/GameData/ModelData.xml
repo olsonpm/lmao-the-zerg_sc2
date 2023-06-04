@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="Thor">
+        <Model value="Assets\Units\Terran\ThorEx1\ThorEx1.m3"/>
+    </CModel>
+    <CModel id="RavenShredderMissileAttackImpactDebuffMultiLz" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\Raven_Shredder_Missile_MP_ImpactDebuff\Raven_Shredder_Missile_MP_ImpactDebuff.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="ShredderAttackImpactMultiLz" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\Raven_Shredder_Missile_MP_Impact\Raven_Shredder_Missile_MP_Impact.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="ShredderWeaponMultiLz" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\Raven_Shredder_Missile_MP\Raven_Shredder_Missile_MP.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <PhysicsMaterialOverride value="MetalLight"/>
+    </CModel>
+    <CModel id="AntiArmorMissileAttackImpactMultiLz" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\AmonShards_Orange_AnimaShower_Missile_Impact\AmonShards_Orange_AnimaShower_Missile_Impact.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="RavenScramblerMissileWeaponMultiLz" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\Raven_Scrambler_Missile_MP\Raven_Scrambler_Missile_MP.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="RavenScramblerMissileBehaviorMultiLz" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\Raven_Scrambler_Missile_MP_Debuff\Raven_Scrambler_Missile_MP_Debuff.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="RavenScramblerMissileImpactMultiLz" parent="RaceImpactFX" Race="Terran">
+        <Model value="Assets\Effects\Terran\Raven_Scrambler_Missile_MP_Impact\Raven_Scrambler_Missile_MP_Impact.m3"/>
+        <Priority value="32"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+    </CModel>
+</Catalog>

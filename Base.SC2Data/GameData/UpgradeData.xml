@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUpgrade id="SmartServosMultiLz">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-transformationservos.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Operation="Subtract" Reference="Abil,AssaultMode,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="1.010000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,AssaultMode,InfoArray[0].SectionArray[Mover].DurationArray[Delay]" Value="0.533000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,AssaultMode,InfoArray[0].SectionArray[Mover].DurationArray[Duration]" Value="0.200000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FighterMode,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="1.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FighterMode,InfoArray[0].SectionArray[Collide].DurationArray[Delay]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,AssaultMode,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="1.340000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FighterMode,InfoArray[0].SectionArray[Mover].DurationArray[Delay]" Value="0.600000"/>
+        <EffectArray Reference="Abil,FighterMode,InfoArray[0].SectionArray[Mover].DurationArray[Duration]" Value="0.150000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,FighterMode,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="1.333000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellionTank,InfoArray[0].SectionArray[Actor].DurationArray[Delay]" Value="0.330000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellionTank,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="1.670000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellionTank,InfoArray[0].SectionArray[Collide].DurationArray[Delay]" Value="2.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellionTank,InfoArray[0].SectionArray[Stats].DurationArray[Delay]" Value="0.330000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellionTank,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="1.670000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellion,InfoArray[0].SectionArray[Actor].DurationArray[Delay]" Value="0.330000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellion,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="1.670000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellion,InfoArray[0].SectionArray[Collide].DurationArray[Delay]" Value="2.000000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellion,InfoArray[0].SectionArray[Stats].DurationArray[Delay]" Value="0.330000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellion,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="1.670000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorAPMode,InfoArray[0].SectionArray[Abils].DurationArray[Delay]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorAPMode,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorAPMode,InfoArray[0].SectionArray[Stats].DurationArray[Delay]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorNormalMode,InfoArray[0].SectionArray[Abils].DurationArray[Delay]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorNormalMode,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorNormalMode,InfoArray[0].SectionArray[Stats].DurationArray[Delay]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellionTank,InfoArray[0].RandomDelayMax" Value="0.250000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MorphToHellion,InfoArray[0].RandomDelayMax" Value="0.250000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorAPMode,InfoArray[0].RandomDelayMax" Value="0.250000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ThorNormalMode,InfoArray[0].RandomDelayMax" Value="0.250000"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Hellion"/>
+        <AffectedUnitArray value="HellionTank"/>
+        <AffectedUnitArray value="VikingAssault"/>
+        <AffectedUnitArray value="VikingFighter"/>
+        <AffectedUnitArray value="ThorAP"/>
+        <AffectedUnitArray value="Thor"/>
+    </CUpgrade>
+    <CUpgrade id="DrillClawsMultiLz">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Icon value="Assets\Textures\BTN-Upgrade-Terran-ResearchDrillingClaws.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="150"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Operation="Subtract" Reference="Abil,WidowMineBurrow,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="1.500000"/>
+        <EffectArray Operation="Subtract" Reference="Abil,WidowMineBurrow,InfoArray[0].SectionArray[Stats].DurationArray[Delay]" Value="1.500000"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="WidowMine"/>
+        <AffectedUnitArray value="WidowMineBurrowed"/>
+    </CUpgrade>
+    <CUpgrade id="CycloneLockOnDamageUpgradeMultiLz">
+        <Icon value="Assets\Textures\btn-upgrade-terran-magfieldaccelerator.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Effect,CycloneAirWeaponDamage,Amount" Value="10"/>
+        <EffectArray Reference="Effect,CycloneWeaponDamage,Amount" Value="10"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Cyclone"/>
+    </CUpgrade>
+    <CUpgrade id="HighCapacityBarrelsMultiLz">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infernalpreigniter.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Effect,InfernalFlameThrower,AttributeBonus[Light]" Value="5"/>
+        <EffectArray Reference="Effect,HellionTankDamage,AttributeBonus[Light]" Value="12"/>
+        <EditorCategories value="Race:Terran,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="Hellion"/>
+        <AffectedUnitArray value="HellionTank"/>
+    </CUpgrade>
+    <CUpgrade id="BansheeSpeedMultiLz">
+        <Icon value="Assets\Textures\btn-upgrade-terran-hyperflightrotors.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="250"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Unit,Banshee,Speed" Value="1"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Banshee"/>
+    </CUpgrade>
+    <CUpgrade id="HiSecAutoTrackingMultiLz" parent="Research">
+        <Flags index="TechTreeCheat" value="1"/>
+        <InfoTooltipPriority value="31"/>
+        <Icon value="Assets\Textures\BTN-Upgrade-Terran-hisecautotracking.dds"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Weapon,LongboltMissile,Range" Value="1.000000"/>
+        <EffectArray Reference="Weapon,TwinIbiksCannon,Range" Value="1.000000"/>
+        <EffectArray Reference="Weapon,IbiksCannonPlanetaryFortressLz,Range" Value="1.000000"/>
+        <EffectArray Reference="Weapon,AutoTurret,Range" Value="1"/>
+        <EffectArray Reference="Weapon,PointDefenseLaser,Range" Value="1"/>
+        <EffectArray Reference="Effect,PointDefenseSearch,AreaArray[0].Radius" Value="1"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="AutoTurret"/>
+        <AffectedUnitArray value="MissileTurret"/>
+        <AffectedUnitArray value="PlanetaryFortress"/>
+        <AffectedUnitArray value="PointDefenseDrone"/>
+    </CUpgrade>
+    <CUpgrade id="LiberatorAGRangeMultiLz">
+        <Icon value="Assets\Textures\btn-upgrade-terran-advanceballistics.dds"/>
+        <EffectArray Reference="Abil,LiberatorAGTarget,Range[0]" Value="3"/>
+        <EffectArray Reference="Weapon,LiberatorAGWeapon,Range" Value="3"/>
+        <!--EffectArray Reference="Unit,LiberatorAG,Sight" Value="4"/-->
+        <EditorCategories value="Race:Protoss,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="Liberator"/>
+        <AffectedUnitArray value="LiberatorAG"/>
+        <ScoreAmount value="300"/>
+        <ScoreResult value="BuildOrder"/>
+    </CUpgrade>
+    <CUpgrade id="MedivacIncreaseSpeedBoostMultiLz">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-highcapacityfueltanks.dds"/>
+        <ScoreAmount value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Operation="Subtract" Reference="Abil,MedivacSpeedBoost,Cost[0].Cooldown.TimeUse" Value="10.000000"/>
+        <EffectArray Operation="Set" Reference="Behavior,MedivacSpeedBoost,Modification.MoveSpeedMultiplier" Value="1.4406"/>
+        <EffectArray Operation="Set" Reference="Unit,Medivac,Speed" Value="2.949200"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Medivac"/>
+    </CUpgrade>
+    <CUpgrade id="NeosteelArmorMultiLz">
+        <InfoTooltipPriority value="41"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <ScoreAmount value="300"/>
+        <ScoreCount value="ArmorTechnologyCount"/>
+        <ScoreValue value="ArmorTechnologyValue"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Unit,CommandCenter,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,CommandCenter,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,CommandCenterFlying,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,CommandCenterFlying,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,OrbitalCommand,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,OrbitalCommand,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,OrbitalCommandFlying,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,OrbitalCommandFlying,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,PlanetaryFortress,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,PlanetaryFortress,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,Refinery,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,Refinery,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,SupplyDepot,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,SupplyDepot,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,SupplyDepotLowered,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,SupplyDepotLowered,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,EngineeringBay,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,EngineeringBay,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,Barracks,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,Barracks,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,BarracksFlying,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,BarracksFlying,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,StarportReactor,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,StarportReactor,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,FactoryReactor,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,FactoryReactor,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,BarracksReactor,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,BarracksReactor,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,Reactor,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,Reactor,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,TechLab,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,TechLab,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,BarracksTechLab,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,BarracksTechLab,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,FactoryTechLab,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,FactoryTechLab,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,StarportTechLab,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,StarportTechLab,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,GhostAcademy,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,GhostAcademy,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,MissileTurret,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,MissileTurret,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,SensorTower,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,SensorTower,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,Bunker,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,Bunker,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,Factory,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,Factory,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,FactoryFlying,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,FactoryFlying,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,Armory,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,Armory,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,Starport,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,Starport,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,StarportFlying,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,StarportFlying,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,FusionCore,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,FusionCore,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,PointDefenseDrone,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,PointDefenseDrone,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,BypassArmorDrone,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,BypassArmorDrone,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,RavenRepairDrone,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,RavenRepairDrone,LifeArmor" Value="2"/>
+        <EffectArray Reference="Abil,BunkerTransport,MaxCargoCount" Value="2"/>
+        <EffectArray Reference="Abil,BunkerTransport,TotalCargoSpace" Value="2"/>
+        <EffectArray Reference="Abil,CommandCenterTransport,MaxCargoCount" Value="5"/>
+        <EffectArray Reference="Abil,CommandCenterTransport,TotalCargoSpace" Value="5"/>
+        <EffectArray Operation="Set" Reference="Actor,Bunker,Wireframe.Image[0]" Value="Assets\Textures\wireframe-terran-bunker-neosteelframe.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,Bunker,GroupIcon.Image[0]" Value="Assets\Textures\wireframe-terran-bunker-neosteelframe.dds"/>
+        <EffectArray Reference="Unit,RefineryRich,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,RefineryRich,LifeArmorLevel" Value="2"/>
+        <!-- lz buildings -->
+        <EffectArray Reference="Unit,ArmoryLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,ArmoryLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,BarracksLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,BarracksLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,BarracksFlyingLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,BarracksFlyingLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,CommandCenterLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,CommandCenterLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,CommandCenterFlyingLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,CommandCenterFlyingLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,EngineeringBayLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,EngineeringBayLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,FactoryLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,FactoryLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,FactoryFlyingLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,FactoryFlyingLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,FusionCoreLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,FusionCoreLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,GhostAcademyLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,GhostAcademyLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,OrbitalCommandLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,OrbitalCommandLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,OrbitalCommandFlyingLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,OrbitalCommandFlyingLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,PlanetaryFortressLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,PlanetaryFortressLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,StarportLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,StarportLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,StarportFlyingLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,StarportFlyingLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,TechLabLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,TechLabLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,TechLabBarracksLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,TechLabBarracksLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,TechLabFactoryLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,TechLabFactoryLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,TechLabStarportLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,TechLabStarportLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,WallLoweredLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,WallLoweredLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,WallLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,WallLz,LifeArmorLevel" Value="2"/>
+        <!-- end of lz buildings -->
+        <EditorCategories value="Race:Terran,UpgradeType:ArmorBonus"/>
+        <AffectedUnitArray value="Armory"/>
+        <AffectedUnitArray value="Barracks"/>
+        <AffectedUnitArray value="BarracksFlying"/>
+        <AffectedUnitArray value="Bunker"/>
+        <AffectedUnitArray value="CommandCenter"/>
+        <AffectedUnitArray value="CommandCenterFlying"/>
+        <AffectedUnitArray value="EngineeringBay"/>
+        <AffectedUnitArray value="Factory"/>
+        <AffectedUnitArray value="FactoryFlying"/>
+        <AffectedUnitArray value="FusionCore"/>
+        <AffectedUnitArray value="GhostAcademy"/>
+        <AffectedUnitArray value="MissileTurret"/>
+        <AffectedUnitArray value="OrbitalCommand"/>
+        <AffectedUnitArray value="OrbitalCommandFlying"/>
+        <AffectedUnitArray value="PlanetaryFortress"/>
+        <AffectedUnitArray value="Reactor"/>
+        <AffectedUnitArray value="BarracksReactor"/>
+        <AffectedUnitArray value="FactoryReactor"/>
+        <AffectedUnitArray value="StarportReactor"/>
+        <AffectedUnitArray value="Refinery"/>
+        <AffectedUnitArray value="SensorTower"/>
+        <AffectedUnitArray value="Starport"/>
+        <AffectedUnitArray value="StarportFlying"/>
+        <AffectedUnitArray value="SupplyDepot"/>
+        <AffectedUnitArray value="SupplyDepotLowered"/>
+        <AffectedUnitArray value="TechLab"/>
+        <AffectedUnitArray value="BarracksTechLab"/>
+        <AffectedUnitArray value="FactoryTechLab"/>
+        <AffectedUnitArray value="StarportTechLab"/>
+        <AffectedUnitArray value="PointDefenseDrone"/>
+        <AffectedUnitArray value="BypassArmorDrone"/>
+        <AffectedUnitArray value="RavenRepairDrone"/>
+        <AffectedUnitArray value="RefineryRich"/>
+    </CUpgrade>
+    <CUpgrade id="ShieldWall2" parent="Research">
+        <Flags index="TechTreeCheat" value="1"/>
+        <InfoTooltipPriority value="2"/>
+        <Icon value="Assets\Textures\btn-techupgrade-terran-combatshield-color.dds"/>
+        <Race value="Terr"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Unit,Marine,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,Marine,LifeStart" Value="10"/>
+        <EffectArray Operation="Set" Reference="Actor,Marine,Wireframe.Image[0]" Value="Assets\Textures\wireframe-terran-marine-shield.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,Marine,GroupIcon.Image[0]" Value="Assets\Textures\wireframe-terran-marine-shield.dds"/>
+        <EffectArray Reference="Unit,MengskMarine,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,MengskMarine,LifeStart" Value="10"/>
+        <EffectArray Operation="Set" Reference="Actor,MengskMarine,GroupIcon.Image[0]" Value="Assets\Textures\wireframe-terran-marine-mercenary-shield.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,MengskMarine,Wireframe.Image[0]" Value="Assets\Textures\wireframe-terran-marine-mercenary-shield.dds"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Marine"/>
+        <AffectedUnitArray value="MengskMarine"/>
+    </CUpgrade>
+</Catalog>

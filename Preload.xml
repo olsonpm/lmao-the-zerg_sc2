@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Preload>
+<Actor id="SYSTEM_ActorConfig"/>
+<Sound id="UI_GenericError"/>
+<Sound id="Alert_TerranNeedMoreMinerals"/>
+<Sound id="MiningStationSelectedLz"/>
+<Terrain id="PurifierJungle"/>
+<Unit id="SCV"/>
+<Unit id="TestMarineLz"/>
+<Unit id="MiningStationAllyLz"/>
+<Unit id="MiningStationPlayerLz"/>
+<Unit id="StartingSCVLz"/>
+</Preload>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="HaveAdvancedBallisticsMultiLz">
+        <NodeArray index="Use" Link="CountUpgradeLiberatorAGRangeMultiLzCompleteOnly1646137913"/>
+    </CRequirement>
+    <CRequirement id="HaveArmory">
+        <NodeArray index="Use" Link="CountUnitAlias_ArmoryCompleteOnly609241497"/>
+    </CRequirement>
+    <CRequirement id="HaveArmoryAndAttachedTechLabOrAttachedTechReactor">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TechLabCompleteOnlyAtUnit2589852481TechTreeCheatCountUnitAlias_ArmoryCompleteOnly609241497TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveAttachedStarportTechLabAndFusionCore">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TechLabCompleteOnlyAtUnit2589852481TechTreeCheatCountUnitAlias_FusionCoreCompleteOnly3089280483TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveBansheeSpeedMultiLz">
+        <NodeArray index="Show" Link="CountUpgradeBansheeSpeedMultiLzCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HaveCycloneLockOnDamageUpgradeLz">
+        <NodeArray index="Use" Link="CountUpgradeCycloneLockOnDamageUpgradeMultiLzCompleteOnly2633680555"/>
+    </CRequirement>
+    <CRequirement id="HaveDrillingClawsMultiLz">
+        <NodeArray index="Use" Link="CountUpgradeDrillClawsMultiLzCompleteOnly243212378"/>
+    </CRequirement>
+    <CRequirement id="HaveInfernalPreigniter">
+        <NodeArray index="Use" Link="CountUpgradeHighCapacityBarrelsMultiLzCompleteOnly3130513828"/>
+    </CRequirement>
+    <CRequirement id="HaveRapidReignitionSystemMultiLz">
+        <NodeArray index="Use" Link="CountUpgradeMedivacIncreaseSpeedBoostMultiLzCompleteOnly3319945507"/>
+    </CRequirement>
+    <CRequirement id="HaveTechLabAndGhostAcademyLz">
+        <EditorCategories value="Race:Terran,TechType:Unit"/>
+        <NodeArray index="Use" Link="AndCountUnitAlias_TechLabCompleteOnlyAtUnit2589852481TechTreeCheatCountUnitGhostAcademyLzCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveReaperSpiderMines">
+        <NodeArray index="Show" Link="CountUpgradeReaperSpiderMinesCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="LearnBansheeSpeedMultiLz">
+        <NodeArray index="Show" Link="NotCountUpgradeBansheeSpeedMultiLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnCycloneLockOnDamageUpgrade">
+        <NodeArray index="Use" Link="CountUnitAlias_ArmoryCompleteOnly609241497"/>
+        <NodeArray index="Show" Link="NotCountUpgradeCycloneLockOnDamageUpgradeMultiLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnDrillingClaws">
+        <NodeArray index="Use" Link="CountUnitAlias_ArmoryCompleteOnly609241497"/>
+        <NodeArray index="Show" Link="NotCountUpgradeDrillClawsMultiLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnHiSecAutoTrackingMultiLz">
+        <NodeArray index="Show" Link="EqCountUpgradeHiSecAutoTrackingMultiLzQueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="LearnHighCapacityBarrels">
+        <NodeArray index="Show" Link="NotCountUpgradeHighCapacityBarrelsMultiLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnLiberatorRangeMultiLz">
+        <NodeArray index="Use" Link="CountUnitFusionCoreLzCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeLiberatorAGRangeMultiLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnMedivacSpeedBoostUpgradeMultiLz">
+        <NodeArray index="Show" Link="NotCountUpgradeMedivacIncreaseSpeedBoostMultiLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnNeosteelArmorMultiLz">
+        <NodeArray index="Show" Link="EqCountUpgradeNeosteelArmorMultiLzQueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="UseNeosteelArmorMultiLz">
+        <NodeArray index="Use" Link="CountUpgradeNeosteelArmorMultiLzCompleteOnly2025896153"/>
+    </CRequirement>
+    <CRequirement id="LearnSmartServosMultiLz">
+        <NodeArray index="Use" Link="CountUnitAlias_ArmoryCompleteOnly609241497"/>
+        <NodeArray index="Show" Link="NotCountUpgradeSmartServosMultiLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnTransformationServos">
+        <NodeArray index="Use" Link="CountUnitAlias_ArmoryCompleteOnly609241497TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="NotHaveScramblerMissileBehaviorMultiLz">
+        <NodeArray index="Use" Link="NotCountBehaviorInterferenceMatrixMultiRavenLzQueuedOrBetterAtUnit"/>
+    </CRequirement>
+    <CRequirement id="TrainNuke">
+        <NodeArray index="Use" Link="AndNot866976074CountUnitNukeQueuedOrBetterAtUnitCountUnitAlias_FactoryCompleteOnly96167438"/>
+    </CRequirement>
+    <CRequirement id="UseHighCapacityBarrels">
+        <NodeArray index="Use" Link="CountUpgradeHighCapacityBarrelsMultiLzCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+</Catalog>

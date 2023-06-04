@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlacedObjects Version="27">
+    <ObjectPoint Id="1004528095" Position="65,67,0" Scale="1,1,1" Type="Normal" Name="init unit - p5" Color="0,0,0,0"/>
+    <ObjectPoint Id="1688955913" Position="67,65,0" Scale="1,1,1" Type="Normal" Name="init unit - p2" Color="0,0,0,0"/>
+    <ObjectPoint Id="646624821" Position="67,63,0" Scale="1,1,1" Type="Normal" Name="init unit - p6" Color="0,0,0,0"/>
+    <ObjectPoint Id="128424714" Position="63.5,64.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 001" Color="0,0,0,0"/>
+    <ObjectPoint Id="1452725657" Position="63,61,0" Scale="1,1,1" Type="Normal" Name="init unit - p7" Color="0,0,0,0"/>
+    <ObjectPoint Id="393756790" Position="64,64,0" Scale="1,1,1" Type="Normal" Name="mining stations" Color="0,0,0,0"/>
+    <ObjectPoint Id="2037288258" Position="65,61,0" Scale="1,1,1" Type="Normal" Name="init unit - p3" Color="0,0,0,0"/>
+    <ObjectPoint Id="230195740" Position="61,63,0" Scale="1,1,1" Type="Normal" Name="init unit - p4" Color="0,0,0,0"/>
+    <ObjectPoint Id="719559596" Position="61,65,0" Scale="1,1,1" Type="Normal" Name="init unit - p8" Color="0,0,0,0"/>
+    <ObjectPoint Id="754412464" Position="63,67,0" Scale="1,1,1" Type="Normal" Name="init unit - p1" Color="0,0,0,0"/>
+    <ObjectUnit Id="2131515523" Position="82.5,62.5,0" Rotation="3.3762" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="1481699125" Position="82.5,64.5,0" Rotation="3.141" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="815430135" Position="86,61.5,0" Rotation="0.2446" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="1038685886" Position="62,69.5,0" Rotation="5.0375" Scale="1,1,1" UnitType="SCV" Player="1"/>
+    <ObjectUnit Id="1568415118" Position="84.5,64.5,0" Rotation="3.5373" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="773626811" Position="86.5,64.5,0" Rotation="5.2824" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="299722911" Position="85,62,0" Rotation="4.8515" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="810688018" Position="60,69,0" Rotation="0.6601" Scale="1,1,1" UnitType="TestMarineLz" Player="1"/>
+    <ObjectUnit Id="425999062" Position="85.5,64.5,0" Rotation="3.3522" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="620930951" Position="85.5,66,0" Rotation="0.4721" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="782854633" Position="83.5,65,0" Rotation="4.4987" Scale="1,1,1" UnitType="SCV" Player="10"/>
+</PlacedObjects>

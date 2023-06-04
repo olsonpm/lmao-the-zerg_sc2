@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorPlayerRequirement id="HaveBansheeSpeedMultiLz">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="HaveBansheeSpeedMultiLz"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="NotHaveScramblerMissileBehaviorMultiLz">
+        <Behavior value="InterferenceMatrixMultiRavenLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterDoesNotHaveScramblerMissileBehaviorMultiLz">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="InterferenceMatrixMultiRavenLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="RavenShredderMissileLaunchRangeCombineMultiLz">
+        <CombineArray value="RavenShredderMissileLaunchRangeUpgradedMultiLz"/>
+        <CombineArray value="RavenShredderMissileLaunchRangeDefaultMultiLz"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="RavenShredderMissileLaunchRangeUpgradedMultiLz">
+        <Type value="And"/>
+        <CombineArray value="RavenShredderMissileLaunchRangeExtendedMultiLz"/>
+        <CombineArray value="HaveRavenEnhancedMunitionsUpgrade"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="RavenShredderMissileLaunchRangeDefaultMultiLz">
+        <Type value="And"/>
+        <CombineArray value="RavenShredderMissileLaunchRangeMultiLz"/>
+        <CombineArray value="NotHaveRavenEnhancedMunitionsUpgrade"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareRange id="RavenShredderMissileLaunchRangeExtendedMultiLz">
+        <WhichLocation Effect="RavenShredderMissileLaunchMissileMultiLz"/>
+        <Compare value="GE"/>
+        <Range value="19.5"/>
+        <Value Value="SourceUnit"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorLocationCompareRange id="RavenShredderMissileLaunchRangeMultiLz">
+        <WhichLocation Effect="RavenShredderMissileLaunchMissileMultiLz"/>
+        <Compare value="GE"/>
+        <Range value="13"/>
+        <Value Value="SourceUnit"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorUnitType id="IsWallEitherFlavorLz">
+        <ResultFailed value="MustTargetStructures,Error/MustTargetWallLz"/>
+        <Value value="WallLz"/>
+        <Type value="SelectAlias"/>
+    </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="NotHardenedWallLz">
+        <ResultFailed value="MustTargetStructures,Error/AlreadyHardenedLz"/>
+        <Behavior value="HardenWallOrbitalCommandLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NotEnRouteToHardenWallLz">
+        <ResultFailed value="MustTargetStructures,Error/AlreadyHardenedLz"/>
+        <Behavior value="HardenWallEnRouteOrbitalCommandLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+</Catalog>

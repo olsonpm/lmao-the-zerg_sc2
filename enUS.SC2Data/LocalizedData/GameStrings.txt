@@ -1,0 +1,301 @@
+﻿Abil/Name/ArmoryResearchLz=Armory Research
+Abil/Name/BarracksAddOnsLz=Barracks AddOns
+Abil/Name/BarracksLandLz=Barracks Land
+Abil/Name/BarracksLiftOffLz=Barracks Lift Off
+Abil/Name/BarracksTechLabResearchLz=Barracks Tech Lab Research
+Abil/Name/BarracksTrainLz=Barracks Train
+Abil/Name/BuildSCVLz=Build
+Abil/Name/CalldownSuperMULEOrbitalCommandLz=Calldown Super MULE
+Abil/Name/EngineeringBayResearchLz=Engineering Bay Research
+Abil/Name/FactoryAddOnsLz=Factory AddOns
+Abil/Name/FactoryLandLz=Factory Land
+Abil/Name/FactoryLiftOffLz=Factory Lift Off
+Abil/Name/FactoryTechLabResearchLz=Factory Tech Lab Research
+Abil/Name/FactoryTrainLz=Factory Train
+Abil/Name/FreeRepairSCVLz=Free Repair
+Abil/Name/FreeSuperRepairMuleLz=Free Super Repair
+Abil/Name/FusionCoreResearchLz=Fusion Core Research
+Abil/Name/GhostAcademyArmMagazineNukeLz=Ghost Academy Arm Magazine Nuke
+Abil/Name/GhostAcademyResearchLz=Ghost Academy Research
+Abil/Name/HardenWallOrbitalCommandLz=Harden Wall
+Abil/Name/LandCommandCenterLz=Land Command Center
+Abil/Name/LiftOffCommandCenterLz=Lift Off Command Center
+Abil/Name/MorphToOrbitalCommandCommandCenterLz=Morph To Orbital Command
+Abil/Name/MorphToPlanetaryFortressCommandCenterLz=Morph To Planetary Fortress
+Abil/Name/OrbitalCommandLandLz=Orbital Command Land
+Abil/Name/OrbitalCommandLiftOffLz=Orbital Command Lift Off
+Abil/Name/RaiseWallLz=Raise
+Abil/Name/RavenScramblerMissileMultiLz=Raven Scrambler Missile
+Abil/Name/RavenShredderMissileMultiLz=Raven Shredder Missile
+Abil/Name/ScannerSweepOrbitalCommandLz=Scanner Sweep
+Abil/Name/StarportAddOnsLz=Starport AddOns
+Abil/Name/StarportLandLz=Starport Land
+Abil/Name/StarportLiftOffLz=Starport Lift Off
+Abil/Name/StarportTechLabResearchLz=Starport Tech Lab Research
+Abil/Name/StarportTrainLz=Starport Train
+Abil/Name/TechLabMorphBarracksLz=Tech Lab Morph Barracks
+Abil/Name/TechLabMorphDetachedLz=Tech Lab Morph Detached
+Abil/Name/TechLabMorphFactoryLz=Tech Lab Morph Factory
+Abil/Name/TechLabMorphStarportLz=Tech Lab Morph Starport
+Abil/Name/TrainCommandCenterLz=Train Command Center
+Abil/Name/WallLowerLz=Lower
+Abil/Name/YamatoMultiLz=Yamato
+Actor/AddonIndicator/TechLabLz=T
+Behavior/Name/AntiArmorMissileTargetingMultiRavenShredderMissileLz=Anti-Armor Missile Targeting
+Behavior/Name/ArmorReductionMultiAntiArmorMissileRavenShredderMissileLz=Armor Reduction
+Behavior/Name/ArmorReductionMultiUISubtructRavenShredderMissileLz=Armor Reduction
+Behavior/Name/HardenWallOrbitalCommandLz=Harden Wall
+Behavior/Name/InterferenceMatrixMultiRavenLz=Interference Matrix
+Behavior/Name/TimeoutMultiRavenShredderMissileLz=Timeout
+Behavior/Tooltip/AntiArmorMissileTargetingMultiRavenShredderMissileLz=This unit is being targeted by an Anti-Armor Missile.
+Behavior/Tooltip/ArmorReductionMultiAntiArmorMissileRavenShredderMissileLz=This unit has reduced armor.
+Behavior/Tooltip/ArmorReductionMultiUISubtructRavenShredderMissileLz=This unit has reduced armor.
+Behavior/Tooltip/HardenWallOrbitalCommandLz=This wall has twice the health and is repaired at twice the speed.
+Behavior/Tooltip/InterferenceMatrixMultiRavenLz=Weapons and abilities are disabled.
+Button/Name/AdvancedBallisticsMultiLz=Advanced Ballistics
+Button/Name/BansheeSpeedMultiLz=Research Hyperflight Rotors
+Button/Name/BuildCommandCenterLz=Build Command Center
+Button/Name/BuildWallLz=Build Wall
+Button/Name/CalldownExtraSuppliesLz=Calldown: Harden Wall
+Button/Name/CalldownHardenWallLz=Calldown Harden Wall
+Button/Name/CalldownSuperMULELz=Calldown: Super MULE
+Button/Name/ConcealmentMultiLz=Concealment
+Button/Name/CycloneLockOnDamageUpgradeMultiLz=Mag-Field Accelerator
+Button/Name/CycloneResearchLockOnDamageUpgradeMultiLz=Research Mag-Field Accelerator
+Button/Name/DrillClawsMultiLz=Drilling Claws
+Button/Name/FreeRepairLz=Free Repair
+Button/Name/FreeSuperRepairLz=Free Super Repair
+Button/Name/InfernalPreIgniterMultiHellbatLz=Infernal Pre-Igniter
+Button/Name/InfernalPreIgniterMultiHellionLz=Infernal Pre-Igniter
+Button/Name/RapidReignitionSystemMultiLz=Rapid Reignition System
+Button/Name/RavenScramblerMissileMultiLz=Interference Matrix
+Button/Name/RavenShredderMissile=Raven Shredder Missile
+Button/Name/RavenShredderMissileMultiLz=Anti-Armor Missile
+Button/Name/ResearchAdvancedBallisticsMultiLz=Research Advanced Ballistics
+Button/Name/ResearchDrillClawsMultiLz=Research Drilling Claws
+Button/Name/ResearchHiSecAutoTrackingMultiLz=Research Hi-Sec Auto Tracking
+Button/Name/ResearchHighCapacityBarrelsMultiLz=Research Infernal Pre-Igniter
+Button/Name/ResearchRapidReignitionSystemMultiLz=Research Rapid Reignition System
+Button/Name/ResearchSmartServosMultiLz=Research Smart Servos
+Button/Name/ScannerSweepLz=Scanner Sweep
+Button/Name/TrainSCVLz=Train Super SCV
+Button/Name/UpgradeNeosteelArmorMultiLz=Upgrade Neosteel Armor
+Button/Tooltip/AdvancedBallisticsMultiLz=Increases the range of Liberators in Defender Mode by <d ref="$UpgradeEffectArrayValue:LiberatorAGRangeMultiLz:Weapon,LiberatorAGWeapon,Range$"/>.
+Button/Tooltip/ArmoryLz=Contains weapon and armor upgrades for Factory and Starport units. <n/><n/><c val="ffff8a">Enables:</c><n/>- Hellbat at the Factory<n/>- Thor at the Factory
+Button/Tooltip/BansheeSpeedMultiLz=Increases the movement speed of <c val="ffff8a">Banshees</c>.
+Button/Tooltip/BarracksFlyingLz=Barracks must land to start unit production.
+Button/Tooltip/BarracksLz=Infantry-production facility.<n/><n/><c val="ffff8a">Enables:</c><n/>- Marines<n/>- Reapers<n/>- Bunkers from SCVs<n/>- Orbital Commands from Command Centers
+Button/Tooltip/BuildCommandCenterLz=Can build scvs and upgrade into an Orbital Command or a Planetary Fortress
+Button/Tooltip/BuildWallLz=Same unit but with twice the health !
+Button/Tooltip/CalldownExtraSuppliesLz=Doubles the health of your wall and it gets repaired twice as fast.
+Button/Tooltip/CalldownHardenWallLz=Drops additional supplies, permanently increasing the supply output of the target Supply Depot by <d ref="Behavior,SupplyDrop,Modification.Food"/>.
+Button/Tooltip/CalldownSuperMULELz=Like regular mules but with more health and repairs fo free twice as fast.
+Button/Tooltip/CommandCenterFlyingLz=Primary structure. Must land to receive resources, produce units, or use abilities.
+Button/Tooltip/CommandCenterLz=Primary structure. Used to receive gathered resources. Can use the Lift Off ability and can upgrade into an Orbital Command or a Planetary Fortress.<n/><n/><c val="ffff8a">Enables:</c><n/>- SCVs
+Button/Tooltip/ConcealmentMultiLz=This unit is no longer revealed while reloading.
+Button/Tooltip/CycloneLockOnDamageUpgradeMultiLz=Increases Cyclone Lock On damage.
+Button/Tooltip/CycloneResearchLockOnDamageUpgradeMultiLz=Increases <c val="ffff8a">Cyclone</c> Lock On damage. Deals 600 over <d ref="Effect,LockOnCP,PeriodCount * Effect,LockOnCP,PeriodicPeriodArray[0]"/> seconds to ground and flying targets.
+Button/Tooltip/DrillClawsMultiLz=This unit burrows faster.
+Button/Tooltip/EngineeringBayLz=Contains upgrades for Terran infantry and structures. <n/><n/><c val="ffff8a">Enables:</c><n/>- Missile Turrets from SCVs<n/>- Sensor Towers from SCVs<n/>- Planetary Fortresses from Command Centers
+Button/Tooltip/FactoryFlyingLz=Factory must land to start unit production.
+Button/Tooltip/FactoryLz=Vehicle-production facility. <n/><n/><c val="ffff8a">Enables:</c><n/>- Hellbats<n/>- Goliaths<n/>- Flaming Bettys from SCVs<n/>- Blaster Billys from SCVs
+Button/Tooltip/FreeRepairLz=Restores life to mechanical units and structures fo free.
+Button/Tooltip/FreeSuperRepairLz=Restores life to mechanical units and structures fo free at twice the speed
+Button/Tooltip/FusionCoreLz=Contains Battlecruiser upgrades. <n/><n/><c val="ffff8a">Enables:</c><n/>- Battlecruisers at the Starport
+Button/Tooltip/GhostAcademyLz=Contains upgrades for Nova.<n/><n/><c val="ffff8a">Enables:</c><n/>- Ghosts at the Barracks<n/>- Tac Nuke Strike on Nova
+Button/Tooltip/InfernalPreIgniterMultiHellbatLz=Deals +12 damage vs. light units
+Button/Tooltip/InfernalPreIgniterMultiHellionLz=Deals +5 damage vs. light units
+Button/Tooltip/MiningStationAllyLz=Tosh is refining large amounts of jorium to create more Spectres. Destroying the Jorium Stockpile will disrupt his plans.
+Button/Tooltip/MiningStationPlayerLz=Tosh is refining large amounts of jorium to create more Spectres. Destroying the Jorium Stockpile will disrupt his plans.
+Button/Tooltip/NukeArm=Arms the Silo with a Tactical Nuke.<n/><n/>Nukes take <d time="10"/> to land, but they deal up to 300 (+200 vs. structures) damage in a large radius.<n/><n/>Use a Ghost to designate the target.
+Button/Tooltip/NukeCalldown=Calls down a Nuclear Strike at a target location. Nukes take <d time="10"/> to land, but they deal up to 300 (+200 vs. structures) damage in a large radius.<n/><n/>Purchase charges at the Ghost Academy.
+Button/Tooltip/OrbitalCommandFlyingLz=Primary structure. Must land to receive resources, produce units, or use abilities.
+Button/Tooltip/OrbitalCommandLzUnit=Primary structure. Used to train SCVs and receive gathered resources. Can use the Scanner Sweep ability. Can use the abilities Calldown: MULE and Calldown: Extra Supplies.
+Button/Tooltip/PlanetaryFortressLz=Defensive stronghold. <n/>Used to receive gathered resources. <n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/RapidReignitionSystemMultiLz=Reduces the cooldown of Medivac's Ignite Afterburners by <d time="[d ref='$UpgradeEffectArrayValue:MedivacIncreaseSpeedBoost:Abil,MedivacSpeedBoost,Cost[0].Cooldown.TimeUse$'/]"/> and increases the movement speed of Medivacs.
+Button/Tooltip/RavenScramblerMissileMultiLz=Disables a target unit rendering it unable to attack or use abilities for <d ref="Behavior,RavenScramblerMissile,Duration"/> seconds. Reveals Cloaked units.<n/><n/><c val="#ColorAttackInfo">Can target mechanical and psionic units.</c>
+Button/Tooltip/RavenShredderMissile=Deploys a missile which pursues the target unit and, upon contact, reduces the armor and shield armor of affected units by <d ref="-1*Behavior,RavenShredderMissileArmorReductionUISubtruct,Modification.LifeArmorBonus"/> for <d ref="Behavior,RavenShredderMissileArmorReductionUISubtruct,Duration"/> seconds.
+Button/Tooltip/RavenShredderMissileMultiLz=Deploys a missile which pursues the target unit and, upon contact, reduces the armor and shield armor of affected units by <d ref="-1*Behavior,RavenShredderMissileArmorReductionUISubtruct,Modification.LifeArmorBonus"/> for <d ref="Behavior,RavenShredderMissileArmorReductionUISubtruct,Duration"/> seconds.
+Button/Tooltip/ResearchAdvancedBallisticsMultiLz=Increases the range of <c val="ffff8a">Liberators</c> in Defender Mode by <d ref="$UpgradeEffectArrayValue:LiberatorAGRangeMultiLz:Weapon,LiberatorAGWeapon,Range$"/>.
+Button/Tooltip/ResearchDrillClawsMultiLz=Allows <c val="ffff8a">Widow Mines</c> to burrow and activate two times as fast.
+Button/Tooltip/ResearchHiSecAutoTrackingMultiLz=Adds +1 range to <c val="ffff8a">Missile Turrets</c>, <c val="ffff8a">Auto-Turrets</c>, and <c val="ffff8a">Planetary Fortresses</c>.
+Button/Tooltip/ResearchHighCapacityBarrelsMultiLz=Improves the <c val="ffff8a">Hellion's</c> Infernal Flamethrower to deal +5 damage vs. light units and the <c val="ffff8a">Hellbat's</c> Napalm Spray to deal +12 damage vs. light units.
+Button/Tooltip/ResearchRapidReignitionSystemMultiLz=Reduces the cooldown of <c val="ffff8a">Medivac's</c> Ignite Afterburners by <d time="[d ref='$UpgradeEffectArrayValue:MedivacIncreaseSpeedBoostMultiLz:Abil,MedivacSpeedBoost,Cost[0].Cooldown.TimeUse$'/]"/> and increases the movement speed of <c val="ffff8a">Medivacs</c>.
+Button/Tooltip/ResearchSmartServosMultiLz=Allows <c val="ffff8a">Hellions</c>, <c val="ffff8a">Hellbats</c>, <c val="ffff8a">Vikings</c>, and <c val="ffff8a">Thors</c> to transform quickly between combat modes.
+Button/Tooltip/ScannerSweepLz=Reveals an area of the map, detecting cloaked and burrowed units. Lasts <d time="12"/>.
+Button/Tooltip/StarportFlyingLz=Starport must land to start unit production.
+Button/Tooltip/StarportLz=Air-unit production facility. <n/><n/><c val="ffff8a">Enables:</c><n/>- Vikings<n/>- Medivacs
+Button/Tooltip/StartingSCVLz=Basic worker unit. Can gather resources, build Terran structures, and repair.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/SuperMULELz=Prototype harvesting unit. Gathers minerals more quickly than regular SCVs. MULEs last <d time="90"/> before their systems fail.
+Button/Tooltip/SuperSCVLz=Basic worker unit. Can gather resources, build Terran structures, and repair.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/TechLabLz=Enables additional units and research options. A Tech Lab can fit onto any production structure.
+Button/Tooltip/TestMarineLz=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/TrainSCVLz=More health and repairs fo free
+Button/Tooltip/UpgradeNeosteelArmorMultiLz=Upgrades the armor of <c val="ffff8a">structures</c> by 2. Increases the cargo space of <c val="ffff8a">Bunkers</c> by 2. Also provides extra cargo space for <c val="ffff8a">Command Centers</c> and <c val="ffff8a">Planetary Fortresses</c>.
+Button/Tooltip/WallLoweredLz=Provides supply.<n/>Supply allows you to create more units.<n/>Supply Depots can be lowered to allow units to walk over them.
+Button/Tooltip/WallLz=Provides supply.<n/>Supply allows you to create more units.<n/>Supply Depots can be lowered to allow units to walk over them.
+DocInfo/DescLong=Completely devoid of any description whatsoever.
+DocInfo/DescShort=Any
+DocInfo/Name=Just Another StarCraft II Map
+Effect/Name/BattlecruiserTacticalJumpCDMultiLz=Battlecruiser Tactical Jump CD
+Effect/Name/BattlecruiserYamatoCDMultiLz=Battlecruiser Yamato CD
+Effect/Name/CalldownSuperMULECPLz=Calldown Super MULE CP
+Effect/Name/CalldownSuperMULECreateSetLz=Calldown Super MULE Create Set
+Effect/Name/CalldownSuperMULECreateUnitLz=Calldown Super MULE Create Unit
+Effect/Name/CalldownSuperMULEFinalSetLz=Calldown Super MULE Final Set
+Effect/Name/CalldownSuperMULEIssueOrderLz=Calldown Super MULE Issue Order
+Effect/Name/CalldownSuperMULETimedLifeABLz=Calldown Super MULE Timed Life AB
+Effect/Name/FreeRepairSCVLz=Free Repair
+Effect/Name/FreeSuperRepairLz=Free Super Repair
+Effect/Name/GuassRifleTestMarineLz=Guass Rifle Damage
+Effect/Name/HardenWallABOrbitalCommandLz=Harden Wall AB
+Effect/Name/HardenWallTempABOrbitalCommandLz=Harden Wall Temp AB
+Effect/Name/RavenScramblerDummyMultiLz=Raven Scrambler Dummy
+Effect/Name/RavenScramblerMissileABMultiLz=Raven Scrambler Missile AB
+Effect/Name/RavenScramblerMissileLMMultiLz=Raven Scrambler Missile LM
+Effect/Name/RavenScramblerSwitchInitialMultiLz=Raven Scrambler Switch Initial
+Effect/Name/RavenShredderMissileApplyBehaviorMultiLz=Raven Shredder Missile Apply Behavior
+Effect/Name/RavenShredderMissileArmorReductionUIAddMultiLz=Raven Shredder Missile Armor Reduction UI Add
+Effect/Name/RavenShredderMissileArmorReductionUISubtructMultiLz=Raven Shredder Missile Armor Reduction UI Subtruct
+Effect/Name/RavenShredderMissileDamageMultiLz=Raven Shredder Missile Damage
+Effect/Name/RavenShredderMissileImpactApplyBehaviorMultiLz=Raven Shredder Missile Impact Apply Behavior
+Effect/Name/RavenShredderMissileImpactSearchAreaMultiLz=Raven Shredder Missile Impact Search Area
+Effect/Name/RavenShredderMissileImpactSetMultiLz=Raven Shredder Missile Impact Set
+Effect/Name/RavenShredderMissileLaunchCPMultiLz=Raven Shredder Missile Launch CP
+Effect/Name/RavenShredderMissileLaunchMissileMultiLz=Raven Shredder Missile Launch Missile
+Effect/Name/RavenShredderMissileLaunchSetMultiLz=Raven Shredder Missile Launch Set
+Effect/Name/RavenShredderMissileSearchImpactSetMultiLz=Raven Shredder Missile Search Impact Set
+Effect/Name/RavenShredderMissileSuicideMultiLz=Raven Shredder Missile Suicide
+Effect/Name/RavenShredderMissileTintCPMultiLz=Raven Shredder Missile Tint CP
+Effect/Name/ScannerSweepLz=Scanner Sweep
+Effect/Name/SuperMULEFateDamageLz=Super MULE Fate Damage
+Effect/Name/TwinIbiksCannonDamagePlanetaryFortressLz=Twin Ibiks Cannon Damage
+Error/AlreadyHardenedLz=That wall is already hardened
+Error/MustTargetWallLz=Must target a wall
+MapInfo/Player00/Name=Neutral
+MapInfo/Player01/Name=Player 1
+MapInfo/Player02/Name=Player 2
+MapInfo/Player03/Name=Player 3
+MapInfo/Player04/Name=Player 4
+MapInfo/Player05/Name=Player 5
+MapInfo/Player06/Name=Player 6
+MapInfo/Player07/Name=Player 7
+MapInfo/Player08/Name=Player 8
+MapInfo/Player09/Name=Player 9
+MapInfo/Player10/Name=Player 10
+MapInfo/Player11/Name=Hostile
+Param/Expression/lib_1_0137C127=Unexpected race returned for player ~p~
+Param/Expression/lib_1_063C9B82=Unexpected race returned for player ~p~
+Param/Expression/lib_1_307E16AC=stage: ~ability_stage~
+Param/Value/lib_1_0D4B38C5=Generic6 - Complete
+Param/Value/lib_1_0DDB8C11=<error: stage not found>
+Param/Value/lib_1_1660F597=Build7 - Collide
+Param/Value/lib_1_1BE6C03F=00e35b
+Param/Value/lib_1_222792E0=Harvest3 - Harvest
+Param/Value/lib_1_28EC086C=<error: race not found>
+Param/Value/lib_1_2C79D0B3=Effect3 - Cast
+Param/Value/lib_1_2E58CBA2=Build6 - Finish
+Param/Value/lib_1_3022E928=Morph03 - Actor Start
+Param/Value/lib_1_315E0491=Morph13 - Abilities Start
+Param/Value/lib_1_33A9FDCD=Off
+Param/Value/lib_1_367C28A1=Harvest1 - Approach Resource
+Param/Value/lib_1_36F8FDEE=Effect1 - Approach
+Param/Value/lib_1_411DDC33=Harvest5 - Wait for Drop Off
+Param/Value/lib_1_4134203F=Build1 - Approach
+Param/Value/lib_1_41418C08=Attack2 - Attack
+Param/Value/lib_1_45CC7D05=Zerg
+Param/Value/lib_1_48441561=Harvest7 - Drop Off
+Param/Value/lib_1_4A35FBAD=ff6166
+Param/Value/lib_1_4B0781BB=Protoss
+Param/Value/lib_1_4F06080C=Not enough minerals
+Param/Value/lib_1_5C203FFD=Generic2 - Queue
+Param/Value/lib_1_6546880C=Not enough minerals
+Param/Value/lib_1_693AB5CA=Morph05 - Stats Start
+Param/Value/lib_1_6D6E5434=Behavior2 - Toggled
+Param/Value/lib_1_76371732=Morph11 - Unit Start
+Param/Value/lib_1_78B24B45=Behavior1 - Untoggled
+Param/Value/lib_1_7923C72E=Build3 - Construct
+Param/Value/lib_1_79353442=Generic8 - Unpause
+Param/Value/lib_1_7E513C70=Attack1 - Approach
+Param/Value/lib_1_82D59DD9=Morph01 - Approach
+Param/Value/lib_1_86E4D322= 
+Param/Value/lib_1_875ED7AF=Morph12 - Unit End
+Param/Value/lib_1_8845F40E=Morph10 - Facing End
+Param/Value/lib_1_89DBB633=Harvest2 - Wait at Resource
+Param/Value/lib_1_8FB28264=Generic7 - Pause
+Param/Value/lib_1_92C481D4=Morph02 - Wait
+Param/Value/lib_1_94141FDC=Morph14 - Abilities End
+Param/Value/lib_1_96CA8A61=Terran
+Param/Value/lib_1_96D523DB=Morph07 - Collision Start
+Param/Value/lib_1_9AF529AD=Morph06 - Stats End
+Param/Value/lib_1_9BA4458C=Morph09 - Facing Start
+Param/Value/lib_1_A3DCFA2F=Effect2 - Prep
+Param/Value/lib_1_A4D10BC7= 
+Param/Value/lib_1_AC409659=Effect6 - Bail
+Param/Value/lib_1_ACFCE4F5=Generic5 - Preempt
+Param/Value/lib_1_AE6CBCB1=Morph15 - Mover Start
+Param/Value/lib_1_B1A9A0BE=Rally - Place
+Param/Value/lib_1_B515E506=Morph04 - Actor End
+Param/Value/lib_1_BF2D00E9=Harvest6 - Approach Drop Off
+Param/Value/lib_1_C0E52566=Morph16 - Mover End
+Param/Value/lib_1_C0FADEC6=Generic1 - Any
+Param/Value/lib_1_C807DFC8=Effect4 - Channel
+Param/Value/lib_1_CA9D1B07=Build2 - Wait
+Param/Value/lib_1_CEBB5E3B=Build4 - Pause
+Param/Value/lib_1_D41AC1FC=Generic4 - Cancel
+Param/Value/lib_1_DDF50FE4=Attack3 - Loiter
+Param/Value/lib_1_E19B5790=Generic3 - Execute
+Param/Value/lib_1_E222F185=Morph08 - Collision End
+Param/Value/lib_1_EE7F86C0=On
+Param/Value/lib_1_F40CAC62=Build5 - Resume
+Param/Value/lib_1_F8914108=Effect5 - Finish
+Param/Value/lib_1_FF091B5E=Harvest4 - Wait to Return
+RequirementNode/Tooltip/CountUnitAlias_ArmoryCompleteOnly609241497=Armory
+RequirementNode/Tooltip/CountUnitAlias_FusionCoreCompleteOnly3089280483TechTreeCheat=Fusion Core
+RequirementNode/Tooltip/CountUpgradeCycloneLockOnDamageUpgradeMultiLzCompleteOnly2633680555=Mag-Field Accelerator
+RequirementNode/Tooltip/CountUpgradeDrillClawsMultiLzCompleteOnly243212378=Drilling Claws
+RequirementNode/Tooltip/CountUpgradeHighCapacityBarrelsMultiLzCompleteOnly3130513828=Research Infernal Pre-Igniter at the Factory Tech Lab
+RequirementNode/Tooltip/CountUpgradeLiberatorAGRangeMultiLzCompleteOnly1646137913=Advanced Ballistics
+RequirementNode/Tooltip/CountUpgradeMedivacIncreaseSpeedBoostMultiLzCompleteOnly3319945507=Rapid Reignition System
+RequirementNode/Tooltip/CountUpgradeNeosteelArmorMultiLzCompleteOnly2025896153=Research Neosteel Armor at the Engineering Bay
+Unit/Name/ArmoryLz=Armory
+Unit/Name/BarracksFlyingLz=Barracks
+Unit/Name/BarracksLz=Barracks
+Unit/Name/BaseSCVLz=Base SCV
+Unit/Name/CommandCenterLz=Command Center
+Unit/Name/EngineeringBayLz=Engineering Bay
+Unit/Name/FactoryFlyingLz=Factory Flying
+Unit/Name/FactoryLz=Factory
+Unit/Name/FusionCoreLz=Fusion Core
+Unit/Name/GhostAcademyLz=Ghost Academy
+Unit/Name/MiningStationAllyLz=Mining Station
+Unit/Name/MiningStationPlayerLz=Mining Station
+Unit/Name/OrbitalCommandLz=Orbital Command
+Unit/Name/PlanetaryFortressLz=Planetary Fortress
+Unit/Name/RavenScramblerMissileMultiLz=Raven Scrambler Missile
+Unit/Name/RavenShredderMissileWeaponMultiLz=Raven Shredder Missile Weapon
+Unit/Name/StarportLz=Starport
+Unit/Name/StartingSCVLz=Starting SCV
+Unit/Name/SuperMULELz=Super MULE
+Unit/Name/SuperOrbitalCommandFlyingLz=Super Orbital Command
+Unit/Name/SuperSCVLz=Super SCV
+Unit/Name/TechLabBarracksLz=Tech Lab Barracks
+Unit/Name/TechLabFactoryLz=Tech Lab Factory
+Unit/Name/TechLabLz=Tech Lab
+Unit/Name/TechLabStarportLz=Tech Lab Starport
+Unit/Name/TestMarineLz=Test Marine
+Unit/Name/WallLoweredLz=Wall Lowered
+Unit/Name/WallLz=Wall
+Upgrade/Name/BansheeSpeedMultiLz=Banshee Speed
+Upgrade/Name/CycloneLockOnDamageUpgradeMultiLz=Cyclone Lock On Damage Upgrade
+Upgrade/Name/DrillClawsMultiLz=Drill Claws
+Upgrade/Name/HiSecAutoTrackingMultiLz=Hi-Sec Auto Tracking
+Upgrade/Name/HighCapacityBarrelsMultiLz=High Capacity Barrels
+Upgrade/Name/LiberatorAGRangeMultiLz=Liberator AG Range
+Upgrade/Name/MedivacIncreaseSpeedBoostLz=Medivac Increase Speed Boost
+Upgrade/Name/MedivacIncreaseSpeedBoostMultiLz=Medivac Increase Speed Boost
+Upgrade/Name/NeosteelArmorMultiLz=Neosteel Armor
+Upgrade/Name/ShieldWall2=Combat Shield
+Upgrade/Name/SmartServosMultiLz=Smart Servos
+Weapon/Name/C14GaussRifleTestMarineLz=C-14 Gauss Rifle
+Weapon/Name/IbiksCannonPlanetaryFortressLz=Ibiks Cannon

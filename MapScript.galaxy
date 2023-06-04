@@ -1,0 +1,1547 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   Just Another StarCraft II Map
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+include "LibCOMI"
+
+//--------------------------------------------------------------------------------------------------
+// Library: utils - personal
+//--------------------------------------------------------------------------------------------------
+// Preset Declarations
+const int lib1_ge_removeunittype_kill = 0;
+const int lib1_ge_removeunittype_remove = 1;
+const int lib1_ge_race_protoss = 0;
+const int lib1_ge_race_terran = 1;
+const int lib1_ge_race_zerg = 2;
+
+// Constants
+const int lib1_gv_anyplayer = 16;
+const string lib1_gv_emptystring = "";
+const string lib1_gv_nogamelinkunittype = null;
+
+// Structures
+struct lib1_gs_debouncedmessage {
+    text lv_message;
+    int lv_insertedattimeint;
+    int lv_secondstodebounce;
+    string lv_id;
+};
+
+// Variable Declarations
+unit[17][3] lib1_gv_selectedunits;
+lib1_gs_debouncedmessage[101] lib1_gv_debouncedmessages;
+text lib1_gv_colorcalamity;
+text lib1_gv_colorsuccess;
+timer lib1_gv_everysecond;
+bool lib1_gv_localdebug;
+int[17] lib1_gv_randomindices;
+bool lib1_gv_test;
+unitgroup[17][17] lib1_gv_unitsingroupsofNperplayer;
+
+// Function Declarations
+bool lib1_gf_and2 (bool lp_left, bool lp_right);
+unit lib1_gf_anyunitatpointforplayer (point lp_p, int lp_player);
+unit lib1_gf_anyunitnearpointforplayer (point lp_point, int lp_player);
+bool lib1_gf_atleastNunitsoftypeinregionforplayer (int lp_n, string lp_u, region lp_r, int lp_p);
+bool lib1_gf_fewerthanNunitsinregionforplayer (int lp_n, region lp_r, int lp_p);
+bool lib1_gf_fewerthanNunitsoftypeinregionforplayer (int lp_n, string lp_u, region lp_r, int lp_p);
+bool lib1_gf_isemptystring (string lp_str);
+bool lib1_gf_istrue (bool lp_b);
+bool lib1_gf_isfalse (bool lp_b);
+bool lib1_gf_isdebugginglocally ();
+bool lib1_gf_istesting ();
+bool lib1_gf_isunitwithindistanceofpoint (unit lp_u, fixed lp_d, point lp_pt);
+bool lib1_gf_or2 (bool lp_bool1, bool lp_bool2);
+bool lib1_gf_or3 (bool lp_bool1, bool lp_bool2, bool lp_bool3);
+bool lib1_gf_playerisingroup (int lp_p, playergroup lp_pg);
+bool lib1_gf_timerisactive (timer lp_t);
+bool lib1_gf_timerisnotactive (timer lp_t);
+bool lib1_gf_triggeringplayerhasatleastNresources (int lp_mins, int lp_gas);
+bool lib1_gf_triggeringunitbelongstoplayergroup (playergroup lp_pg);
+bool lib1_gf_triggeringunitbelongstoplayer (int lp_p);
+bool lib1_gf_triggeringunitisoftype (string lp_t);
+bool lib1_gf_unithasbuff (unit lp_u, string lp_b);
+bool lib1_gf_unitisalive (unit lp_u);
+bool lib1_gf_unitistype (unit lp_u, string lp_ut);
+bool lib1_gf_convertbooltoenabledisableoption (bool lp_bool);
+text lib1_gf_convertbooltoonoff (bool lp_bool);
+unit lib1_gf_findoneunitbytypeforplayer (string lp_unittype, int lp_p);
+int lib1_gf_foraregionsetunitsingroupsofNforplayerthenreturnthenumberofgroupsfound (region lp_r, int lp_p, int lp_n, string lp_unittype);
+text lib1_gf_getabililtystageastext (int lp_stage);
+int lib1_gf_getcurrenttimeint ();
+text lib1_gf_getplayerraceastext (int lp_p);
+int lib1_gf_getraceintegerfromplayer (int lp_p);
+int lib1_gf_getracepresetfromplayer (int lp_p);
+int lib1_gf_numberofstructuresinregion (region lp_r, int lp_p);
+int lib1_gf_numberofunitsinregion (region lp_r, int lp_p);
+int lib1_gf_numberofunitsoftypeinregion (region lp_r, int lp_p, string lp_t);
+int lib1_gf_numberofunitsoftypeforplayer (string lp_t, int lp_p);
+int lib1_gf_numberofunitsoftwotypesforplayer (string lp_t1, string lp_t2, int lp_p);
+point lib1_gf_pointwithxyzoffset (point lp_p, fixed lp_x, fixed lp_y, fixed lp_z);
+unit lib1_gf_previousselectedunit (int lp_p);
+unit lib1_gf_unitatpoint (point lp_p, int lp_player, string lp_ut);
+void lib1_gf_alertplayernotenoughminerals (int lp_p);
+void lib1_gf_alertplayererror (int lp_p, text lp_err);
+void lib1_gf_cleartextmessageareaforallusers (int lp_messagearea);
+void lib1_gf_cleartextmessageareaforuser (int lp_p, int lp_messagearea);
+void lib1_gf_createunitatpoint (string lp_ut, point lp_point, int lp_player, int lp_opts);
+void lib1_gf_createNunitsatpoint (int lp_n, string lp_ut, point lp_point, int lp_player);
+void lib1_gf_debouncedmessageaddorset (structref<lib1_gs_debouncedmessage> lp_debouncedmessage);
+void lib1_gf_debouncedmessageremove (string lp_id);
+void lib1_gf_debouncedmessageset (structref<lib1_gs_debouncedmessage> lp_debouncedmessage, int lp_i);
+void lib1_gf_displaydebugmessage (text lp_msg);
+void lib1_gf_endgameforplayergroup (playergroup lp_pg, int lp_gameovertype);
+void lib1_gf_initeverysecondtimer ();
+void lib1_gf_initlocaldebuggingstate ();
+void lib1_gf_issueordertoallunitsinregion (order lp_o, region lp_r, int lp_p, int lp_orderqueue);
+void lib1_gf_issueordertounittypeinregion (order lp_o, string lp_u, region lp_r, int lp_p, int lp_orderqueue);
+void lib1_gf_messageuser (text lp_msg, int lp_p);
+void lib1_gf_messageallusers (text lp_msg);
+void lib1_gf_messageallusersdebounced (text lp_msg, string lp_debounceid, int lp_secondstodebounce);
+void lib1_gf_modifyplayergroupintproperty (playergroup lp_pg, int lp_prop, int lp_modify, int lp_int);
+void lib1_gf_pancameratopointforplayer (int lp_player, point lp_point);
+void lib1_gf_pancameratopointforplayerasync (int lp_player, point lp_point);
+void lib1_gf_pancameratopointforplayergroup (playergroup lp_pg, point lp_point);
+void lib1_gf_playsoundatpoint (soundlink lp_s, point lp_p);
+void lib1_gf_playsoundforallplayers (soundlink lp_s);
+void lib1_gf_playsoundforplayer (soundlink lp_s, int lp_p);
+void lib1_gf_printtriggeringabilitystage ();
+void lib1_gf_removeallunitsoftypeinregion (string lp_ut, region lp_r, int lp_p);
+void lib1_gf_removeNunitsoftypeinregion (int lp_n, string lp_ut, region lp_r, int lp_p, int lp_removetype);
+void lib1_gf_removeunitoftypeatpoint (int lp_p, point lp_point, int lp_removetype, string lp_ut);
+void lib1_gf_resetunitsingroupsofNforplayer (int lp_p);
+void lib1_gf_selectanyunitatpointforplayer (point lp_point, int lp_player);
+void lib1_gf_selectanyunitnearpointforplayer (point lp_point, int lp_player);
+void lib1_gf_setcameratopointforplayer (int lp_player, point lp_point);
+void lib1_gf_setrandomindices (int lp_size);
+
+// Trigger Declarations
+trigger lib1_gt_continueeverysecondtimer;
+trigger lib1_gt_displaydebouncedmessagetoallusers;
+trigger lib1_gt_trackpreviousselectedunit;
+trigger lib1_gt_utilsinitmap;
+
+// Library Initialization
+void lib1_InitVariables ();
+
+//--------------------------------------------------------------------------------------------------
+// Library: utils - personal
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void lib1_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Variable Initialization
+bool lib1_InitVariables_completed = false;
+
+void lib1_InitVariables () {
+    int init_i;
+    int init_j;
+
+    if (lib1_InitVariables_completed) {
+        return;
+    }
+
+    lib1_InitVariables_completed = true;
+
+    for (init_i = 0; init_i <= 100; init_i += 1) {
+        lib1_gv_debouncedmessages[init_i].lv_id = "";
+    }
+    lib1_gv_colorcalamity = StringExternal("Param/Value/lib_1_4A35FBAD");
+    lib1_gv_colorsuccess = StringExternal("Param/Value/lib_1_1BE6C03F");
+    lib1_gv_everysecond = TimerCreate();
+    lib1_gv_localdebug = true;
+    lib1_gv_test = true;
+    for (init_i = 0; init_i <= 16; init_i += 1) {
+        for (init_j = 0; init_j <= 16; init_j += 1) {
+            lib1_gv_unitsingroupsofNperplayer[init_i][init_j] = UnitGroupEmpty();
+        }
+    }
+}
+
+// Presets
+// Functions
+bool lib1_gf_and2 (bool lp_left, bool lp_right) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (lp_left && lp_right);
+}
+
+unit lib1_gf_anyunitatpointforplayer (point lp_p, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitGroupUnit(UnitGroupSearch(null, lp_player, lp_p, 1.0, UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+}
+
+unit lib1_gf_anyunitnearpointforplayer (point lp_point, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitGroupClosestToPoint(UnitGroupSearch(null, lp_player, lp_point, 10.0, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_point);
+}
+
+bool lib1_gf_atleastNunitsoftypeinregionforplayer (int lp_n, string lp_u, region lp_r, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (UnitCount(lp_u, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) >= lp_n);
+}
+
+bool lib1_gf_fewerthanNunitsinregionforplayer (int lp_n, region lp_r, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (UnitCount(null, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) < lp_n);
+}
+
+bool lib1_gf_fewerthanNunitsoftypeinregionforplayer (int lp_n, string lp_u, region lp_r, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (UnitCount(lp_u, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) < lp_n);
+}
+
+bool lib1_gf_isemptystring (string lp_str) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (lp_str == lib1_gv_emptystring);
+}
+
+bool lib1_gf_istrue (bool lp_b) {
+    // Automatic Variable Declarations
+    // Implementation
+    return lp_b;
+}
+
+bool lib1_gf_isfalse (bool lp_b) {
+    // Automatic Variable Declarations
+    // Implementation
+    return !(lp_b);
+}
+
+bool lib1_gf_isdebugginglocally () {
+    // Automatic Variable Declarations
+    // Implementation
+    return lib1_gf_istrue(lib1_gv_localdebug);
+}
+
+bool lib1_gf_istesting () {
+    // Automatic Variable Declarations
+    // Implementation
+    return lib1_gf_istrue(lib1_gv_test);
+}
+
+bool lib1_gf_isunitwithindistanceofpoint (unit lp_u, fixed lp_d, point lp_pt) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libNtve_gf_UnitInRegion(lp_u, RegionCircle(lp_pt, lp_d));
+}
+
+bool lib1_gf_or2 (bool lp_bool1, bool lp_bool2) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (lp_bool1 || lp_bool2);
+}
+
+bool lib1_gf_or3 (bool lp_bool1, bool lp_bool2, bool lp_bool3) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (lp_bool1 || lp_bool2 || lp_bool3);
+}
+
+bool lib1_gf_playerisingroup (int lp_p, playergroup lp_pg) {
+    // Automatic Variable Declarations
+    // Implementation
+    return PlayerGroupHasPlayer(lp_pg, lp_p);
+}
+
+bool lib1_gf_timerisactive (timer lp_t) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (TimerGetRemaining(lp_t) > 0.0);
+}
+
+bool lib1_gf_timerisnotactive (timer lp_t) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (TimerGetRemaining(lp_t) <= 0.0);
+}
+
+bool lib1_gf_triggeringplayerhasatleastNresources (int lp_mins, int lp_gas) {
+    // Automatic Variable Declarations
+    // Implementation
+    return AIHasRes(EventPlayer(), lp_mins, lp_gas);
+}
+
+bool lib1_gf_triggeringunitbelongstoplayergroup (playergroup lp_pg) {
+    // Automatic Variable Declarations
+    // Implementation
+    return PlayerGroupHasPlayer(lp_pg, UnitGetOwner(EventUnit()));
+}
+
+bool lib1_gf_triggeringunitbelongstoplayer (int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (UnitGetOwner(EventUnit()) == lp_p);
+}
+
+bool lib1_gf_triggeringunitisoftype (string lp_t) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (UnitGetType(EventUnit()) == lp_t);
+}
+
+bool lib1_gf_unithasbuff (unit lp_u, string lp_b) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitHasBehavior2(lp_u, lp_b);
+}
+
+bool lib1_gf_unitisalive (unit lp_u) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (UnitIsAlive(lp_u) == true);
+}
+
+bool lib1_gf_unitistype (unit lp_u, string lp_ut) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (UnitGetType(lp_u) == lp_ut);
+}
+
+bool lib1_gf_convertbooltoenabledisableoption (bool lp_bool) {
+    // Automatic Variable Declarations
+    bool auto0E8CD9BC_val;
+
+    // Implementation
+    auto0E8CD9BC_val = lp_bool;
+    if (auto0E8CD9BC_val == true) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+text lib1_gf_convertbooltoonoff (bool lp_bool) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_istrue(lp_bool)) {
+        return StringExternal("Param/Value/lib_1_EE7F86C0");
+    }
+    else {
+        return StringExternal("Param/Value/lib_1_33A9FDCD");
+    }
+}
+
+unit lib1_gf_findoneunitbytypeforplayer (string lp_unittype, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitGroupUnit(UnitGroup(lp_unittype, lp_p, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+}
+
+int lib1_gf_foraregionsetunitsingroupsofNforplayerthenreturnthenumberofgroupsfound (region lp_r, int lp_p, int lp_n, string lp_unittype) {
+    // Variable Declarations
+    int lv__numunits;
+    int lv__numgroups;
+    int lv__group;
+    int lv__i;
+    unit lv__u;
+
+    // Automatic Variable Declarations
+    unitgroup auto3C360D04_g;
+    int auto3C360D04_u;
+
+    // Variable Initialization
+
+    // Implementation
+    lv__numunits = lib1_gf_numberofunitsoftypeinregion(lp_r, lp_p, lp_unittype);
+    lv__numgroups = FloorI((lv__numunits / lp_n));
+    if ((lv__numgroups >= 1)) {
+        lib1_gf_resetunitsingroupsofNforplayer(lp_p);
+        auto3C360D04_g = UnitGroup(lp_unittype, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto3C360D04_u = UnitGroupCount(auto3C360D04_g, c_unitCountAll);
+        for (;; auto3C360D04_u -= 1) {
+            lv__u = UnitGroupUnitFromEnd(auto3C360D04_g, auto3C360D04_u);
+            if (lv__u == null) { break; }
+            lv__group = FloorI((lv__i / lp_n));
+            UnitGroupAdd(lib1_gv_unitsingroupsofNperplayer[lp_p][lv__group], lv__u);
+            lv__i = (lv__i + 1);
+        }
+    }
+
+    return lv__numgroups;
+}
+
+text lib1_gf_getabililtystageastext (int lp_stage) {
+    // Automatic Variable Declarations
+    int auto7C5C3079_val;
+
+    // Implementation
+    auto7C5C3079_val = lp_stage;
+    if (auto7C5C3079_val == c_abilRallyStagePlace) {
+        return StringExternal("Param/Value/lib_1_B1A9A0BE");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageMoverEnd) {
+        return StringExternal("Param/Value/lib_1_C0E52566");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageMoverStart) {
+        return StringExternal("Param/Value/lib_1_AE6CBCB1");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageAbilsEnd) {
+        return StringExternal("Param/Value/lib_1_94141FDC");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageAbilsStart) {
+        return StringExternal("Param/Value/lib_1_315E0491");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageUnitEnd) {
+        return StringExternal("Param/Value/lib_1_875ED7AF");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageUnitStart) {
+        return StringExternal("Param/Value/lib_1_76371732");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageFacingEnd) {
+        return StringExternal("Param/Value/lib_1_8845F40E");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageFacingStart) {
+        return StringExternal("Param/Value/lib_1_9BA4458C");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageCollideEnd) {
+        return StringExternal("Param/Value/lib_1_E222F185");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageCollideStart) {
+        return StringExternal("Param/Value/lib_1_96D523DB");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageStatsEnd) {
+        return StringExternal("Param/Value/lib_1_9AF529AD");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageStatsStart) {
+        return StringExternal("Param/Value/lib_1_693AB5CA");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageActorEnd) {
+        return StringExternal("Param/Value/lib_1_B515E506");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageActorStart) {
+        return StringExternal("Param/Value/lib_1_3022E928");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageWait) {
+        return StringExternal("Param/Value/lib_1_92C481D4");
+    }
+    else if (auto7C5C3079_val == c_abilMorphStageApproach) {
+        return StringExternal("Param/Value/lib_1_82D59DD9");
+    }
+    else if (auto7C5C3079_val == c_abilHarvestStageDropOff) {
+        return StringExternal("Param/Value/lib_1_48441561");
+    }
+    else if (auto7C5C3079_val == c_abilHarvestStageApproachDropOff) {
+        return StringExternal("Param/Value/lib_1_BF2D00E9");
+    }
+    else if (auto7C5C3079_val == c_abilHarvestStageWaitForDropOff) {
+        return StringExternal("Param/Value/lib_1_411DDC33");
+    }
+    else if (auto7C5C3079_val == c_abilHarvestStageWaitToReturn) {
+        return StringExternal("Param/Value/lib_1_FF091B5E");
+    }
+    else if (auto7C5C3079_val == c_abilHarvestStageHarvest) {
+        return StringExternal("Param/Value/lib_1_222792E0");
+    }
+    else if (auto7C5C3079_val == c_abilHarvestStageWaitAtResource) {
+        return StringExternal("Param/Value/lib_1_89DBB633");
+    }
+    else if (auto7C5C3079_val == c_abilHarvestStageApproachResource) {
+        return StringExternal("Param/Value/lib_1_367C28A1");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStageUnpause) {
+        return StringExternal("Param/Value/lib_1_79353442");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStagePause) {
+        return StringExternal("Param/Value/lib_1_8FB28264");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStageComplete) {
+        return StringExternal("Param/Value/lib_1_0D4B38C5");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStagePreempt) {
+        return StringExternal("Param/Value/lib_1_ACFCE4F5");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStageCancel) {
+        return StringExternal("Param/Value/lib_1_D41AC1FC");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStageExecute) {
+        return StringExternal("Param/Value/lib_1_E19B5790");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStageQueue) {
+        return StringExternal("Param/Value/lib_1_5C203FFD");
+    }
+    else if (auto7C5C3079_val == c_unitAbilStageAll) {
+        return StringExternal("Param/Value/lib_1_C0FADEC6");
+    }
+    else if (auto7C5C3079_val == c_abilEffectStageBail) {
+        return StringExternal("Param/Value/lib_1_AC409659");
+    }
+    else if (auto7C5C3079_val == c_abilEffectStageFinish) {
+        return StringExternal("Param/Value/lib_1_F8914108");
+    }
+    else if (auto7C5C3079_val == c_abilEffectStageChannel) {
+        return StringExternal("Param/Value/lib_1_C807DFC8");
+    }
+    else if (auto7C5C3079_val == c_abilEffectStageCast) {
+        return StringExternal("Param/Value/lib_1_2C79D0B3");
+    }
+    else if (auto7C5C3079_val == c_abilEffectStagePrep) {
+        return StringExternal("Param/Value/lib_1_A3DCFA2F");
+    }
+    else if (auto7C5C3079_val == c_abilEffectStageApproach) {
+        return StringExternal("Param/Value/lib_1_36F8FDEE");
+    }
+    else if (auto7C5C3079_val == c_abilBuildStageCollide) {
+        return StringExternal("Param/Value/lib_1_1660F597");
+    }
+    else if (auto7C5C3079_val == c_abilBuildStageFinish) {
+        return StringExternal("Param/Value/lib_1_2E58CBA2");
+    }
+    else if (auto7C5C3079_val == c_abilBuildStageResume) {
+        return StringExternal("Param/Value/lib_1_F40CAC62");
+    }
+    else if (auto7C5C3079_val == c_abilBuildStageHalt) {
+        return StringExternal("Param/Value/lib_1_CEBB5E3B");
+    }
+    else if (auto7C5C3079_val == c_abilBuildStageConstruct) {
+        return StringExternal("Param/Value/lib_1_7923C72E");
+    }
+    else if (auto7C5C3079_val == c_abilBuildStageWait) {
+        return StringExternal("Param/Value/lib_1_CA9D1B07");
+    }
+    else if (auto7C5C3079_val == c_abilBuildStageApproach) {
+        return StringExternal("Param/Value/lib_1_4134203F");
+    }
+    else if (auto7C5C3079_val == c_abilBehaviorStageToggled) {
+        return StringExternal("Param/Value/lib_1_6D6E5434");
+    }
+    else if (auto7C5C3079_val == c_abilBehaviorStageUntoggled) {
+        return StringExternal("Param/Value/lib_1_78B24B45");
+    }
+    else if (auto7C5C3079_val == c_abilAttackStageLoiter) {
+        return StringExternal("Param/Value/lib_1_DDF50FE4");
+    }
+    else if (auto7C5C3079_val == c_abilAttackStageAttack) {
+        return StringExternal("Param/Value/lib_1_41418C08");
+    }
+    else if (auto7C5C3079_val == c_abilAttackStageApproach) {
+        return StringExternal("Param/Value/lib_1_7E513C70");
+    }
+    else {
+        return StringExternal("Param/Value/lib_1_0DDB8C11");
+    }
+}
+
+int lib1_gf_getcurrenttimeint () {
+    // Automatic Variable Declarations
+    // Implementation
+    return DateTimeToInt(CurrentDateTimeGet());
+}
+
+text lib1_gf_getplayerraceastext (int lp_p) {
+    // Automatic Variable Declarations
+    string autoDDE34797_val;
+
+    // Implementation
+    autoDDE34797_val = PlayerRace(lp_p);
+    if (autoDDE34797_val == "Prot") {
+        return StringExternal("Param/Value/lib_1_4B0781BB");
+    }
+    else if (autoDDE34797_val == "Terr") {
+        return StringExternal("Param/Value/lib_1_96CA8A61");
+    }
+    else if (autoDDE34797_val == "Zerg") {
+        return StringExternal("Param/Value/lib_1_45CC7D05");
+    }
+    else {
+        return StringExternal("Param/Value/lib_1_28EC086C");
+    }
+}
+
+int lib1_gf_getraceintegerfromplayer (int lp_p) {
+    // Variable Declarations
+    int lv__race;
+
+    // Automatic Variable Declarations
+    string autoC73756C2_val;
+
+    // Variable Initialization
+
+    // Implementation
+    autoC73756C2_val = PlayerRace(lp_p);
+    if (autoC73756C2_val == "Prot") {
+        return lib1_ge_race_protoss;
+    }
+    else if (autoC73756C2_val == "Terr") {
+        return lib1_ge_race_terran;
+    }
+    else if (autoC73756C2_val == "Zerg") {
+        return lib1_ge_race_zerg;
+    }
+    else {
+        TextExpressionSetToken("Param/Expression/lib_1_0137C127", "p", IntToText(lp_p));
+        lib1_gf_displaydebugmessage(TextExpressionAssemble("Param/Expression/lib_1_0137C127"));
+        return -1;
+    }
+}
+
+int lib1_gf_getracepresetfromplayer (int lp_p) {
+    // Variable Declarations
+    int lv__race;
+
+    // Automatic Variable Declarations
+    string auto5DB55850_val;
+
+    // Variable Initialization
+
+    // Implementation
+    auto5DB55850_val = PlayerRace(lp_p);
+    if (auto5DB55850_val == "Prot") {
+        return lib1_ge_race_protoss;
+    }
+    else if (auto5DB55850_val == "Terr") {
+        return lib1_ge_race_terran;
+    }
+    else if (auto5DB55850_val == "Zerg") {
+        return lib1_ge_race_zerg;
+    }
+    else {
+        TextExpressionSetToken("Param/Expression/lib_1_063C9B82", "p", IntToText(lp_p));
+        lib1_gf_displaydebugmessage(TextExpressionAssemble("Param/Expression/lib_1_063C9B82"));
+        return -1;
+    }
+}
+
+int lib1_gf_numberofstructuresinregion (region lp_r, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitCount(null, lp_p, lp_r, UnitFilter((1 << c_targetFilterStructure), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+}
+
+int lib1_gf_numberofunitsinregion (region lp_r, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitCount(null, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+}
+
+int lib1_gf_numberofunitsoftypeinregion (region lp_r, int lp_p, string lp_t) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitCount(lp_t, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+}
+
+int lib1_gf_numberofunitsoftypeforplayer (string lp_t, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return TechTreeUnitCount(lp_p, lp_t, c_techCountCompleteOnly);
+}
+
+int lib1_gf_numberofunitsoftwotypesforplayer (string lp_t1, string lp_t2, int lp_p) {
+    // Variable Declarations
+    int lv_result;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    return (lib1_gf_numberofunitsoftypeforplayer(lp_t1, lp_p) + lib1_gf_numberofunitsoftypeforplayer(lp_t2, lp_p));
+}
+
+point lib1_gf_pointwithxyzoffset (point lp_p, fixed lp_x, fixed lp_y, fixed lp_z) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libNtve_gf_PointWithZOffset(PointWithOffset(lp_p, lp_x, lp_y), lp_z);
+}
+
+unit lib1_gf_previousselectedunit (int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    return lib1_gv_selectedunits[lp_p][1];
+}
+
+unit lib1_gf_unitatpoint (point lp_p, int lp_player, string lp_ut) {
+    // Automatic Variable Declarations
+    // Implementation
+    return UnitGroupUnit(UnitGroupSearch(lp_ut, lp_player, lp_p, 1.0, UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+}
+
+void lib1_gf_alertplayernotenoughminerals (int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    lib1_gf_playsoundforplayer(SoundLink("Alert_TerranNeedMoreMinerals", -1), lp_p);
+    if (lib1_gf_isdebugginglocally()) {
+        UIDisplayMessage(PlayerGroupSingle(1), c_messageAreaError, StringExternal("Param/Value/lib_1_6546880C"));
+    }
+    else {
+        UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaError, StringExternal("Param/Value/lib_1_4F06080C"));
+    }
+}
+
+void lib1_gf_alertplayererror (int lp_p, text lp_err) {
+    // Automatic Variable Declarations
+    // Implementation
+    lib1_gf_playsoundforplayer(SoundLink("UI_GenericError", -1), lp_p);
+    if (lib1_gf_isdebugginglocally()) {
+        UIDisplayMessage(PlayerGroupSingle(1), c_messageAreaError, lp_err);
+    }
+    else {
+        UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaError, lp_err);
+    }
+}
+
+void lib1_gf_cleartextmessageareaforallusers (int lp_messagearea) {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    const int auto6CEBE01C_ae = 20;
+    const int auto6CEBE01C_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_i = 1;
+    for ( ; ( (auto6CEBE01C_ai >= 0 && lv_i <= auto6CEBE01C_ae) || (auto6CEBE01C_ai < 0 && lv_i >= auto6CEBE01C_ae) ) ; lv_i += auto6CEBE01C_ai ) {
+        UIDisplayMessage(PlayerGroupAll(), lp_messagearea, StringExternal("Param/Value/lib_1_A4D10BC7"));
+    }
+}
+
+void lib1_gf_cleartextmessageareaforuser (int lp_p, int lp_messagearea) {
+    // Variable Declarations
+    int lv_i;
+
+    // Automatic Variable Declarations
+    const int auto1CD5B932_ae = 20;
+    const int auto1CD5B932_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_i = 1;
+    for ( ; ( (auto1CD5B932_ai >= 0 && lv_i <= auto1CD5B932_ae) || (auto1CD5B932_ai < 0 && lv_i >= auto1CD5B932_ae) ) ; lv_i += auto1CD5B932_ai ) {
+        UIDisplayMessage(PlayerGroupSingle(lp_p), lp_messagearea, StringExternal("Param/Value/lib_1_86E4D322"));
+    }
+}
+
+void lib1_gf_createunitatpoint (string lp_ut, point lp_point, int lp_player, int lp_opts) {
+    // Automatic Variable Declarations
+    // Implementation
+    UnitCreate(1, lp_ut, lp_opts, lp_player, lp_point, 270.0);
+}
+
+void lib1_gf_createNunitsatpoint (int lp_n, string lp_ut, point lp_point, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    UnitCreate(lp_n, lp_ut, 0, lp_player, lp_point, 270.0);
+}
+
+void lib1_gf_debouncedmessageaddorset (structref<lib1_gs_debouncedmessage> lp_debouncedmessage) {
+    // Variable Declarations
+    int lv__i;
+    bool lv__found;
+
+    // Automatic Variable Declarations
+    const int autoE0F930F6_ae = 99;
+    const int autoE0F930F6_ai = 1;
+    string auto9E432B67_val;
+
+    // Variable Initialization
+
+    // Implementation
+    lv__i = 0;
+    for ( ; ( (autoE0F930F6_ai >= 0 && lv__i <= autoE0F930F6_ae) || (autoE0F930F6_ai < 0 && lv__i >= autoE0F930F6_ae) ) ; lv__i += autoE0F930F6_ai ) {
+        auto9E432B67_val = lib1_gv_debouncedmessages[lv__i].lv_id;
+        if (auto9E432B67_val == lp_debouncedmessage.lv_id) {
+            lv__found = true;
+            break;
+        }
+        else if (auto9E432B67_val == lib1_gv_emptystring) {
+            break;
+        }
+        else {
+        }
+    }
+    lib1_gf_debouncedmessageset(lp_debouncedmessage, lv__i);
+}
+
+void lib1_gf_debouncedmessageremove (string lp_id) {
+    // Variable Declarations
+    int lv__i;
+    int lv__j;
+    bool lv__found;
+
+    // Automatic Variable Declarations
+    const int autoDB5A6855_ae = 99;
+    const int autoDB5A6855_ai = 1;
+    string auto5D39A06D_val;
+    const int auto519E93D7_ae = 99;
+    const int auto519E93D7_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv__i = 0;
+    for ( ; ( (autoDB5A6855_ai >= 0 && lv__i <= autoDB5A6855_ae) || (autoDB5A6855_ai < 0 && lv__i >= autoDB5A6855_ae) ) ; lv__i += autoDB5A6855_ai ) {
+        auto5D39A06D_val = lib1_gv_debouncedmessages[lv__i].lv_id;
+        if (auto5D39A06D_val == lp_id) {
+            lv__found = true;
+            break;
+        }
+        else if (auto5D39A06D_val == lib1_gv_emptystring) {
+            break;
+        }
+        else {
+        }
+    }
+    if (lib1_gf_istrue(lv__found)) {
+        lv__j = lv__i;
+        for ( ; ( (auto519E93D7_ai >= 0 && lv__j <= auto519E93D7_ae) || (auto519E93D7_ai < 0 && lv__j >= auto519E93D7_ae) ) ; lv__j += auto519E93D7_ai ) {
+            lib1_gf_debouncedmessageset(lib1_gv_debouncedmessages[(lv__j + 1)], lv__j);
+            if (lib1_gf_isemptystring(lib1_gv_debouncedmessages[lv__j].lv_id)) {
+                break;
+            }
+
+        }
+    }
+
+}
+
+void lib1_gf_debouncedmessageset (structref<lib1_gs_debouncedmessage> lp_debouncedmessage, int lp_i) {
+    // Variable Declarations
+    int lv__i;
+    bool lv__found;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    lib1_gv_debouncedmessages[lv__i].lv_id = lp_debouncedmessage.lv_id;
+    lib1_gv_debouncedmessages[lv__i].lv_insertedattimeint = lp_debouncedmessage.lv_insertedattimeint;
+    lib1_gv_debouncedmessages[lv__i].lv_message = lp_debouncedmessage.lv_message;
+    lib1_gv_debouncedmessages[lv__i].lv_secondstodebounce = lp_debouncedmessage.lv_secondstodebounce;
+}
+
+void lib1_gf_displaydebugmessage (text lp_msg) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_isdebugginglocally()) {
+        TriggerDebugOutput(1, lp_msg, true);
+    }
+
+}
+
+void lib1_gf_endgameforplayergroup (playergroup lp_pg, int lp_gameovertype) {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    playergroup auto0AC03774_g;
+
+    // Variable Initialization
+
+    // Implementation
+    auto0AC03774_g = lp_pg;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(auto0AC03774_g, lv__p);
+        if (lv__p < 0) { break; }
+        GameOver(lv__p, lp_gameovertype, true, true);
+    }
+}
+
+void lib1_gf_initeverysecondtimer () {
+    // Automatic Variable Declarations
+    // Implementation
+    TimerStart(lib1_gv_everysecond, 1.0, true, c_timeReal);
+}
+
+void lib1_gf_initlocaldebuggingstate () {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_isdebugginglocally()) {
+        GameSetSpeedValue(c_gameSpeedFaster);
+        TriggerDebugSetTypeFile(1, "trigger-debug.txt");
+    }
+
+}
+
+void lib1_gf_issueordertoallunitsinregion (order lp_o, region lp_r, int lp_p, int lp_orderqueue) {
+    // Automatic Variable Declarations
+    // Implementation
+    UnitGroupIssueOrder(UnitGroup(null, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_o, lp_orderqueue);
+}
+
+void lib1_gf_issueordertounittypeinregion (order lp_o, string lp_u, region lp_r, int lp_p, int lp_orderqueue) {
+    // Automatic Variable Declarations
+    // Implementation
+    UnitGroupIssueOrder(UnitGroup(null, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lp_o, lp_orderqueue);
+}
+
+void lib1_gf_messageuser (text lp_msg, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_isdebugginglocally()) {
+        UIDisplayMessage(PlayerGroupSingle(1), c_messageAreaChat, lp_msg);
+    }
+    else {
+        UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaChat, lp_msg);
+    }
+}
+
+void lib1_gf_messageallusers (text lp_msg) {
+    // Automatic Variable Declarations
+    // Implementation
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, lp_msg);
+}
+
+void lib1_gf_messageallusersdebounced (text lp_msg, string lp_debounceid, int lp_secondstodebounce) {
+    // Variable Declarations
+    lib1_gs_debouncedmessage lv__debouncedmessage;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__debouncedmessage.lv_id = "";
+
+    // Implementation
+    lv__debouncedmessage.lv_id = lp_debounceid;
+    lv__debouncedmessage.lv_insertedattimeint = lib1_gf_getcurrenttimeint();
+    lv__debouncedmessage.lv_message = lp_msg;
+    lv__debouncedmessage.lv_secondstodebounce = lp_secondstodebounce;
+    lib1_gf_debouncedmessageaddorset(lv__debouncedmessage);
+}
+
+void lib1_gf_modifyplayergroupintproperty (playergroup lp_pg, int lp_prop, int lp_modify, int lp_int) {
+    // Variable Declarations
+    int lv_p;
+
+    // Automatic Variable Declarations
+    playergroup auto7F55797E_g;
+
+    // Variable Initialization
+
+    // Implementation
+    auto7F55797E_g = lp_pg;
+    lv_p = -1;
+    while (true) {
+        lv_p = PlayerGroupNextPlayer(auto7F55797E_g, lv_p);
+        if (lv_p < 0) { break; }
+        PlayerModifyPropertyInt(lv_p, lp_prop, lp_modify, lp_int);
+    }
+}
+
+void lib1_gf_pancameratopointforplayer (int lp_player, point lp_point) {
+    // Automatic Variable Declarations
+    // Implementation
+    CameraPan(lp_player, lp_point, 1.0, -1, 10.0, false);
+}
+
+trigger auto_lib1_gf_pancameratopointforplayerasync_Trigger = null;
+int auto_lib1_gf_pancameratopointforplayerasync_lp_player;
+point auto_lib1_gf_pancameratopointforplayerasync_lp_point;
+
+void lib1_gf_pancameratopointforplayerasync (int lp_player, point lp_point) {
+    auto_lib1_gf_pancameratopointforplayerasync_lp_player = lp_player;
+    auto_lib1_gf_pancameratopointforplayerasync_lp_point = lp_point;
+
+    if (auto_lib1_gf_pancameratopointforplayerasync_Trigger == null) {
+        auto_lib1_gf_pancameratopointforplayerasync_Trigger = TriggerCreate("auto_lib1_gf_pancameratopointforplayerasync_TriggerFunc");
+    }
+
+    TriggerExecute(auto_lib1_gf_pancameratopointforplayerasync_Trigger, false, false);
+}
+
+bool auto_lib1_gf_pancameratopointforplayerasync_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_lib1_gf_pancameratopointforplayerasync_lp_player;
+    point lp_point = auto_lib1_gf_pancameratopointforplayerasync_lp_point;
+
+    // Automatic Variable Declarations
+    // Implementation
+    CameraPan(lp_player, lp_point, 1.0, -1, 10.0, false);
+    return true;
+}
+
+void lib1_gf_pancameratopointforplayergroup (playergroup lp_pg, point lp_point) {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    playergroup autoE7EECA02_g;
+
+    // Variable Initialization
+
+    // Implementation
+    autoE7EECA02_g = lp_pg;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(autoE7EECA02_g, lv__p);
+        if (lv__p < 0) { break; }
+        lib1_gf_pancameratopointforplayerasync(lv__p, lp_point);
+    }
+    Wait(1.0, c_timeReal);
+}
+
+void lib1_gf_playsoundatpoint (soundlink lp_s, point lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    SoundPlayAtPointForPlayer(lp_s, c_maxPlayers, PlayerGroupAll(), lp_p, 0.0, 100.0, 0.0);
+}
+
+void lib1_gf_playsoundforallplayers (soundlink lp_s) {
+    // Automatic Variable Declarations
+    // Implementation
+    SoundPlayForPlayer(lp_s, c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+}
+
+void lib1_gf_playsoundforplayer (soundlink lp_s, int lp_p) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_isdebugginglocally()) {
+        SoundPlayForPlayer(lp_s, c_maxPlayers, PlayerGroupSingle(1), 100.0, 0.0);
+    }
+    else {
+        SoundPlayForPlayer(lp_s, c_maxPlayers, PlayerGroupSingle(lp_p), 100.0, 0.0);
+    }
+}
+
+void lib1_gf_printtriggeringabilitystage () {
+    // Automatic Variable Declarations
+    // Implementation
+    TextExpressionSetToken("Param/Expression/lib_1_307E16AC", "ability_stage", lib1_gf_getabililtystageastext(EventUnitAbilityStage()));
+    lib1_gf_displaydebugmessage(TextExpressionAssemble("Param/Expression/lib_1_307E16AC"));
+}
+
+void lib1_gf_removeallunitsoftypeinregion (string lp_ut, region lp_r, int lp_p) {
+    // Variable Declarations
+    unit lv_u;
+
+    // Automatic Variable Declarations
+    unitgroup auto0788FCB0_g;
+    int auto0788FCB0_u;
+
+    // Variable Initialization
+
+    // Implementation
+    auto0788FCB0_g = UnitGroup(lp_ut, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto0788FCB0_u = UnitGroupCount(auto0788FCB0_g, c_unitCountAll);
+    for (;; auto0788FCB0_u -= 1) {
+        lv_u = UnitGroupUnitFromEnd(auto0788FCB0_g, auto0788FCB0_u);
+        if (lv_u == null) { break; }
+        UnitRemove(lv_u);
+    }
+}
+
+void lib1_gf_removeNunitsoftypeinregion (int lp_n, string lp_ut, region lp_r, int lp_p, int lp_removetype) {
+    // Variable Declarations
+    unit lv_u;
+
+    // Automatic Variable Declarations
+    unitgroup autoF0454A8A_g;
+    int autoF0454A8A_u;
+    int auto279D445D_val;
+
+    // Variable Initialization
+
+    // Implementation
+    autoF0454A8A_g = UnitGroup(lp_ut, lp_p, lp_r, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), lp_n);
+    autoF0454A8A_u = UnitGroupCount(autoF0454A8A_g, c_unitCountAll);
+    for (;; autoF0454A8A_u -= 1) {
+        lv_u = UnitGroupUnitFromEnd(autoF0454A8A_g, autoF0454A8A_u);
+        if (lv_u == null) { break; }
+        auto279D445D_val = lp_removetype;
+        if (auto279D445D_val == lib1_ge_removeunittype_remove) {
+            UnitRemove(lv_u);
+        }
+        else if (auto279D445D_val == lib1_ge_removeunittype_kill) {
+            UnitKill(lv_u);
+        }
+        else {
+        }
+    }
+}
+
+void lib1_gf_removeunitoftypeatpoint (int lp_p, point lp_point, int lp_removetype, string lp_ut) {
+    // Variable Declarations
+    unit lv_u;
+
+    // Automatic Variable Declarations
+    int auto1334996E_val;
+
+    // Variable Initialization
+    lv_u = lib1_gf_unitatpoint(lp_point, lp_p, lp_ut);
+
+    // Implementation
+    auto1334996E_val = lp_removetype;
+    if (auto1334996E_val == lib1_ge_removeunittype_remove) {
+        UnitRemove(lv_u);
+    }
+    else if (auto1334996E_val == lib1_ge_removeunittype_kill) {
+        UnitKill(lv_u);
+    }
+    else {
+    }
+}
+
+void lib1_gf_resetunitsingroupsofNforplayer (int lp_p) {
+    // Variable Declarations
+    int lv__i;
+
+    // Automatic Variable Declarations
+    const int auto5D73D905_ae = 15;
+    const int auto5D73D905_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv__i = 0;
+    for ( ; ( (auto5D73D905_ai >= 0 && lv__i <= auto5D73D905_ae) || (auto5D73D905_ai < 0 && lv__i >= auto5D73D905_ae) ) ; lv__i += auto5D73D905_ai ) {
+        lib1_gv_unitsingroupsofNperplayer[lp_p][lv__i] = UnitGroupEmpty();
+    }
+}
+
+void lib1_gf_selectanyunitatpointforplayer (point lp_point, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    UnitSelect(lib1_gf_anyunitatpointforplayer(lp_point, lp_player), lp_player, true);
+}
+
+void lib1_gf_selectanyunitnearpointforplayer (point lp_point, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    UnitSelect(lib1_gf_anyunitnearpointforplayer(lp_point, lp_player), lp_player, true);
+}
+
+void lib1_gf_setcameratopointforplayer (int lp_player, point lp_point) {
+    // Automatic Variable Declarations
+    // Implementation
+    CameraPan(lp_player, lp_point, 0.0, -1, 10.0, false);
+}
+
+void lib1_gf_setrandomindices (int lp_size) {
+    // Variable Declarations
+    int lv__i;
+    int lv__j;
+    int[17] lv__indicestochoosefrom;
+    int lv__randomindex;
+    int lv__lastindex;
+    int lv__lastindextochoosefrom;
+
+    // Automatic Variable Declarations
+    const int auto077BBA79_ae = 16;
+    const int auto077BBA79_ai = 1;
+    int auto5333E637_ae;
+    const int auto5333E637_ai = 1;
+    int auto6EABDCC4_ae;
+    const int auto6EABDCC4_ai = 1;
+    int autoA445F2A2_ae;
+    const int autoA445F2A2_ai = 1;
+
+    // Variable Initialization
+    lv__lastindex = (lp_size - 1);
+    lv__lastindextochoosefrom = (lp_size - 1);
+
+    // Implementation
+    lv__i = 0;
+    for ( ; ( (auto077BBA79_ai >= 0 && lv__i <= auto077BBA79_ae) || (auto077BBA79_ai < 0 && lv__i >= auto077BBA79_ae) ) ; lv__i += auto077BBA79_ai ) {
+        lib1_gv_randomindices[lv__i] = -1;
+    }
+    auto5333E637_ae = lv__lastindex;
+    lv__i = 0;
+    for ( ; ( (auto5333E637_ai >= 0 && lv__i <= auto5333E637_ae) || (auto5333E637_ai < 0 && lv__i >= auto5333E637_ae) ) ; lv__i += auto5333E637_ai ) {
+        lv__indicestochoosefrom[lv__i] = lv__i;
+    }
+    auto6EABDCC4_ae = lv__lastindex;
+    lv__i = 0;
+    for ( ; ( (auto6EABDCC4_ai >= 0 && lv__i <= auto6EABDCC4_ae) || (auto6EABDCC4_ai < 0 && lv__i >= auto6EABDCC4_ae) ) ; lv__i += auto6EABDCC4_ai ) {
+        lv__randomindex = RandomInt(0, lv__lastindextochoosefrom);
+        lib1_gv_randomindices[lv__i] = lv__indicestochoosefrom[lv__randomindex];
+        autoA445F2A2_ae = lv__lastindextochoosefrom;
+        lv__j = lv__randomindex;
+        for ( ; ( (autoA445F2A2_ai >= 0 && lv__j <= autoA445F2A2_ae) || (autoA445F2A2_ai < 0 && lv__j >= autoA445F2A2_ae) ) ; lv__j += autoA445F2A2_ai ) {
+            lv__indicestochoosefrom[lv__j] = lv__indicestochoosefrom[(lv__j + 1)];
+        }
+        lv__lastindextochoosefrom = (lv__lastindextochoosefrom - 1);
+    }
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: continue every second timer
+//--------------------------------------------------------------------------------------------------
+bool lib1_gt_continueeverysecondtimer_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TimerStart(lib1_gv_everysecond, 1.0, true, c_timeReal);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib1_gt_continueeverysecondtimer_Init () {
+    lib1_gt_continueeverysecondtimer = TriggerCreate("lib1_gt_continueeverysecondtimer_Func");
+    TriggerAddEventTimer(lib1_gt_continueeverysecondtimer, lib1_gv_everysecond);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: display debounced message to all users
+//--------------------------------------------------------------------------------------------------
+bool lib1_gt_displaydebouncedmessagetoallusers_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv__i;
+    string lv__id;
+    int lv__currenttimeint;
+    lib1_gs_debouncedmessage lv__debouncedmessage;
+
+    // Automatic Variable Declarations
+    const int auto7CB6079C_ae = 99;
+    const int auto7CB6079C_ai = 1;
+
+    // Variable Initialization
+    lv__id = "";
+    lv__currenttimeint = lib1_gf_getcurrenttimeint();
+    lv__debouncedmessage.lv_id = "";
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv__i = 0;
+    for ( ; ( (auto7CB6079C_ai >= 0 && lv__i <= auto7CB6079C_ae) || (auto7CB6079C_ai < 0 && lv__i >= auto7CB6079C_ae) ) ; lv__i += auto7CB6079C_ai ) {
+        lv__debouncedmessage.lv_id = lib1_gv_debouncedmessages[lv__i].lv_id;
+        if (lib1_gf_isemptystring(lv__debouncedmessage.lv_id)) {
+            break;
+        }
+
+        lv__debouncedmessage.lv_insertedattimeint = lib1_gv_debouncedmessages[lv__i].lv_insertedattimeint;
+        lv__debouncedmessage.lv_secondstodebounce = lib1_gv_debouncedmessages[lv__i].lv_secondstodebounce;
+        if (((lv__currenttimeint - lv__debouncedmessage.lv_secondstodebounce) >= lv__debouncedmessage.lv_insertedattimeint)) {
+            lv__debouncedmessage.lv_message = lib1_gv_debouncedmessages[lv__i].lv_message;
+            lib1_gf_messageallusers(lv__debouncedmessage.lv_message);
+            lib1_gf_debouncedmessageremove(lv__debouncedmessage.lv_id);
+            lv__i = lv__i - 1;
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib1_gt_displaydebouncedmessagetoallusers_Init () {
+    lib1_gt_displaydebouncedmessagetoallusers = TriggerCreate("lib1_gt_displaydebouncedmessagetoallusers_Func");
+    TriggerAddEventTimer(lib1_gt_displaydebouncedmessagetoallusers, lib1_gv_everysecond);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: *track previous selected unit
+//--------------------------------------------------------------------------------------------------
+bool lib1_gt_trackpreviousselectedunit_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lib1_gv_selectedunits[EventPlayer()][1] = lib1_gv_selectedunits[EventPlayer()][0];
+    lib1_gv_selectedunits[EventPlayer()][0] = EventUnit();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib1_gt_trackpreviousselectedunit_Init () {
+    lib1_gt_trackpreviousselectedunit = TriggerCreate("lib1_gt_trackpreviousselectedunit_Func");
+    TriggerAddEventUnitSelected(lib1_gt_trackpreviousselectedunit, null, c_playerAny, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: utils - init map
+//--------------------------------------------------------------------------------------------------
+bool lib1_gt_utilsinitmap_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lib1_gf_initeverysecondtimer();
+    lib1_gf_initlocaldebuggingstate();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib1_gt_utilsinitmap_Init () {
+    lib1_gt_utilsinitmap = TriggerCreate("lib1_gt_utilsinitmap_Func");
+    TriggerAddEventMapInit(lib1_gt_utilsinitmap);
+}
+
+void lib1_InitTriggers () {
+    lib1_gt_continueeverysecondtimer_Init();
+    lib1_gt_displaydebouncedmessagetoallusers_Init();
+    lib1_gt_trackpreviousselectedunit_Init();
+    lib1_gt_utilsinitmap_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool lib1_InitLib_completed = false;
+
+void lib1_InitLib () {
+    if (lib1_InitLib_completed) {
+        return;
+    }
+
+    lib1_InitLib_completed = true;
+
+    lib1_InitLibraries();
+    lib1_InitVariables();
+    lib1_InitTriggers();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+    libCOMI_InitLib();
+    lib1_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Constants
+//--------------------------------------------------------------------------------------------------
+const int gv_g_ally = 9;
+const int gv_g_enemy = 10;
+
+//--------------------------------------------------------------------------------------------------
+// Global Variables
+//--------------------------------------------------------------------------------------------------
+playergroup gv_g_activeplayers;
+playergroup gv_g_activeplayersplusally;
+unit gv_g_allyminingstation;
+playergroup gv_g_enemyplayergroup;
+unitgroup gv_g_playerminingstations;
+
+void InitGlobals () {
+    gv_g_activeplayers = PlayerGroupEmpty();
+    gv_g_activeplayersplusally = PlayerGroupEmpty();
+    gv_g_enemyplayergroup = PlayerGroupEmpty();
+    gv_g_playerminingstations = UnitGroupEmpty();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Global Function Declarations
+//--------------------------------------------------------------------------------------------------
+void gf_initplayergroups ();
+void gf_initalliances ();
+void gf_initminingstations ();
+void gf_initplayers ();
+void gf_inittestresources ();
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_init;
+trigger gt_inittesting;
+trigger gt_allyminingstationselected;
+
+//--------------------------------------------------------------------------------------------------
+// Global Functions
+//--------------------------------------------------------------------------------------------------
+void gf_initplayergroups () {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    const int autoA8169E44_ae = 8;
+    const int autoA8169E44_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    lv__p = 1;
+    for ( ; ( (autoA8169E44_ai >= 0 && lv__p <= autoA8169E44_ae) || (autoA8169E44_ai < 0 && lv__p >= autoA8169E44_ae) ) ; lv__p += autoA8169E44_ai ) {
+        if (lib1_gf_istrue(PlayerGroupHasPlayer(PlayerGroupActive(), lv__p))) {
+            PlayerGroupAdd(gv_g_activeplayers, lv__p);
+        }
+
+    }
+    libNtve_gf_AddPlayerGroupToPlayerGroup(gv_g_activeplayers, gv_g_activeplayersplusally);
+    PlayerGroupAdd(gv_g_activeplayersplusally, gv_g_ally);
+    PlayerGroupAdd(gv_g_enemyplayergroup, gv_g_enemy);
+}
+
+void gf_initalliances () {
+    // Automatic Variable Declarations
+    // Implementation
+    libCOMI_gf_SetPlayerGroupAlliance(gv_g_activeplayersplusally, libNtve_ge_AllianceSetting_AllyWithSharedVision);
+    libNtve_gf_SetAllianceAspectForPlayerGroup(gv_g_activeplayers, c_allianceIdPushable, true);
+}
+
+void gf_initminingstations () {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    playergroup auto4B3A0AA0_g;
+
+    // Variable Initialization
+
+    // Implementation
+    auto4B3A0AA0_g = gv_g_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(auto4B3A0AA0_g, lv__p);
+        if (lv__p < 0) { break; }
+        lib1_gf_createunitatpoint("MiningStationPlayerLz", PointFromId(393756790), lv__p, c_unitCreateIgnorePlacement);
+        UnitGroupAdd(gv_g_playerminingstations, UnitLastCreated());
+    }
+    lib1_gf_createunitatpoint("MiningStationAllyLz", PointFromId(393756790), gv_g_ally, c_unitCreateIgnorePlacement);
+    gv_g_allyminingstation = UnitLastCreated();
+    TriggerEnable(gt_allyminingstationselected, true);
+}
+
+void gf_initplayers () {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    playergroup autoE00DEF67_g;
+
+    // Variable Initialization
+
+    // Implementation
+    autoE00DEF67_g = gv_g_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(autoE00DEF67_g, lv__p);
+        if (lv__p < 0) { break; }
+        PlayerModifyPropertyInt(lv__p, c_playerPropSuppliesMade, c_playerPropOperSetTo, 200);
+        lib1_gf_createunitatpoint("StartingSCVLz", PointFromName(("init unit - p" + IntToString(lv__p))), lv__p, 0);
+        UnitControlGroupAddUnit(lv__p, 1, UnitLastCreated());
+    }
+}
+
+void gf_inittestresources () {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    playergroup autoA096F9C6_g;
+
+    // Variable Initialization
+
+    // Implementation
+    autoA096F9C6_g = gv_g_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(autoA096F9C6_g, lv__p);
+        if (lv__p < 0) { break; }
+        PlayerModifyPropertyInt(lv__p, c_playerPropMinerals, c_playerPropOperSetTo, 10000);
+        PlayerModifyPropertyInt(lv__p, c_playerPropVespene, c_playerPropOperSetTo, 10000);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: init
+//--------------------------------------------------------------------------------------------------
+bool gt_init_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_initplayergroups();
+    gf_initalliances();
+    gf_initminingstations();
+    gf_initplayers();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_init_Init () {
+    gt_init = TriggerCreate("gt_init_Func");
+    TriggerAddEventMapInit(gt_init);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: init testing
+//--------------------------------------------------------------------------------------------------
+bool gt_inittesting_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!(lib1_gf_istrue(lib1_gv_test))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_inittestresources();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_inittesting_Init () {
+    gt_inittesting = TriggerCreate("gt_inittesting_Func");
+    TriggerAddEventMapInit(gt_inittesting);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: ally mining station selected
+//--------------------------------------------------------------------------------------------------
+bool gt_allyminingstationselected_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv__p;
+    unit lv__u;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__p = EventPlayer();
+    lv__u = EventUnit();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitSelect(lv__u, lv__p, false);
+    lib1_gf_selectanyunitatpointforplayer(PointFromId(393756790), lv__p);
+    lib1_gf_playsoundforplayer(SoundLink("MiningStationSelectedLz", -1), lv__p);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_allyminingstationselected_Init () {
+    gt_allyminingstationselected = TriggerCreate("gt_allyminingstationselected_Func");
+    TriggerEnable(gt_allyminingstationselected, false);
+    TriggerAddEventUnitSelected(gt_allyminingstationselected, UnitRefFromVariable("gv_g_allyminingstation"), c_playerAny, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_init_Init();
+    gt_inittesting_Init();
+    gt_allyminingstationselected_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitGlobals();
+    InitTriggers();
+}

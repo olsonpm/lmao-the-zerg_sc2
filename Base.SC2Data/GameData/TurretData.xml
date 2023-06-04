@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CTurret id="PlanetaryFortressLz">
+        <Idle value="Hold"/>
+        <YawArc value="360"/>
+        <YawRate value="90"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+</Catalog>

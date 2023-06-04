@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilEffectTarget id="KD8Charge"/>
+    <CAbilEffectTarget id="Hyperjump">
+        <Cost index="0">
+            <Cooldown TimeUse="20"/>
+        </Cost>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="LockOn">
+        <Cost index="0">
+            <Cooldown TimeUse="3"/>
+        </Cost>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="RavenScramblerMissileMultiLz">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoTooltipPriority value="1"/>
+        <Effect index="0" value="RavenScramblerSwitchInitialMultiLz"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="ChannelingMinimum" value="0"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+        </Cost>
+        <TargetFilters value="Visible;Self,Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Invulnerable"/>
+        <Range value="9"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <ValidatedArray index="Wait" value="1"/>
+        <ValidatedArray index="Channel" value="0"/>
+        <DefaultError value="MustTargetUnit,Error/MustTargetMechanicalorPsionic"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RavenScramblerMissileMultiLz"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="RavenShredderMissileMultiLz">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoTooltipPriority value="1"/>
+        <Effect index="0" value="RavenShredderMissileLaunchMissileMultiLz"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+        </Cost>
+        <TargetFilters value="Visible;Self,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Arc value="29.9926"/>
+        <ArcSlop value="0"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RavenShredderMissileMultiLz"/>
+    </CAbilEffectTarget>
+    <CAbilResearch id="ArmoryResearchLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Time="0.1" Upgrade="TerranVehicleWeaponsLevel1">
+            <Resource index="Minerals" value="200"/>
+            <Button DefaultButtonFace="TerranVehicleWeaponsLevel1" State="Restricted" Requirements="LearnTerranVehicleWeapon1"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="0.1" Upgrade="TerranVehicleWeaponsLevel2">
+            <Resource index="Minerals" value="350"/>
+            <Button DefaultButtonFace="TerranVehicleWeaponsLevel2" State="Restricted" Requirements="LearnTerranVehicleWeapon2"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="0.1" Upgrade="TerranVehicleWeaponsLevel3">
+            <Resource index="Minerals" value="500"/>
+            <Button DefaultButtonFace="TerranVehicleWeaponsLevel3" State="Restricted" Requirements="LearnTerranVehicleWeapon3"/>
+        </InfoArray>
+        <InfoArray index="Research4" Time="0.1" Upgrade="TerranVehicleAndShipArmorsLevel1">
+            <Resource index="Minerals" value="200"/>
+            <Button DefaultButtonFace="TerranVehicleAndShipPlatingLevel1" Requirements="LearnTerranVehicleAndShipArmor1"/>
+        </InfoArray>
+        <InfoArray index="Research5" Time="0.1" Upgrade="TerranVehicleAndShipArmorsLevel2">
+            <Resource index="Minerals" value="350"/>
+            <Button DefaultButtonFace="TerranVehicleAndShipPlatingLevel2" Requirements="LearnTerranVehicleAndShipArmor2"/>
+        </InfoArray>
+        <InfoArray index="Research6" Time="0.1" Upgrade="TerranVehicleAndShipArmorsLevel3">
+            <Resource index="Minerals" value="500"/>
+            <Button DefaultButtonFace="TerranVehicleAndShipPlatingLevel3" Requirements="LearnTerranVehicleAndShipArmor3"/>
+        </InfoArray>
+        <InfoArray index="Research7" Time="0.1" Upgrade="TerranShipWeaponsLevel1">
+            <Resource index="Minerals" value="200"/>
+            <Button DefaultButtonFace="TerranShipWeaponsLevel1" State="Restricted" Requirements="LearnTerranShipWeapon1"/>
+        </InfoArray>
+        <InfoArray index="Research8" Time="0.1" Upgrade="TerranShipWeaponsLevel2">
+            <Resource index="Minerals" value="350"/>
+            <Button DefaultButtonFace="TerranShipWeaponsLevel2" State="Restricted" Requirements="LearnTerranShipWeapon2"/>
+        </InfoArray>
+        <InfoArray index="Research9" Time="0.1" Upgrade="TerranShipWeaponsLevel3">
+            <Resource index="Minerals" value="500"/>
+            <Button DefaultButtonFace="TerranShipWeaponsLevel3" State="Restricted" Requirements="LearnTerranShipWeapon3"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilBuild id="FactoryAddOnsLz" parent="TerranAddOns">
+        <Name value="Abil/Name/FactoryAddOnsLz"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <BuildMorphAbil value="FactoryLiftOff"/>
+        <InfoArray index="Build1" Unit="TechLabFactoryLz" Time="0.1">
+            <Button DefaultButtonFace="BuildTechLabFactory" State="Available" Requirements="UseTechReactorHide"/>
+        </InfoArray>
+    </CAbilBuild>
+    <CAbilMorphPlacement id="FactoryLandLz" parent="TerranBuildingLand" unit="FactoryLz">
+        <Name value="Abil/Name/FactoryLandLz"/>
+        <InfoArray index="0" Unit="FactoryLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="FactoryLiftOffLz" parent="TerranBuildingLiftOff" unit="FactoryFlyingLz">
+        <Name value="Abil/Name/FactoryLiftOffLz"/>
+    </CAbilMorph>
+    <CAbilResearch id="FusionCoreResearchLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Time="0.1" Upgrade="BattlecruiserEnableSpecializations">
+            <Resource index="Minerals" value="200"/>
+            <Button DefaultButtonFace="ResearchBattlecruiserSpecializations" State="Restricted" Requirements="LearnBattlecruiserSpecializations"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="0.1" Upgrade="LiberatorAGRangeMultiLz">
+            <Resource index="Minerals" value="300"/>
+            <Button DefaultButtonFace="ResearchAdvancedBallisticsMultiLz" Requirements="LearnLiberatorRangeMultiLz">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Research3" Time="0.1" Upgrade="MedivacIncreaseSpeedBoostMultiLz">
+            <Resource index="Minerals" value="100"/>
+            <Button DefaultButtonFace="ResearchRapidReignitionSystemMultiLz" Requirements="LearnMedivacSpeedBoostUpgradeMultiLz">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilBuild id="StarportAddOnsLz" parent="TerranAddOns">
+        <Name value="Abil/Name/StarportAddOnsLz"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <BuildMorphAbil value="StarportLiftOffLz"/>
+        <InfoArray index="Build1" Unit="TechLabStarportLz" Time="0.1">
+            <Button DefaultButtonFace="BuildTechLabStarport" State="Available" Requirements="UseTechReactorHide"/>
+        </InfoArray>
+    </CAbilBuild>
+    <CAbilMorphPlacement id="StarportLandLz" parent="TerranBuildingLand" unit="StarportLz">
+        <Name value="Abil/Name/StarportLandLz"/>
+        <InfoArray index="0" Unit="StarportLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="StarportLiftOffLz" parent="TerranBuildingLiftOff" unit="StarportFlyingLz">
+        <Name value="Abil/Name/StarportLiftOffLz"/>
+    </CAbilMorph>
+    <CAbilResearch id="StarportTechLabResearchLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Time="0.1" Upgrade="BansheeCloak">
+            <Resource index="Minerals" value="200"/>
+            <Button DefaultButtonFace="ResearchBansheeCloak" State="Restricted" Requirements="LearnCloakingField"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="0.1" Upgrade="BansheeSpeedMultiLz">
+            <Resource index="Minerals" value="250"/>
+            <Button DefaultButtonFace="BansheeSpeedMultiLz" Requirements="LearnBansheeSpeedMultiLz">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilTrain id="StarportTrainLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Activity value="UI/Building"/>
+        <InfoArray index="Train1" Time="0.1">
+            <Button DefaultButtonFace="VikingFighter"/>
+            <Unit value="VikingFighter"/>
+        </InfoArray>
+        <InfoArray index="Train2" Time="0.1">
+            <Button DefaultButtonFace="Medivac" State="Restricted"/>
+            <Unit value="Medivac"/>
+        </InfoArray>
+        <InfoArray index="Train3" Time="0.1">
+            <Button DefaultButtonFace="Raven" State="Restricted" Requirements="HaveAttachedTechLab"/>
+            <Unit value="Raven"/>
+        </InfoArray>
+        <InfoArray index="Train4" Time="0.1">
+            <Button DefaultButtonFace="Liberator" State="Restricted"/>
+            <Unit value="Liberator"/>
+        </InfoArray>
+        <InfoArray index="Train5" Time="0.1">
+            <Button DefaultButtonFace="Banshee" Requirements="HaveAttachedTechLab"/>
+            <Unit value="Banshee"/>
+        </InfoArray>
+        <InfoArray index="Train6" Time="0.1">
+            <Button DefaultButtonFace="Battlecruiser" Requirements="HaveAttachedStarportTechLabAndFusionCore"/>
+            <Unit value="Battlecruiser"/>
+        </InfoArray>
+    </CAbilTrain>
+    <CAbilResearch id="FactoryTechLabResearchLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Time="0.1" Upgrade="HighCapacityBarrelsMultiLz">
+            <Resource index="Minerals" value="150"/>
+            <Button DefaultButtonFace="ResearchHighCapacityBarrelsMultiLz" Requirements="LearnHighCapacityBarrels"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="0.1" Upgrade="CycloneLockOnDamageUpgradeMultiLz">
+            <Resource index="Minerals" value="100"/>
+            <Button DefaultButtonFace="CycloneResearchLockOnDamageUpgradeMultiLz" State="Restricted" Requirements="LearnCycloneLockOnDamageUpgrade"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="0.1" Upgrade="DrillClawsMultiLz">
+            <Resource index="Minerals" value="50"/>
+            <Button DefaultButtonFace="ResearchDrillClawsMultiLz" Requirements="LearnDrillingClaws">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Research4" Time="0.1" Upgrade="SmartServosMultiLz">
+            <Resource index="Minerals" value="50"/>
+            <Button DefaultButtonFace="ResearchSmartServosMultiLz" State="Restricted" Requirements="LearnSmartServosMultiLz">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilTrain id="FactoryTrainLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Activity value="UI/Building"/>
+        <Range value="5"/>
+        <InfoArray index="Train1" Time="0.1">
+            <Button DefaultButtonFace="Hellion"/>
+            <Unit value="Hellion"/>
+        </InfoArray>
+        <InfoArray index="Train2" Time="0.1">
+            <Button DefaultButtonFace="WidowMine"/>
+            <Unit value="WidowMine"/>
+        </InfoArray>
+        <InfoArray index="Train3" Time="0.1">
+            <Button DefaultButtonFace="BuildCyclone" Requirements="HaveAttachedTechLab"/>
+            <Unit value="Cyclone"/>
+        </InfoArray>
+        <InfoArray index="Train4" Time="0.1">
+            <Button DefaultButtonFace="SiegeTank" Requirements="HaveAttachedTechLab"/>
+            <Unit value="SiegeTank"/>
+        </InfoArray>
+        <InfoArray index="Train5" Time="0.1">
+            <Button DefaultButtonFace="HellionTank" Requirements="HaveArmory"/>
+            <Unit value="HellionTank"/>
+        </InfoArray>
+        <InfoArray index="Train6" Time="0.1">
+            <Button DefaultButtonFace="Thor" Requirements="HaveArmoryAndAttachedTechLabOrAttachedTechReactor"/>
+            <Unit value="Thor"/>
+        </InfoArray>
+    </CAbilTrain>
+    <CAbilArmMagazine id="GhostAcademyArmMagazineNukeLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Launch value="ReleaseAtSource"/>
+        <Flags index="BestUnit" value="1"/>
+        <InfoArray index="Ammo1" Time="0.1" Unit="Nuke">
+            <Button DefaultButtonFace="NukeArm" Requirements="TrainNuke"/>
+        </InfoArray>
+        <CalldownEffect value="Nuke"/>
+    </CAbilArmMagazine>
+    <CAbilBuild id="BarracksAddOnsLz" parent="TerranAddOns">
+        <Name value="Abil/Name/BarracksAddOnsLz"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <BuildMorphAbil value="BarracksLiftOffLz"/>
+        <InfoArray index="Build1" Unit="TechLabBarracksLz" Time="0.1">
+            <Button DefaultButtonFace="BuildTechLabBarracks" State="Available" Requirements="UseTechReactorHide"/>
+        </InfoArray>
+    </CAbilBuild>
+    <CAbilMorphPlacement id="BarracksLandLz" parent="TerranBuildingLand" unit="BarracksLz">
+        <Name value="Abil/Name/BarracksLandLz"/>
+        <InfoArray index="0" Unit="BarracksLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="BarracksLiftOffLz" parent="TerranBuildingLiftOff" unit="BarracksFlyingLz">
+        <Name value="Abil/Name/BarracksLiftOffLz"/>
+    </CAbilMorph>
+    <CAbilResearch id="EngineeringBayResearchLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Time="0.1" Upgrade="HiSecAutoTrackingMultiLz">
+            <Resource index="Minerals" value="100"/>
+            <Button DefaultButtonFace="ResearchHiSecAutoTrackingMultiLz" State="Restricted" Requirements="LearnHiSecAutoTrackingMultiLz"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="0.1" Upgrade="NeosteelArmorMultiLz">
+            <Resource index="Minerals" value="300"/>
+            <Button DefaultButtonFace="UpgradeNeosteelArmorMultiLz" Requirements="LearnNeosteelArmorMultiLz"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="0.1" Upgrade="TerranInfantryWeaponsLevel1">
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="100"/>
+            <Button DefaultButtonFace="TerranInfantryWeaponsLevel1" State="Restricted" Requirements="LearnTerranInfantryWeapon1"/>
+        </InfoArray>
+        <InfoArray index="Research4" Time="0.1" Upgrade="TerranInfantryWeaponsLevel2">
+            <Resource index="Minerals" value="175"/>
+            <Resource index="Vespene" value="175"/>
+            <Button DefaultButtonFace="TerranInfantryWeaponsLevel2" State="Restricted" Requirements="LearnTerranInfantryWeapon2"/>
+        </InfoArray>
+        <InfoArray index="Research5" Time="0.1" Upgrade="TerranInfantryWeaponsLevel3">
+            <Resource index="Minerals" value="250"/>
+            <Resource index="Vespene" value="250"/>
+            <Button DefaultButtonFace="TerranInfantryWeaponsLevel3" State="Restricted" Requirements="LearnTerranInfantryWeapon3"/>
+        </InfoArray>
+        <InfoArray index="Research6" Time="0.1" Upgrade="TerranInfantryArmorsLevel1">
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="100"/>
+            <Button DefaultButtonFace="TerranInfantryArmorLevel1" State="Restricted" Requirements="LearnTerranInfantryArmor1"/>
+        </InfoArray>
+        <InfoArray index="Research7" Time="0.1" Upgrade="TerranInfantryArmorsLevel2">
+            <Resource index="Minerals" value="175"/>
+            <Resource index="Vespene" value="175"/>
+            <Button DefaultButtonFace="TerranInfantryArmorLevel2" State="Restricted" Requirements="LearnTerranInfantryArmor2"/>
+        </InfoArray>
+        <InfoArray index="Research8" Time="0.1" Upgrade="TerranInfantryArmorsLevel3">
+            <Resource index="Minerals" value="250"/>
+            <Resource index="Vespene" value="250"/>
+            <Button DefaultButtonFace="TerranInfantryArmorLevel3" State="Restricted" Requirements="LearnTerranInfantryArmor3"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="GhostAcademyResearchLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Time="0.1" Upgrade="PersonalCloaking">
+            <Resource index="Minerals" value="100"/>
+            <Button DefaultButtonFace="ResearchPersonalCloaking" State="Restricted" Requirements="LearnPersonnelCloaking"/>
+        </InfoArray>
+    </CAbilResearch>
+    <!--CAbilTrain id="GatewayTrain">-->
+    <!--        <InfoArray index="Train1">-->
+    <!--            <Button DefaultButtonFace="ZealotAiur"/>-->
+    <!--            <Unit index="0" value="ZealotAiur"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train2" Time="38">-->
+    <!--            <Button DefaultButtonFace="ZealotShakuras" Requirements=""/>-->
+    <!--            <Unit index="0" value="ZealotShakuras"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train3" Time="38">-->
+    <!--            <Button DefaultButtonFace="ZealotPurifier" Requirements=""/>-->
+    <!--            <Unit index="0" value="ZealotPurifier"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train4" Time="42">-->
+    <!--            <Button DefaultButtonFace="StalkerShakuras" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit index="0" value="StalkerShakuras"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train5" Time="42">-->
+    <!--            <Button DefaultButtonFace="Dragoon" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit index="0" value="Dragoon"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train6" Time="42">-->
+    <!--            <Button DefaultButtonFace="StalkerPurifier" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit index="0" value="StalkerPurifier"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train7" Time="37">-->
+    <!--            <Button DefaultButtonFace="VoidSentryAiur" State="Restricted" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit value="SentryAiur"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train8" Time="37">-->
+    <!--            <Button DefaultButtonFace="VoidSentryPurifier" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit index="0" value="SentryPurifier"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train9" Time="37">-->
+    <!--            <Button DefaultButtonFace="WarpInReplicant" State="Restricted" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit value="Replicant"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train10" Time="55">-->
+    <!--            <Button DefaultButtonFace="HighArchon" State="Restricted" Requirements="HaveTemplarArchives"/>-->
+    <!--            <Unit value="ArchonAdvanced"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train11" Time="55">-->
+    <!--            <Button DefaultButtonFace="VoidHighTemplarShakuras" State="Restricted" Requirements="HaveTemplarArchives"/>-->
+    <!--            <Unit value="HighTemplarShakuras"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train12" Time="55">-->
+    <!--            <Button DefaultButtonFace="VoidHighTemplarTaldarim" State="Restricted" Requirements="HaveTemplarArchives"/>-->
+    <!--            <Unit value="HighTemplarTaldarim"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train13" Time="55">-->
+    <!--            <Button DefaultButtonFace="DarkTemplarShakuras" State="Restricted" Requirements="HaveDarkShrine"/>-->
+    <!--            <Unit value="DarkTemplarShakuras"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train14" Time="55">-->
+    <!--            <Button DefaultButtonFace="DarkTemplarAiur" State="Restricted" Requirements="HaveDarkShrine"/>-->
+    <!--            <Unit value="DarkTemplarAiur"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train15" Time="55">-->
+    <!--            <Button DefaultButtonFace="DarkTemplarTaldarim" State="Restricted" Requirements="HaveDarkShrine"/>-->
+    <!--            <Unit value="DarkTemplarTaldarim"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train16" Time="38">-->
+    <!--            <Button DefaultButtonFace="Zealot" State="Restricted"/>-->
+    <!--            <Unit value="Zealot"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train17" Time="42">-->
+    <!--            <Button DefaultButtonFace="Stalker" State="Restricted" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit value="Stalker"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train18" Time="37">-->
+    <!--            <Button DefaultButtonFace="Sentry" State="Restricted" Requirements="HaveCyberneticsCore"/>-->
+    <!--            <Unit value="Sentry"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train19" Time="55">-->
+    <!--            <Button DefaultButtonFace="HighTemplar" State="Restricted" Requirements="HaveTemplarArchives"/>-->
+    <!--            <Unit value="HighTemplar"/>-->
+    <!--        </InfoArray>-->
+    <!--        <InfoArray index="Train20" Time="55">-->
+    <!--            <Button DefaultButtonFace="DarkTemplar" State="Restricted" Requirements="HaveDarkShrine"/>-->
+    <!--            <Unit value="DarkTemplar"/>-->
+    <!--        </InfoArray>-->
+    <!--    </CAbilTrain-->
+    <CAbilBehavior id="GhostCloak">
+        <CmdButtonArray index="On" Requirements="UsePersonalCloaking"/>
+    </CAbilBehavior>
+    <CAbilMorph id="MorphToHellion">
+        <CmdButtonArray index="Execute" Requirements="HaveArmory"/>
+    </CAbilMorph>
+    <CAbilMorph id="MorphToHellionTank">
+        <CmdButtonArray index="Execute" Requirements="HaveArmory"/>
+    </CAbilMorph>
+    <CAbilResearch id="BarracksTechLabResearchLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Time="0.1" Upgrade="Stimpack">
+            <Resource index="Minerals" value="250"/>
+            <Button DefaultButtonFace="Stimpack" Requirements="LearnStimpack"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="0.1" Upgrade="ShieldWall">
+            <Resource index="Minerals" value="200"/>
+            <Button DefaultButtonFace="ResearchShieldWall" Requirements="LearnShieldWall"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="0.1" Upgrade="PunisherGrenades">
+            <Resource index="Minerals" value="75"/>
+            <Button DefaultButtonFace="ResearchPunisherGrenades" Requirements="LearnPunisherGrenades"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilMorph id="TechLabMorphDetachedLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="TechLab" Requirements="ShowIfHaveNoAddOnParent"/>
+        <Flags index="Automatic" value="1"/>
+        <InfoArray Unit="TechLabBarracksLz">
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0.125"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="TechLabMorphBarracksLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="TechLabBarracks" Requirements="ShowIfHaveBarrAddOnParent"/>
+        <Flags index="Automatic" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <InfoArray Unit="TechLabBarracksLz"/>
+    </CAbilMorph>
+    <CAbilTrain id="BarracksTrainLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Range value="5"/>
+        <InfoArray index="Train1" Time="0.1">
+            <Button DefaultButtonFace="Marine" State="Restricted"/>
+            <Unit value="Marine"/>
+        </InfoArray>
+        <InfoArray index="Train2" Time="0.1">
+            <Button DefaultButtonFace="Reaper" State="Restricted" Requirements="HaveAttachedTechLab"/>
+            <Unit value="Reaper"/>
+        </InfoArray>
+        <InfoArray index="Train3" Time="0.1">
+            <Button DefaultButtonFace="Ghost" State="Restricted" Requirements="HaveTechLabAndGhostAcademyLz"/>
+            <Unit value="Ghost"/>
+        </InfoArray>
+        <InfoArray index="Train4" Time="0.1">
+            <Button DefaultButtonFace="Marauder" State="Restricted" Requirements="HaveAttachedTechLab"/>
+            <Unit value="Marauder"/>
+        </InfoArray>
+    </CAbilTrain>
+    <CAbilEffectTarget id="CalldownSuperMULEOrbitalCommandLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CalldownSuperMULECreateUnitLz"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CalldownMULE" State="Restricted"/>
+    </CAbilEffectTarget>
+    <CAbilMorph id="TechLabMorphFactoryLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="TechLabFactory" Requirements="ShowIfHaveFactAddOnParent"/>
+        <Flags index="Automatic" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <InfoArray Unit="TechLabFactoryLz"/>
+    </CAbilMorph>
+    <CAbilMorphPlacement id="LandCommandCenterLz" parent="TerranBuildingLand" unit="CommandCenterLz">
+        <Name value="Abil/Name/LandCommandCenterLz"/>
+        <InfoArray index="0" Unit="CommandCenterLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="LiftOffCommandCenterLz" parent="TerranBuildingLiftOff" unit="CommandCenterFlyingLz">
+        <Name value="Abil/Name/LiftOffCommandCenterLz"/>
+    </CAbilMorph>
+    <CAbilEffectTarget id="FreeSuperRepairMuleLz">
+        <Alignment value="Positive"/>
+        <AbilSetId value="Repair"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FreeSuperRepairLz"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOffOwnerLeave" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="PassengerAcquirePassengers" value="1"/>
+        <TargetFilters value="Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"/>
+        <RangeSlop value="0.2"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="-;Neutral,Enemy"/>
+        <AutoCastRange value="7"/>
+        <AutoCastValidatorArray value="HackingTRace"/>
+        <Marker Link="Abil/Repair">
+            <MatchFlags index="Link" value="0"/>
+            <MismatchFlags index="Id" value="0"/>
+        </Marker>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <UseMarkerArray index="Cast" value="0"/>
+        <UseMarkerArray index="Channel" value="0"/>
+        <InheritAttackPriorityArray index="Prep" value="1"/>
+        <InheritAttackPriorityArray index="Cast" value="1"/>
+        <InheritAttackPriorityArray index="Channel" value="1"/>
+        <AINotifyEffect value="Repair"/>
+        <DefaultError value="RequiresRepairTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FreeSuperRepairLz">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilMorph id="OrbitalCommandLiftOffLz" parent="TerranBuildingLiftOff" unit="OrbitalCommandFlyingLz">
+        <Name value="Abil/Name/OrbitalCommandLiftOffLz"/>
+    </CAbilMorph>
+    <CAbilMorphPlacement id="OrbitalCommandLandLz" parent="TerranBuildingLand" unit="OrbitalCommandLz">
+        <Name value="Abil/Name/OrbitalCommandLandLz"/>
+        <InfoArray index="0" Unit="OrbitalCommandLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilEffectTarget id="ScannerSweepOrbitalCommandLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ScannerSweepLz"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="20"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CursorEffect value="ScannerSweep"/>
+        <AINotifyEffect value="ScannerSweepLz"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Scan"/>
+    </CAbilEffectTarget>
+    <CAbilMorph id="TechLabMorphStarportLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="TechLabStarport" Requirements="ShowIfHaveStarportAddOnParent"/>
+        <Flags index="Automatic" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <InfoArray Unit="TechLabStarportLz"/>
+    </CAbilMorph>
+    <!--CAbilEffectInstant id="ExplosiveMissiles">-->
+    <!--        <EditorCategories value="AbilityorEffectType:Units"/>-->
+    <!--        <Effect index="0" value="JavelinMissileLaunchers"/>-->
+    <!--        <CastIntroTime value="4"/>-->
+    <!--        <ShowProgressArray index="Cast" value="1"/>-->
+    <!--        <CancelableArray index="Cast" value="1"/>-->
+    <!--        <UninterruptibleArray index="Cast" value="1"/>-->
+    <!--        <ProgressButtonArray index="Cast" value="ExplosiveMode"/>-->
+    <!--        <CmdButtonArray index="Execute" DefaultButtonFace="ExplosiveMode" Requirements="NotInExplosiveMode"/>-->
+    <!--        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>-->
+    <!--        <Activity value="Abil/Thor/ReArm"/>-->
+    <!--    </CAbilEffectInstant>-->
+    <!--    <CAbilEffectInstant id="ArmorpiercingMissiles">-->
+    <!--        <EditorCategories value="AbilityorEffectType:Units"/>-->
+    <!--        <Effect index="0" value="LanceMissileLaunchers"/>-->
+    <!--        <CastIntroTime value="4"/>-->
+    <!--        <ShowProgressArray index="Cast" value="1"/>-->
+    <!--        <CancelableArray index="Cast" value="1"/>-->
+    <!--        <UninterruptibleArray index="Cast" value="1"/>-->
+    <!--        <ProgressButtonArray index="Cast" value="ArmorpiercingMode"/>-->
+    <!--        <CmdButtonArray index="Execute" DefaultButtonFace="ArmorpiercingMode" Requirements="NotInArmorpiercingMode"/>-->
+    <!--        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>-->
+    <!--        <Activity value="Abil/Thor/ReArm"/>-->
+    <!--    </CAbilEffectInstant-->
+    <CAbilMorph id="ThorAPMode">
+        <InfoArray index="0" RandomDelayMax="0.25">
+            <!--SectionArray index="Abils">
+                <DurationArray index="Delay" value="0.5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="0.5"/>
+                <DurationArray index="Duration" value="3.5417"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0.5"/>
+                <DurationArray index="Duration" value="3.5417"/>
+            </SectionArray-->
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2.5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="2.5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="2.5"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="ThorNormalMode">
+        <InfoArray index="0" RandomDelayMax="0.25">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2.5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="2.5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="2.5"/>
+            </SectionArray>
+        </InfoArray>
+        <!--SectionArray index="Abils">
+                <DurationArray index="Delay" value="0.5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="3.5417"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0.5"/>
+                <DurationArray index="Duration" value="3.5417"/>
+            </SectionArray-->
+    </CAbilMorph>
+    <CAbilMorph id="WallLowerLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Lower"/>
+        <InfoArray Unit="WallLoweredLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Collide">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="RaiseWallLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Raise"/>
+        <Flags index="IgnorePlacement" value="0"/>
+        <Flags index="MoveBlockers" value="1"/>
+        <InfoArray Unit="WallLz" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilEffectTarget id="HardenWallOrbitalCommandLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="HardenWallTempABOrbitalCommandLz"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Cooldown Link="HardenWallOrbitalCommandLz"/>
+        </Cost>
+        <TargetFilters value="Structure,Visible;Neutral,Enemy,Stasis,UnderConstruction"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SupplyDrop" State="Restricted"/>
+    </CAbilEffectTarget>
+    <CAbilTrain id="TrainCommandCenterLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Train1" Time="0.1">
+            <Button DefaultButtonFace="SCV">
+                <Flags index="ToSelection" value="1"/>
+            </Button>
+            <Unit value="SuperSCVLz"/>
+        </InfoArray>
+        <Alert value="TrainWorkerComplete"/>
+    </CAbilTrain>
+    <CAbilEffectTarget id="FreeRepairSCVLz">
+        <Alignment value="Positive"/>
+        <AbilSetId value="Repair"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOffOwnerLeave" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="PassengerAcquirePassengers" value="1"/>
+        <TargetFilters value="Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"/>
+        <RangeSlop value="0.2"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastRange value="7"/>
+        <Marker>
+            <MatchFlags index="Link" value="0"/>
+            <MismatchFlags index="Id" value="0"/>
+        </Marker>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <UseMarkerArray index="Cast" value="0"/>
+        <UseMarkerArray index="Channel" value="0"/>
+        <InheritAttackPriorityArray index="Prep" value="1"/>
+        <InheritAttackPriorityArray index="Cast" value="1"/>
+        <InheritAttackPriorityArray index="Channel" value="1"/>
+        <DefaultError value="RequiresRepairTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FreeRepairLz">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilBuild id="BuildSCVLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <FlagArray index="Interruptible" value="1"/>
+        <FlagArray index="PeonDisableCollision" value="1"/>
+        <InfoArray index="Build1" Unit="CommandCenterLz" Time="0.1">
+            <Button DefaultButtonFace="CommandCenter"/>
+        </InfoArray>
+        <InfoArray index="Build2" Unit="WallLz" Time="0.1">
+            <Button DefaultButtonFace="SupplyDepot"/>
+        </InfoArray>
+        <InfoArray index="Build3" Unit="BarracksLz" Time="0.1">
+            <Button DefaultButtonFace="Barracks" State="Restricted"/>
+        </InfoArray>
+        <InfoArray index="Build4" Unit="EngineeringBayLz" Time="0.1">
+            <Button DefaultButtonFace="EngineeringBay" State="Restricted"/>
+        </InfoArray>
+        <InfoArray index="Build5" Unit="Bunker" Time="0.1">
+            <Button DefaultButtonFace="Bunker" State="Restricted" Requirements="HideFortifiedBunker"/>
+        </InfoArray>
+        <InfoArray index="Build6" Unit="MissileTurret" Time="0.1">
+            <Button DefaultButtonFace="MissileTurret" Requirements="HaveEngineeringBay"/>
+        </InfoArray>
+        <InfoArray index="Build7" Unit="SensorTower" Time="0.1">
+            <Button DefaultButtonFace="SensorTower" Requirements="HaveEngineeringBay"/>
+        </InfoArray>
+        <InfoArray index="Build8" Unit="GhostAcademyLz" Time="0.1">
+            <Button DefaultButtonFace="GhostAcademy" State="Restricted" Requirements="HaveBarracks"/>
+        </InfoArray>
+        <InfoArray index="Build9" Unit="FactoryLz" Time="0.1">
+            <Button DefaultButtonFace="Factory" Requirements="HaveBarracks"/>
+        </InfoArray>
+        <InfoArray index="Build10" Unit="ArmoryLz" Time="0.1">
+            <Button DefaultButtonFace="Armory" State="Restricted" Requirements="CanBuildArmory"/>
+        </InfoArray>
+        <InfoArray index="Build11" Unit="StarportLz" Time="0.1">
+            <Button DefaultButtonFace="Starport" Requirements="CanBuildStarport"/>
+        </InfoArray>
+        <InfoArray index="Build12" Unit="FusionCoreLz" Time="0.1">
+            <Button DefaultButtonFace="Starport" Requirements="HaveStarport"/>
+        </InfoArray>
+        <FidgetDelayMin value="5"/>
+        <FidgetDelayMax value="10"/>
+        <ConstructionMover value="Construction"/>
+    </CAbilBuild>
+    <CAbilMorph id="MorphToOrbitalCommandCommandCenterLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="OrbitalCommand"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="CancelUpgradeMorph"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Birth" value="1"/>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <InfoArray Score="1" Unit="OrbitalCommandLz">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0.1"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.1"/>
+                <EffectArray index="Start" value="CommandCenterIsMorphingAB"/>
+                <EffectArray index="Finish" value="CommandCenterIsMorphingRB"/>
+                <EffectArray index="Cancel" value="CommandCenterIsMorphingRB"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0.1"/>
+            </SectionArray>
+        </InfoArray>
+        <Alert value="CommandCenterUpgradeComplete"/>
+        <Activity value="UI/Upgrading"/>
+        <ValidatorArray value="HasNoCargo"/>
+    </CAbilMorph>
+    <CAbilMorph id="MorphToPlanetaryFortressCommandCenterLz">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeToPlanetaryFortress"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="CancelUpgradeMorph"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Birth" value="1"/>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <InfoArray Score="1" Unit="PlanetaryFortressLz">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0.1"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.1"/>
+                <EffectArray index="Start" value="CommandCenterIsMorphingAB"/>
+                <EffectArray index="Finish" value="CommandCenterIsMorphingRB"/>
+                <EffectArray index="Cancel" value="CommandCenterIsMorphingRB"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0.1"/>
+            </SectionArray>
+        </InfoArray>
+        <Alert value="CommandCenterUpgradeComplete"/>
+        <Activity value="UI/Upgrading"/>
+        <ValidatorArray value="HasNoCargo"/>
+    </CAbilMorph>
+    <CAbilEffectTarget id="WidowMineAttack">
+        <Cost index="0">
+            <Cooldown TimeUse="20"/>
+        </Cost>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="YamatoMultiLz">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="Yamato"/>
+        <Flags index="AbortOnAllianceChange" value="0"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="IgnoreOrderPlayerIdInStageValidate" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Cost>
+            <Cooldown Link="YamatoMultiLz" TimeUse="5"/>
+        </Cost>
+        <InterruptCost>
+            <Cooldown TimeUse="5"/>
+        </InterruptCost>
+        <Range value="10"/>
+        <RangeSlop value="10"/>
+        <PrepTime value="3"/>
+        <ShowProgressArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <ValidatedArray index="Cast" value="0"/>
+        <ValidatedArray index="Channel" value="0"/>
+        <AINotifyEffect value="Yamato"/>
+        <ProgressButtonArray index="Prep" value="YamatoGun"/>
+        <CancelEffect index="Prep" value="BattlecruiserYamatoCDMultiLz"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="YamatoGun" Requirements="UseBattlecruiserSpecializations"/>
+    </CAbilEffectTarget>
+</Catalog>

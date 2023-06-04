@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="ATALaserBatteryU">
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectDamage id="HellionTankDamage">
+        <AttributeBonus index="Light" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="LanceMissileLaunchersDamage">
+        <AttributeBonus index="Massive" value="10"/>
+        <Amount value="25"/>
+    </CEffectDamage>
+    <CEffectDamage id="LiberatorMissileDamage">
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="NukePersistent">
+        <InitialDelay value="3.75"/>
+        <PeriodCount value="25"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="P38ScytheGuassPistol">
+        <AttributeBonus index="Light" value="0"/>
+    </CEffectDamage>
+    <CEffectSet id="RavenScramblerDummyMultiLz">
+        <EditorCategories value="Race:Terran"/>
+    </CEffectSet>
+    <CEffectSwitch id="RavenScramblerSwitchInitialMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="IsDead" Effect="RavenScramblerDummyMultiLz"/>
+        <CaseDefault value="RavenScramblerMissileLMMultiLz"/>
+    </CEffectSwitch>
+    <CEffectLaunchMissile id="RavenScramblerMissileLMMultiLz">
+        <ValidatorArray index="0" value="IsMechanicalOrIsPsionic"/>
+        <ValidatorArray value="TargetNotTacticalJumping"/>
+        <EditorCategories value="Race:Terran"/>
+        <FinishEffect value="RavenScramblerMissileABMultiLz"/>
+        <AmmoUnit value="RavenScramblerMissileMultiLz"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="RavenScramblerMissileABMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="InterferenceMatrixMultiRavenLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RavenShredderMissileArmorReductionUIAddMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="ArmorReductionMultiUIAddRavenShredderMissileLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RavenShredderMissileArmorReductionUISubtructMultiLz">
+        <ValidatorArray index="0" value="RavenShredderMissileArmorReductionUIAddTargetFiltersMultiLz"/>
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/RavenShredderMissileArmorReductionUIAddMultiLz"/>
+        <Behavior value="ArmorReductionMultiUISubtructRavenShredderMissileLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RavenShredderMissileImpactApplyBehaviorMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="ArmorReductionMultiAntiArmorMissileRavenShredderMissileLz"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="RavenShredderMissileSearchImpactSetMultiLz">
+        <EffectArray value="RavenShredderMissileArmorReductionUISubtructMultiLz"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="RavenShredderMissileLaunchMissileMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <LaunchEffect value="RavenShredderMissileLaunchSetMultiLz"/>
+        <ImpactEffect value="RavenShredderMissileImpactSetMultiLz"/>
+        <AmmoUnit value="RavenShredderMissileWeaponMultiLz"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="RavenShredderMissileLaunchSetMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="RavenShredderMissileLaunchCPMultiLz"/>
+        <EffectArray value="RavenShredderMissileTintCPMultiLz"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="RavenShredderMissileLaunchCPMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="SourceUnit"/>
+        <ExpireEffect value="RavenShredderMissileSuicideMultiLz"/>
+        <PeriodCount value="50"/>
+        <PeriodicPeriodArray value="0.1"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="RavenShredderMissileSuicideMultiLz">
+        <ValidatorArray value="RavenShredderMissileLaunchRangeCombineMultiLz"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <Flags index="Kill" value="1"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="RavenShredderMissileTintCPMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="SourceUnit"/>
+        <PeriodCount value="250"/>
+        <PeriodicValidator value="SourceNotDead"/>
+        <PeriodicEffectArray value="RavenShredderMissileApplyBehaviorMultiLz"/>
+        <PeriodicPeriodArray value="0.1"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="RavenShredderMissileApplyBehaviorMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Effect="RavenShredderMissileLaunchMissileMultiLz"/>
+        <Behavior value="AntiArmorMissileTargetingMultiRavenShredderMissileLz"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="RavenShredderMissileImpactSetMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="RavenShredderMissileDamageMultiLz"/>
+        <EffectArray value="RavenShredderMissileImpactSearchAreaMultiLz"/>
+    </CEffectSet>
+    <CEffectDamage id="RavenShredderMissileDamageMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <AINotifyFlags index="HurtFriend" value="1"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <AINotifyFlags index="MajorDanger" value="1"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <AreaArray Radius="0.72" Fraction="1"/>
+        <AreaArray Radius="1.44" Fraction="0.5"/>
+        <AreaArray Radius="2.88" Fraction="0.25"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="RavenShredderMissileImpactSearchAreaMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <SearchFilters value="-;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2.88" Effect="RavenShredderMissileSearchImpactSetMultiLz"/>
+    </CEffectEnumArea>
+    <CEffectAddTrackedUnit id="BattlecruiserTacticalJumpCDMultiLz">
+        <EditorCategories value="Race:Terran"/>
+    </CEffectAddTrackedUnit>
+    <CEffectModifyUnit id="BattlecruiserYamatoCDMultiLz">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/BattlecruiserTacticalJumpCDMultiLz"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="YamatoMultiLz,Execute" CooldownTimeUse="100"/>
+    </CEffectModifyUnit>
+    <CEffectCreatePersistent id="CalldownSuperMULECPLz">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <ExpireDelay value="4"/>
+        <FinalEffect value="CalldownSuperMULEFinalSetLz"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="CalldownSuperMULECreateSetLz">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="CalldownSuperMULECPLz"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="CalldownSuperMULECreateUnitLz">
+        <ValidatorArray value="MULETargetCheck"/>
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <SpawnEffect value="CalldownSuperMULECreateSetLz"/>
+        <SpawnUnit value="SuperMULELz"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="CalldownSuperMULEFinalSetLz">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="RemovePrecursor"/>
+        <EffectArray value="CalldownSuperMULETimedLifeABLz"/>
+        <EffectArray value="CalldownSuperMULEIssueOrderLz"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="CalldownSuperMULEIssueOrderLz">
+        <EditorCategories value="Race:Terran"/>
+        <Abil value="MULEGather"/>
+        <Target Effect="CalldownMULECreateUnit" Value="TargetUnit"/>
+    </CEffectIssueOrder>
+    <CEffectApplyBehavior id="CalldownSuperMULETimedLifeABLz">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="TimedLifeMuleLz"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateHealer id="FreeRepairSCVLz">
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="NotVortexd"/>
+        <ValidatorArray value="NotStasis"/>
+        <ValidatorArray value="NotUnrepairable"/>
+        <EditorCategories value="Race:Terran"/>
+        <RechargeVitalRate value="1"/>
+        <TimeFactor value="1"/>
+    </CEffectCreateHealer>
+    <CEffectCreateHealer id="FreeSuperRepairLz">
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="NotVortexd"/>
+        <ValidatorArray value="NotStasis"/>
+        <ValidatorArray value="NotUnrepairable"/>
+        <EditorCategories value="Race:Terran"/>
+        <RechargeVitalRate value="1"/>
+        <TimeFactor value="0.5"/>
+    </CEffectCreateHealer>
+    <CEffectDamage id="GuassRifleTestMarineLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="40"/>
+    </CEffectDamage>
+    <CEffectDamage id="SuperMULEFateDamageLz">
+        <EditorCategories value="Race:Terran"/>
+        <Alert value="MULEExpired"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="ScannerSweepLz">
+        <EditorCategories value="Race:Terran"/>
+        <ExpireDelay value="12.2775"/>
+        <RevealRadius value="13"/>
+        <RevealFlags index="Unfog" value="1"/>
+        <RevealFlags index="Detect" value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="HardenWallABOrbitalCommandLz">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="HardenWallOrbitalCommandLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="HardenWallTempABOrbitalCommandLz">
+        <ValidatorArray index="0" value="IsWallEitherFlavorLz"/>
+        <ValidatorArray value="NotHardenedWallLz"/>
+        <ValidatorArray value="NotEnRouteToHardenWallLz"/>
+        <ValidatorArray value="IsSupplyDepotMorphing"/>
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="HardenWallEnRouteOrbitalCommandLz"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="TwinIbiksCannonDamagePlanetaryFortressLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="40"/>
+        <Death value="Fire"/>
+        <AreaArray Radius="0.5" Fraction="1"/>
+        <AreaArray Radius="0.8" Fraction="0.75"/>
+        <AreaArray Radius="1.25" Fraction="0.375"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+</Catalog>
