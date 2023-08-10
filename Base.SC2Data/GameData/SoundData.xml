@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CSound id="AnnounceWaveLz" parent="UI">
+        <AssetArray File="Assets\Sounds\Uni\UI\UI_CampaignNPCSelect.wav"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
     <CSound id="MiningStationSelectedLz" parent="Ambience_Object">
         <EditorCategories value="Race:Terran"/>
         <AssetArray File="Assets\Sounds\Uni\MiningStation\select-mining-station.wav" FacialGroup=""/>

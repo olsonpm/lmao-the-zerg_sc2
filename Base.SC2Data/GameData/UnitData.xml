@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CUnit id="Banshee">
+        <CostResource index="Minerals" value="250"/>
+        <CostResource index="Vespene" value="0"/>
         <EnergyStart value="200"/>
         <EnergyRegenRate value="1.125"/>
     </CUnit>
@@ -31,6 +33,8 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="Raven">
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="0"/>
         <Speed value="2.9492"/>
         <EnergyStart value="200"/>
         <EnergyRegenRate value="1.125"/>
@@ -53,6 +57,8 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="Battlecruiser">
+        <CostResource index="Minerals" value="700"/>
+        <CostResource index="Vespene" value="0"/>
         <EnergyStart value="200"/>
         <EnergyRegenRate value="1.125"/>
         <AbilArray index="3" Link="YamatoMultiLz"/>
@@ -97,8 +103,7 @@
         <TurningRate value="719.4726"/>
         <Sight value="9"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="250"/>
         <RepairTime value="65"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
@@ -276,6 +281,8 @@
         <TechTreeProducedUnitArray value="Ghost"/>
     </CUnit>
     <CUnit id="Cyclone">
+        <CostResource index="Vespene" value="0"/>
+        <Food value="-2"/>
         <Speed value="3.3671"/>
         <CardLayouts index="0">
             <LayoutButtons index="7" Face="CycloneLockOnDamageUpgradeMultiLz" Requirements="HaveCycloneLockOnDamageUpgradeLz" Row="1" Column="0"/>
@@ -379,8 +386,7 @@
         <Height value="3.25"/>
         <VisionHeight value="4"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="250"/>
         <RepairTime value="60"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="FactoryAddOnsLz"/>
@@ -441,8 +447,7 @@
         <TurningRate value="719.4726"/>
         <Sight value="9"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="250"/>
         <RepairTime value="60"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
@@ -520,8 +525,7 @@
         <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
         <Sight value="9"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="150"/>
+        <CostResource index="Minerals" value="300"/>
         <RepairTime value="65"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
@@ -630,12 +634,20 @@
         </CardLayouts>
         <!--BehaviorArray Link="SwannCommanderMechRebirth"/-->
     </CUnit>
+    <CUnit id="LiberatorAG">
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="0"/>
+    </CUnit>
     <CUnit id="Liberator">
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="0"/>
         <CardLayouts index="0">
             <LayoutButtons Face="AdvancedBallisticsMultiLz" Type="Passive" Requirements="HaveAdvancedBallisticsMultiLz" Row="1" Column="0"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Medivac">
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="0"/>
         <EnergyStart value="200"/>
         <EnergyRegenRate value="1.125"/>
         <CardLayouts index="0">
@@ -675,8 +687,7 @@
         <TurningRate value="719.4726"/>
         <Sight value="9"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="250"/>
         <RepairTime value="50"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
@@ -754,8 +765,7 @@
         <Height value="3.25"/>
         <VisionHeight value="4"/>
         <CostCategory value="Technology"/>
-        <CostResource index="Minerals" value="150"/>
-        <CostResource index="Vespene" value="100"/>
+        <CostResource index="Minerals" value="250"/>
         <RepairTime value="50"/>
         <AttackTargetPriority value="11"/>
         <AbilArray Link="StarportAddOns"/>
@@ -935,7 +945,7 @@
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="SelectBuilder" Type="SelectBuilder" Row="1" Column="3"/>
             <LayoutButtons Face="NeoSteelFrameCommandCenter" Type="Passive" Requirements="HaveNeosteelFrame" Row="2" Column="2"/>
-            <LayoutButtons Face="OrbitalCommand" Type="AbilCmd" AbilCmd="MorphToOrbitalCommandCommandCenterLz,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="UpgradetoOrbitalCommandLz" Type="AbilCmd" AbilCmd="MorphToOrbitalCommandCommandCenterLz,Execute" Row="0" Column="3"/>
         </CardLayouts>
         <Radius value="2.5"/>
         <SeparationRadius value="2.5"/>
@@ -1123,7 +1133,7 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="SensorTower">
-        <CostResource index="Minerals" value="25"/>
+        <CostResource index="Minerals" value="20"/>
         <CostResource index="Vespene" value="0"/>
     </CUnit>
     <CUnit id="TechLabStarportLz">
@@ -1652,7 +1662,7 @@
         <Sight value="11"/>
         <Food value="15"/>
         <CostCategory value="Economy"/>
-        <CostResource index="Minerals" value="500"/>
+        <CostResource index="Minerals" value="800"/>
         <RepairTime value="150"/>
         <AttackTargetPriority value="20"/>
         <AbilArray Link="BuildInProgress"/>
@@ -1703,6 +1713,8 @@
         <HotkeyCategory value="Unit/Category/TerranUnits"/>
     </CUnit>
     <CUnit id="Thor">
+        <CostResource index="Minerals" value="500"/>
+        <CostResource index="Vespene" value="0"/>
         <CardLayouts index="0">
             <!--LayoutButtons Face="250mmStrikeCannonsLocked" Type="Passive" Requirements="SwannLevel07" Row="2" Column="0"/-->
             <LayoutButtons index="7" Face="" Type="Undefined" AbilCmd="" Row="0"/>
@@ -1712,6 +1724,8 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="ThorAP">
+        <CostResource index="Minerals" value="500"/>
+        <CostResource index="Vespene" value="0"/>
         <WeaponArray index="0" Link="LanceMissileLaunchers"/>
         <WeaponArray index="1" Link="ThorsHammer"/>
         <CardLayouts index="0">
@@ -1721,6 +1735,8 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="VikingAssault">
+        <CostResource index="Minerals" value="225"/>
+        <CostResource index="Vespene" value="0"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" removed="1"/>
             <LayoutButtons index="7" removed="1"/>
@@ -1729,6 +1745,8 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="VikingFighter">
+        <CostResource index="Minerals" value="225"/>
+        <CostResource index="Vespene" value="0"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" removed="1"/>
             <LayoutButtons index="7" removed="1"/>
@@ -1921,6 +1939,7 @@
     </CUnit>
     <CUnit id="StartingSCVLz" parent="BaseSCVLz">
         <Name value="Unit/Name/StartingSCVLz"/>
+        <Food value="0"/>
         <FlagArray index="Invulnerable" value="1"/>
         <PlaneArray index="Air" value="1"/>
         <Collide index="Flying" value="1"/>
@@ -1950,9 +1969,23 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="WidowMine">
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="0"/>
         <CardLayouts index="0">
             <LayoutButtons Face="DrillClawsMultiLz" Type="Passive" Requirements="HaveDrillingClawsMultiLz" Row="2" Column="3"/>
             <LayoutButtons Face="ConcealmentMultiLz" Type="Passive" Requirements="HaveArmory" Row="2" Column="4"/>
         </CardLayouts>
+    </CUnit>
+    <CUnit id="SiegeTank">
+        <CostResource index="Minerals" value="350"/>
+        <CostResource index="Vespene" value="0"/>
+    </CUnit>
+    <CUnit id="SiegeTankSieged">
+        <CostResource index="Minerals" value="350"/>
+        <CostResource index="Vespene" value="0"/>
+    </CUnit>
+    <CUnit id="Nuke">
+        <CostResource index="Minerals" value="200"/>
+        <CostResource index="Vespene" value="0"/>
     </CUnit>
 </Catalog>

@@ -5,6 +5,12 @@
         <AlertIcon value="Assets\Textures\btn-ability-terran-widowminehidden.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="UpgradetoOrbitalCommandLz">
+        <Icon value="Assets\Textures\BTN-Building-Terran-SurveillanceStation.dds"/>
+        <AlertTooltip value="Button/Tooltip/OrbitalCommand2"/>
+        <AlertIcon value="Assets\Textures\BTN-Building-Terran-SurveillanceStation.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="ResearchSmartServosMultiLz">
         <Icon value="Assets\Textures\btn-upgrade-terran-transformationservos.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-transformationservos.dds"/>

@@ -19,3 +19,4 @@ Button/Hotkey/ResearchSmartServosMultiLz=S
 Button/Hotkey/ScannerSweepLz=C
 Button/Hotkey/TrainSCVLz=S
 Button/Hotkey/UpgradeNeosteelArmorMultiLz=B
+Button/Hotkey/UpgradetoOrbitalCommandLz=B

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CBehaviorBuff id="BansheeCloak">
+        <Modification>
+            <VitalRegenArray index="Energy" value="-2.0234"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GhostCloak">
+        <Modification>
+            <VitalRegenArray index="Energy" value="-2.0234"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InterferenceMatrixMultiRavenLz">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-interferencematrix.dds"/>

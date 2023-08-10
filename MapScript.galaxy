@@ -6,6 +6,7 @@
 // 
 //==================================================================================================
 include "TriggerLibs/NativeLib"
+include "TriggerLibs/LibertyLib"
 include "LibCOMI"
 
 //--------------------------------------------------------------------------------------------------
@@ -1308,6 +1309,7 @@ void lib1_InitLib () {
 //--------------------------------------------------------------------------------------------------
 void InitLibs () {
     libNtve_InitLib();
+    libLbty_InitLib();
     libCOMI_InitLib();
     lib1_InitLib();
 }
@@ -1326,6 +1328,7 @@ playergroup gv_g_activeplayersplusally;
 unit gv_g_allyminingstation;
 playergroup gv_g_enemyplayergroup;
 unitgroup gv_g_playerminingstations;
+int gv_g_wave;
 
 void InitGlobals () {
     gv_g_activeplayers = PlayerGroupEmpty();
@@ -1337,11 +1340,16 @@ void InitGlobals () {
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
 //--------------------------------------------------------------------------------------------------
+void gf_initmaxpopperplayer ();
+void gf_initmineralsperplayer ();
+void gf_initunitperplayer ();
+void gf_initplayers ();
 void gf_initplayergroups ();
 void gf_initalliances ();
 void gf_initminingstations ();
-void gf_initplayers ();
-void gf_inittestresources ();
+void gf_initdefensepointpings ();
+void gf_initmisc ();
+void gf_inittextmessage ();
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
@@ -1353,6 +1361,90 @@ trigger gt_allyminingstationselected;
 //--------------------------------------------------------------------------------------------------
 // Global Functions
 //--------------------------------------------------------------------------------------------------
+void gf_initmaxpopperplayer () {
+    // Variable Declarations
+    int lv__p;
+    int lv__maxpopperplayerwith8people;
+    int lv__maxpoptotal;
+    int lv__maxpopperplayer;
+
+    // Automatic Variable Declarations
+    playergroup auto9D1A76C3_g;
+
+    // Variable Initialization
+    lv__maxpopperplayerwith8people = 200;
+    lv__maxpoptotal = (lv__maxpopperplayerwith8people * 8);
+    lv__maxpopperplayer = (lv__maxpoptotal / PlayerGroupCount(gv_g_activeplayers));
+
+    // Implementation
+    auto9D1A76C3_g = gv_g_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(auto9D1A76C3_g, lv__p);
+        if (lv__p < 0) { break; }
+        PlayerModifyPropertyInt(lv__p, c_playerPropSuppliesLimit, c_playerPropOperSetTo, lv__maxpopperplayer);
+        PlayerModifyPropertyInt(lv__p, c_playerPropSuppliesMade, c_playerPropOperSetTo, lv__maxpopperplayer);
+    }
+}
+
+void gf_initmineralsperplayer () {
+    // Variable Declarations
+    int lv__p;
+    int lv__mineralsperplayerwith8people;
+    int lv__mineralstotal;
+    int lv__mineralsperplayer;
+
+    // Automatic Variable Declarations
+    playergroup autoEC2780F1_g;
+
+    // Variable Initialization
+    lv__mineralsperplayerwith8people = 1000;
+    lv__mineralstotal = (lv__mineralsperplayerwith8people * 8);
+    lv__mineralsperplayer = (lv__mineralstotal / PlayerGroupCount(gv_g_activeplayers));
+
+    // Implementation
+    autoEC2780F1_g = gv_g_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(autoEC2780F1_g, lv__p);
+        if (lv__p < 0) { break; }
+        PlayerModifyPropertyInt(lv__p, c_playerPropMinerals, c_playerPropOperSetTo, lv__mineralsperplayer);
+    }
+}
+
+void gf_initunitperplayer () {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    playergroup autoC76926AD_g;
+
+    // Variable Initialization
+
+    // Implementation
+    autoC76926AD_g = gv_g_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(autoC76926AD_g, lv__p);
+        if (lv__p < 0) { break; }
+        lib1_gf_createunitatpoint("StartingSCVLz", PointFromName(("init unit - p" + IntToString(lv__p))), lv__p, 0);
+        UnitControlGroupAddUnit(lv__p, 1, UnitLastCreated());
+    }
+}
+
+void gf_initplayers () {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    gf_initmineralsperplayer();
+    gf_initmaxpopperplayer();
+    gf_initunitperplayer();
+}
+
 void gf_initplayergroups () {
     // Variable Declarations
     int lv__p;
@@ -1406,45 +1498,47 @@ void gf_initminingstations () {
     TriggerEnable(gt_allyminingstationselected, true);
 }
 
-void gf_initplayers () {
+void gf_initdefensepointpings () {
     // Variable Declarations
-    int lv__p;
+    int lv__pingdurationseconds;
 
     // Automatic Variable Declarations
-    playergroup autoE00DEF67_g;
-
     // Variable Initialization
+    lv__pingdurationseconds = 30;
 
     // Implementation
-    autoE00DEF67_g = gv_g_activeplayers;
-    lv__p = -1;
-    while (true) {
-        lv__p = PlayerGroupNextPlayer(autoE00DEF67_g, lv__p);
-        if (lv__p < 0) { break; }
-        PlayerModifyPropertyInt(lv__p, c_playerPropSuppliesMade, c_playerPropOperSetTo, 200);
-        lib1_gf_createunitatpoint("StartingSCVLz", PointFromName(("init unit - p" + IntToString(lv__p))), lv__p, 0);
-        UnitControlGroupAddUnit(lv__p, 1, UnitLastCreated());
-    }
+    libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingArrow", PointFromId(1134796180), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), lv__pingdurationseconds, 90.0);
+    libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingArrow", PointFromId(788266754), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), lv__pingdurationseconds, 0.0);
+    libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingArrow", PointFromId(445186026), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), lv__pingdurationseconds, 180.0);
+    libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingArrow", PointFromId(734070339), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), lv__pingdurationseconds, -90.0);
 }
 
-void gf_inittestresources () {
-    // Variable Declarations
-    int lv__p;
-
+void gf_initmisc () {
     // Automatic Variable Declarations
-    playergroup autoA096F9C6_g;
-
-    // Variable Initialization
-
     // Implementation
-    autoA096F9C6_g = gv_g_activeplayers;
-    lv__p = -1;
-    while (true) {
-        lv__p = PlayerGroupNextPlayer(autoA096F9C6_g, lv__p);
-        if (lv__p < 0) { break; }
-        PlayerModifyPropertyInt(lv__p, c_playerPropMinerals, c_playerPropOperSetTo, 10000);
-        PlayerModifyPropertyInt(lv__p, c_playerPropVespene, c_playerPropOperSetTo, 10000);
+    UISetFrameVisible(PlayerGroupAll(), c_syncFrameTypeTeamResourceButton, false);
+    libLbty_gf_EnableDisablePingPanel(true, PlayerGroupAll());
+}
+
+trigger auto_gf_inittextmessage_Trigger = null;
+
+void gf_inittextmessage () {
+    if (auto_gf_inittextmessage_Trigger == null) {
+        auto_gf_inittextmessage_Trigger = TriggerCreate("auto_gf_inittextmessage_TriggerFunc");
     }
+
+    TriggerExecute(auto_gf_inittextmessage_Trigger, false, false);
+}
+
+bool auto_gf_inittextmessage_TriggerFunc (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Implementation
+    lib1_gf_playsoundforallplayers(SoundLink("AnnounceWaveLz", -1));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, StringExternal("Param/Value/17E7CD71"));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Param/Value/4DB04D59"));
+    Wait(30.0, c_timeReal);
+    lib1_gf_cleartextmessageareaforallusers(c_messageAreaDirective);
+    return true;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1460,7 +1554,10 @@ bool gt_init_Func (bool testConds, bool runActions) {
     gf_initplayergroups();
     gf_initalliances();
     gf_initminingstations();
+    gf_initmisc();
     gf_initplayers();
+    gf_initdefensepointpings();
+    gf_inittextmessage();
     return true;
 }
 
@@ -1482,12 +1579,6 @@ bool gt_inittesting_Func (bool testConds, bool runActions) {
         }
     }
 
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_inittestresources();
     return true;
 }
 

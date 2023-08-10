@@ -80,6 +80,7 @@ Button/Name/ResearchSmartServosMultiLz=Research Smart Servos
 Button/Name/ScannerSweepLz=Scanner Sweep
 Button/Name/TrainSCVLz=Train Super SCV
 Button/Name/UpgradeNeosteelArmorMultiLz=Upgrade Neosteel Armor
+Button/Name/UpgradetoOrbitalCommandLz=Upgrade to Orbital Command
 Button/Tooltip/AdvancedBallisticsMultiLz=Increases the range of Liberators in Defender Mode by <d ref="$UpgradeEffectArrayValue:LiberatorAGRangeMultiLz:Weapon,LiberatorAGWeapon,Range$"/>.
 Button/Tooltip/ArmoryLz=Contains weapon and armor upgrades for Factory and Starport units. <n/><n/><c val="ffff8a">Enables:</c><n/>- Hellbat at the Factory<n/>- Thor at the Factory
 Button/Tooltip/BansheeSpeedMultiLz=Increases the movement speed of <c val="ffff8a">Banshees</c>.
@@ -107,8 +108,9 @@ Button/Tooltip/InfernalPreIgniterMultiHellbatLz=Deals +12 damage vs. light units
 Button/Tooltip/InfernalPreIgniterMultiHellionLz=Deals +5 damage vs. light units
 Button/Tooltip/MiningStationAllyLz=Tosh is refining large amounts of jorium to create more Spectres. Destroying the Jorium Stockpile will disrupt his plans.
 Button/Tooltip/MiningStationPlayerLz=Tosh is refining large amounts of jorium to create more Spectres. Destroying the Jorium Stockpile will disrupt his plans.
-Button/Tooltip/NukeArm=Arms the Silo with a Tactical Nuke.<n/><n/>Nukes take <d time="10"/> to land, but they deal up to 300 (+200 vs. structures) damage in a large radius.<n/><n/>Use a Ghost to designate the target.
+Button/Tooltip/NukeArm=<c val="FF6166">Nukes are not refunded after waves !</c><n/><n/>Arms the Silo with a Tactical Nuke.<n/><n/>Nukes take <d time="10"/> to land, but they deal up to 300 (+200 vs. structures) damage in a large radius.<n/><n/>Use a Ghost to designate the target.
 Button/Tooltip/NukeCalldown=Calls down a Nuclear Strike at a target location. Nukes take <d time="10"/> to land, but they deal up to 300 (+200 vs. structures) damage in a large radius.<n/><n/>Purchase charges at the Ghost Academy.
+Button/Tooltip/OrbitalCommand2=Can call down super mules which repair fo free twice as fast.  Can also call harden walls which have twice the health and repair twice as fast.
 Button/Tooltip/OrbitalCommandFlyingLz=Primary structure. Must land to receive resources, produce units, or use abilities.
 Button/Tooltip/OrbitalCommandLzUnit=Primary structure. Used to train SCVs and receive gathered resources. Can use the Scanner Sweep ability. Can use the abilities Calldown: MULE and Calldown: Extra Supplies.
 Button/Tooltip/PlanetaryFortressLz=Defensive stronghold. <n/>Used to receive gathered resources. <n/><n/><c val="ffff8a">Can attack ground units.</c>
@@ -132,6 +134,7 @@ Button/Tooltip/TechLabLz=Enables additional units and research options. A Tech L
 Button/Tooltip/TestMarineLz=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/TrainSCVLz=More health and repairs fo free
 Button/Tooltip/UpgradeNeosteelArmorMultiLz=Upgrades the armor of <c val="ffff8a">structures</c> by 2. Increases the cargo space of <c val="ffff8a">Bunkers</c> by 2. Also provides extra cargo space for <c val="ffff8a">Command Centers</c> and <c val="ffff8a">Planetary Fortresses</c>.
+Button/Tooltip/UpgradetoOrbitalCommandLz=Upgrades Command Center to an Orbital Command, unlocking Scanner Sweep and Calldown: MULE. Cannot load SCVs.
 Button/Tooltip/WallLoweredLz=Provides supply.<n/>Supply allows you to create more units.<n/>Supply Depots can be lowered to allow units to walk over them.
 Button/Tooltip/WallLz=Provides supply.<n/>Supply allows you to create more units.<n/>Supply Depots can be lowered to allow units to walk over them.
 DocInfo/DescLong=Completely devoid of any description whatsoever.
@@ -187,6 +190,8 @@ MapInfo/Player11/Name=Hostile
 Param/Expression/lib_1_0137C127=Unexpected race returned for player ~p~
 Param/Expression/lib_1_063C9B82=Unexpected race returned for player ~p~
 Param/Expression/lib_1_307E16AC=stage: ~ability_stage~
+Param/Value/17E7CD71=Survive 20 Waves
+Param/Value/4DB04D59=If anyone survives a wave, everyone is resurrected and casualties refunded.
 Param/Value/lib_1_0D4B38C5=Generic6 - Complete
 Param/Value/lib_1_0DDB8C11=<error: stage not found>
 Param/Value/lib_1_1660F597=Build7 - Collide
