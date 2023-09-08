@@ -2,10 +2,11 @@
 <Preload>
 <Actor id="SYSTEM_ActorConfig"/>
 <Model id="PingArrow"/>
+<Race id="Terr"/>
 <Sound id="UI_GenericError"/>
 <Sound id="Alert_TerranNeedMoreMinerals"/>
-<Sound id="MiningStationSelectedLz"/>
 <Sound id="AnnounceWaveLz"/>
+<Sound id="MiningStationSelectedLz"/>
 <Terrain id="PurifierJungle"/>
 <Unit id="MiningStationAllyLz"/>
 <Unit id="MiningStationPlayerLz"/>

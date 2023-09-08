@@ -41,6 +41,9 @@ timer lib1_gv_everysecond;
 bool lib1_gv_localdebug;
 int[17] lib1_gv_randomindices;
 bool lib1_gv_test;
+bool lib1_gv_testmultiplayerlocally;
+int lib1_gv_testmultiplayerlocallynumplayers;
+string[9] lib1_gv_testmultiplayerlocallyraces;
 unitgroup[17][17] lib1_gv_unitsingroupsofNperplayer;
 
 // Function Declarations
@@ -158,6 +161,11 @@ void lib1_InitVariables () {
     lib1_gv_everysecond = TimerCreate();
     lib1_gv_localdebug = true;
     lib1_gv_test = true;
+    lib1_gv_testmultiplayerlocally = true;
+    lib1_gv_testmultiplayerlocallynumplayers = 8;
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        lib1_gv_testmultiplayerlocallyraces[init_i] = "Terr";
+    }
     for (init_i = 0; init_i <= 16; init_i += 1) {
         for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_unitsingroupsofNperplayer[init_i][init_j] = UnitGroupEmpty();
@@ -1305,6 +1313,328 @@ void lib1_InitLib () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Library: utils - round
+//--------------------------------------------------------------------------------------------------
+// Constants
+const string lib2_gv_ur_startround = "uw_start round";
+
+// Variable Declarations
+playergroup lib2_gv_ur_activeplayers;
+soundlink lib2_gv_ur_announceroundsound;
+int lib2_gv_ur_currentround;
+int lib2_gv_ur_dilabel;
+int lib2_gv_ur_ditimer;
+int lib2_gv_ur_diskip;
+int lib2_gv_ur_dialog;
+bool[17] lib2_gv_ur_playertoskipclicked;
+timer lib2_gv_ur_roundtimer;
+int lib2_gv_ur_timebetweenrounds;
+bool lib2_gv_ur_timerexists;
+
+// Function Declarations
+void lib2_gf_ur_init (bool lp_timerexists, playergroup lp_activeplayers, soundlink lp_announceroundsound, int lp_timebetweenrounds);
+void lib2_gf_ur_announceround ();
+void lib2_gf_ur_resetskipclicked ();
+void lib2_gf_ur_completecurrentroundandbeginnext ();
+void lib2_gf_ur_showdialog (int lp_timerstart);
+void lib2_gf_ur_skipifallclicked ();
+void lib2_gf_ur_startfirstround (int lp_time);
+void lib2_gf_ur_startround ();
+void lib2_gf_ur_updatedialogtimervalue ();
+
+// Trigger Declarations
+trigger lib2_gt_ur_everysecond;
+trigger lib2_gt_ur_skiproundtimer;
+trigger lib2_gt_ur_roundtimerexpires;
+
+// Library Initialization
+void lib2_InitVariables ();
+
+//--------------------------------------------------------------------------------------------------
+// Library: utils - round
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void lib2_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Variable Initialization
+bool lib2_InitVariables_completed = false;
+
+void lib2_InitVariables () {
+    if (lib2_InitVariables_completed) {
+        return;
+    }
+
+    lib2_InitVariables_completed = true;
+
+    lib2_gv_ur_activeplayers = PlayerGroupEmpty();
+    lib2_gv_ur_announceroundsound = SoundLink("EditorDefaultSound", -1);
+    lib2_gv_ur_currentround = 1;
+    lib2_gv_ur_dilabel = c_invalidDialogControlId;
+    lib2_gv_ur_ditimer = c_invalidDialogControlId;
+    lib2_gv_ur_diskip = c_invalidDialogControlId;
+    lib2_gv_ur_dialog = c_invalidDialogId;
+    lib2_gv_ur_roundtimer = TimerCreate();
+    lib2_gv_ur_timebetweenrounds = 40;
+}
+
+// Functions
+void lib2_gf_ur_init (bool lp_timerexists, playergroup lp_activeplayers, soundlink lp_announceroundsound, int lp_timebetweenrounds) {
+    // Automatic Variable Declarations
+    // Implementation
+    lib2_gv_ur_timerexists = lp_timerexists;
+    lib2_gv_ur_activeplayers = lp_activeplayers;
+    lib2_gv_ur_announceroundsound = lp_announceroundsound;
+    lib2_gv_ur_timebetweenrounds = lp_timebetweenrounds;
+    DialogCreate(600, 117, c_anchorTop, 0, 0, true);
+    lib2_gv_ur_dialog = DialogLastCreated();
+    if (lib1_gf_istrue(lib2_gv_ur_timerexists)) {
+        libNtve_gf_CreateDialogItemLabel(lib2_gv_ur_dialog, 300, 50, c_anchorTopLeft, 50, 50, StringExternal("Param/Value/lib_2_03F612BE"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        lib2_gv_ur_dilabel = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemLabel(lib2_gv_ur_dialog, 50, 50, c_anchorTopRight, 200, 50, StringToText(""), ColorWithAlpha(0,0,0,0), false, 2.0);
+        lib2_gv_ur_ditimer = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemButton(lib2_gv_ur_dialog, 100, 50, c_anchorTopRight, 50, 36, StringToText(""), StringExternal("Param/Value/lib_2_79150B65"), "");
+        lib2_gv_ur_diskip = DialogControlLastCreated();
+    }
+    else {
+        libNtve_gf_CreateDialogItemLabel(lib2_gv_ur_dialog, 450, 50, c_anchorTopLeft, 50, 50, StringExternal("Param/Value/lib_2_C6578E84"), ColorWithAlpha(0,0,0,0), false, 2.0);
+        lib2_gv_ur_dilabel = DialogControlLastCreated();
+        libNtve_gf_CreateDialogItemButton(lib2_gv_ur_dialog, 110, 50, c_anchorTopRight, 50, 36, StringToText(""), StringExternal("Param/Value/lib_2_0A68C9BF"), "");
+        lib2_gv_ur_diskip = DialogControlLastCreated();
+    }
+}
+
+trigger auto_lib2_gf_ur_announceround_Trigger = null;
+
+void lib2_gf_ur_announceround () {
+    if (auto_lib2_gf_ur_announceround_Trigger == null) {
+        auto_lib2_gf_ur_announceround_Trigger = TriggerCreate("auto_lib2_gf_ur_announceround_TriggerFunc");
+    }
+
+    TriggerExecute(auto_lib2_gf_ur_announceround_Trigger, false, false);
+}
+
+bool auto_lib2_gf_ur_announceround_TriggerFunc (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Implementation
+    lib1_gf_playsoundforallplayers(lib2_gv_ur_announceroundsound);
+    TextExpressionSetToken("Param/Expression/lib_2_F4DA299E", "r", IntToText(lib2_gv_ur_currentround));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, TextExpressionAssemble("Param/Expression/lib_2_F4DA299E"));
+    Wait(8.0, c_timeReal);
+    lib1_gf_cleartextmessageareaforallusers(c_messageAreaDirective);
+    return true;
+}
+
+void lib2_gf_ur_resetskipclicked () {
+    // Variable Declarations
+    int lv__p;
+
+    // Automatic Variable Declarations
+    playergroup autoB8BC17DB_g;
+
+    // Variable Initialization
+
+    // Implementation
+    DialogControlSetEnabled(lib2_gv_ur_diskip, PlayerGroupAll(), true);
+    autoB8BC17DB_g = lib2_gv_ur_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(autoB8BC17DB_g, lv__p);
+        if (lv__p < 0) { break; }
+        lib2_gv_ur_playertoskipclicked[lv__p] = false;
+    }
+}
+
+void lib2_gf_ur_completecurrentroundandbeginnext () {
+    // Automatic Variable Declarations
+    // Implementation
+    lib2_gv_ur_currentround = lib2_gv_ur_currentround + 1;
+    lib2_gf_ur_showdialog(lib2_gv_ur_timebetweenrounds);
+}
+
+void lib2_gf_ur_showdialog (int lp_timerstart) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_istrue(lib2_gv_ur_timerexists)) {
+        TimerStart(lib2_gv_ur_roundtimer, lp_timerstart, false, c_timeReal);
+    }
+
+    DialogSetVisible(lib2_gv_ur_dialog, PlayerGroupAll(), true);
+    lib2_gf_ur_updatedialogtimervalue();
+}
+
+void lib2_gf_ur_skipifallclicked () {
+    // Variable Declarations
+    int lv__p;
+    bool lv__allclicked;
+
+    // Automatic Variable Declarations
+    playergroup auto58175071_g;
+
+    // Variable Initialization
+    lv__allclicked = true;
+
+    // Implementation
+    auto58175071_g = lib2_gv_ur_activeplayers;
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(auto58175071_g, lv__p);
+        if (lv__p < 0) { break; }
+        if (lib1_gf_isfalse(lib2_gv_ur_playertoskipclicked[lv__p])) {
+            lv__allclicked = false;
+            break;
+        }
+
+    }
+    if (lib1_gf_istrue(lv__allclicked)) {
+        libNtve_gf_StopTimer(lib2_gv_ur_roundtimer);
+        lib2_gf_ur_startround();
+    }
+
+}
+
+void lib2_gf_ur_startfirstround (int lp_time) {
+    // Automatic Variable Declarations
+    // Implementation
+    lib2_gf_ur_showdialog(lp_time);
+}
+
+void lib2_gf_ur_startround () {
+    // Automatic Variable Declarations
+    // Implementation
+    DialogSetVisible(lib2_gv_ur_dialog, PlayerGroupAll(), false);
+    lib2_gf_ur_resetskipclicked();
+    lib2_gf_ur_announceround();
+    TriggerSendEvent(lib2_gv_ur_startround);
+}
+
+void lib2_gf_ur_updatedialogtimervalue () {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_istrue(lib1_gf_timerisactive(lib2_gv_ur_roundtimer))) {
+        libNtve_gf_SetDialogItemText(lib2_gv_ur_ditimer, FixedToText(TimerGetRemaining(lib2_gv_ur_roundtimer), 0), PlayerGroupAll());
+    }
+
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: ur_every second
+//--------------------------------------------------------------------------------------------------
+bool lib2_gt_ur_everysecond_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lib2_gf_ur_updatedialogtimervalue();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib2_gt_ur_everysecond_Init () {
+    lib2_gt_ur_everysecond = TriggerCreate("lib2_gt_ur_everysecond_Func");
+    TriggerAddEventTimer(lib2_gt_ur_everysecond, lib1_gv_everysecond);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: ur_skip round timer
+//--------------------------------------------------------------------------------------------------
+bool lib2_gt_ur_skiproundtimer_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv__p;
+    int lv__di;
+    int lv__tp;
+
+    // Automatic Variable Declarations
+    playergroup auto84A437C1_g;
+
+    // Variable Initialization
+    lv__p = EventPlayer();
+    lv__di = EventDialogControl();
+
+    // Conditions
+    if (testConds) {
+        if (!((lv__di == lib2_gv_ur_diskip))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if (lib1_gf_istrue(lib1_gv_testmultiplayerlocally)) {
+        auto84A437C1_g = lib2_gv_ur_activeplayers;
+        lv__tp = -1;
+        while (true) {
+            lv__tp = PlayerGroupNextPlayer(auto84A437C1_g, lv__tp);
+            if (lv__tp < 0) { break; }
+            DialogControlSetEnabled(lv__di, PlayerGroupSingle(lv__tp), false);
+            lib2_gv_ur_playertoskipclicked[lv__tp] = true;
+        }
+    }
+    else {
+        DialogControlSetEnabled(lv__di, PlayerGroupSingle(lv__p), false);
+        lib2_gv_ur_playertoskipclicked[lv__p] = true;
+    }
+    lib2_gf_ur_skipifallclicked();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib2_gt_ur_skiproundtimer_Init () {
+    lib2_gt_ur_skiproundtimer = TriggerCreate("lib2_gt_ur_skiproundtimer_Func");
+    TriggerAddEventDialogControl(lib2_gt_ur_skiproundtimer, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: ur_round timer expires
+//--------------------------------------------------------------------------------------------------
+bool lib2_gt_ur_roundtimerexpires_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lib2_gf_ur_startround();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib2_gt_ur_roundtimerexpires_Init () {
+    lib2_gt_ur_roundtimerexpires = TriggerCreate("lib2_gt_ur_roundtimerexpires_Func");
+    TriggerAddEventTimer(lib2_gt_ur_roundtimerexpires, lib2_gv_ur_roundtimer);
+}
+
+void lib2_InitTriggers () {
+    lib2_gt_ur_everysecond_Init();
+    lib2_gt_ur_skiproundtimer_Init();
+    lib2_gt_ur_roundtimerexpires_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool lib2_InitLib_completed = false;
+
+void lib2_InitLib () {
+    if (lib2_InitLib_completed) {
+        return;
+    }
+
+    lib2_InitLib_completed = true;
+
+    lib2_InitLibraries();
+    lib2_InitVariables();
+    lib2_InitTriggers();
+}
+
+//--------------------------------------------------------------------------------------------------
 // Library Initialization
 //--------------------------------------------------------------------------------------------------
 void InitLibs () {
@@ -1312,6 +1642,7 @@ void InitLibs () {
     libLbty_InitLib();
     libCOMI_InitLib();
     lib1_InitLib();
+    lib2_InitLib();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1328,7 +1659,7 @@ playergroup gv_g_activeplayersplusally;
 unit gv_g_allyminingstation;
 playergroup gv_g_enemyplayergroup;
 unitgroup gv_g_playerminingstations;
-int gv_g_wave;
+int gv_g_round;
 
 void InitGlobals () {
     gv_g_activeplayers = PlayerGroupEmpty();
@@ -1350,12 +1681,17 @@ void gf_initminingstations ();
 void gf_initdefensepointpings ();
 void gf_initmisc ();
 void gf_inittextmessage ();
+void gf_initroundtimerdialog ();
+void gf_initmultiplayerraces ();
+void gf_inittestdata ();
+void gf_inittestrace ();
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_init;
 trigger gt_inittesting;
+trigger gt_startround;
 trigger gt_allyminingstationselected;
 
 //--------------------------------------------------------------------------------------------------
@@ -1392,15 +1728,17 @@ void gf_initmineralsperplayer () {
     int lv__p;
     int lv__mineralsperplayerwith8people;
     int lv__mineralstotal;
+    int lv__startupcostperplayer;
     int lv__mineralsperplayer;
 
     // Automatic Variable Declarations
     playergroup autoEC2780F1_g;
 
     // Variable Initialization
-    lv__mineralsperplayerwith8people = 1000;
+    lv__mineralsperplayerwith8people = 600;
     lv__mineralstotal = (lv__mineralsperplayerwith8people * 8);
-    lv__mineralsperplayer = (lv__mineralstotal / PlayerGroupCount(gv_g_activeplayers));
+    lv__startupcostperplayer = 400;
+    lv__mineralsperplayer = ((lv__mineralstotal / PlayerGroupCount(gv_g_activeplayers)) + lv__startupcostperplayer);
 
     // Implementation
     autoEC2780F1_g = gv_g_activeplayers;
@@ -1452,6 +1790,8 @@ void gf_initplayergroups () {
     // Automatic Variable Declarations
     const int autoA8169E44_ae = 8;
     const int autoA8169E44_ai = 1;
+    int auto89935255_ae;
+    const int auto89935255_ai = 1;
 
     // Variable Initialization
 
@@ -1463,6 +1803,15 @@ void gf_initplayergroups () {
         }
 
     }
+    if (lib1_gf_istrue(lib1_gv_testmultiplayerlocally)) {
+        auto89935255_ae = lib1_gv_testmultiplayerlocallynumplayers;
+        lv__p = 2;
+        for ( ; ( (auto89935255_ai >= 0 && lv__p <= auto89935255_ae) || (auto89935255_ai < 0 && lv__p >= auto89935255_ae) ) ; lv__p += auto89935255_ai ) {
+            PlayerGroupAdd(gv_g_activeplayers, lv__p);
+            PlayerSetRace(lv__p, "Terr");
+        }
+    }
+
     libNtve_gf_AddPlayerGroupToPlayerGroup(gv_g_activeplayers, gv_g_activeplayersplusally);
     PlayerGroupAdd(gv_g_activeplayersplusally, gv_g_ally);
     PlayerGroupAdd(gv_g_enemyplayergroup, gv_g_enemy);
@@ -1473,6 +1822,10 @@ void gf_initalliances () {
     // Implementation
     libCOMI_gf_SetPlayerGroupAlliance(gv_g_activeplayersplusally, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     libNtve_gf_SetAllianceAspectForPlayerGroup(gv_g_activeplayers, c_allianceIdPushable, true);
+    if (lib1_gf_istrue(lib1_gv_testmultiplayerlocally)) {
+        libNtve_gf_SetPlayerGroupAlliance(gv_g_activeplayers, libNtve_ge_AllianceSetting_AllyWithSharedVisionControlAndSpending);
+    }
+
 }
 
 void gf_initminingstations () {
@@ -1541,6 +1894,38 @@ bool auto_gf_inittextmessage_TriggerFunc (bool testConds, bool runActions) {
     return true;
 }
 
+void gf_initroundtimerdialog () {
+    // Automatic Variable Declarations
+    // Implementation
+    lib2_gf_ur_init(true, gv_g_activeplayers, SoundLink("AnnounceWaveLz", -1), 40);
+    lib2_gf_ur_startfirstround(120);
+}
+
+void gf_initmultiplayerraces () {
+    // Automatic Variable Declarations
+    // Implementation
+    lib1_gv_testmultiplayerlocallyraces[2] = "Terr";
+    lib1_gv_testmultiplayerlocallyraces[3] = "Terr";
+    lib1_gv_testmultiplayerlocallyraces[4] = "Terr";
+    lib1_gv_testmultiplayerlocallyraces[5] = "Terr";
+    lib1_gv_testmultiplayerlocallyraces[6] = "Terr";
+    lib1_gv_testmultiplayerlocallyraces[7] = "Terr";
+    lib1_gv_testmultiplayerlocallyraces[8] = "Terr";
+}
+
+void gf_inittestdata () {
+    // Automatic Variable Declarations
+    // Implementation
+    if (lib1_gf_istrue(lib1_gv_test)) {
+        gf_initmultiplayerraces();
+    }
+
+}
+
+void gf_inittestrace () {
+    // Automatic Variable Declarations
+}
+
 //--------------------------------------------------------------------------------------------------
 // Trigger: init
 //--------------------------------------------------------------------------------------------------
@@ -1551,6 +1936,7 @@ bool gt_init_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    gf_inittestdata();
     gf_initplayergroups();
     gf_initalliances();
     gf_initminingstations();
@@ -1558,6 +1944,7 @@ bool gt_init_Func (bool testConds, bool runActions) {
     gf_initplayers();
     gf_initdefensepointpings();
     gf_inittextmessage();
+    gf_initroundtimerdialog();
     return true;
 }
 
@@ -1586,6 +1973,26 @@ bool gt_inittesting_Func (bool testConds, bool runActions) {
 void gt_inittesting_Init () {
     gt_inittesting = TriggerCreate("gt_inittesting_Func");
     TriggerAddEventMapInit(gt_inittesting);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: start round
+//--------------------------------------------------------------------------------------------------
+bool gt_startround_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lib1_gf_displaydebugmessage(StringExternal("Param/Value/2E5F2AA9"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_startround_Init () {
+    gt_startround = TriggerCreate("gt_startround_Func");
+    TriggerAddEventGeneric(gt_startround, "uw_start round");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1625,6 +2032,7 @@ void gt_allyminingstationselected_Init () {
 void InitTriggers () {
     gt_init_Init();
     gt_inittesting_Init();
+    gt_startround_Init();
     gt_allyminingstationselected_Init();
 }
 
