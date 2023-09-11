@@ -35,6 +35,7 @@ struct lib1_gs_debouncedmessage {
 // Variable Declarations
 unit[17][3] lib1_gv_selectedunits;
 lib1_gs_debouncedmessage[101] lib1_gv_debouncedmessages;
+string[5] lib1_gv_direction4;
 text lib1_gv_colorcalamity;
 text lib1_gv_colorsuccess;
 timer lib1_gv_everysecond;
@@ -93,12 +94,15 @@ void lib1_gf_alertplayererror (int lp_p, text lp_err);
 void lib1_gf_cleartextmessageareaforallusers (int lp_messagearea);
 void lib1_gf_cleartextmessageareaforuser (int lp_p, int lp_messagearea);
 void lib1_gf_createunitatpoint (string lp_ut, point lp_point, int lp_player, int lp_opts);
-void lib1_gf_createNunitsatpoint (int lp_n, string lp_ut, point lp_point, int lp_player);
+void lib1_gf_createunitatrandompointinregion (string lp_ut, region lp_r, int lp_player, int lp_opts);
+void lib1_gf_createNunitsatpoint (int lp_n, string lp_ut, point lp_point, int lp_player, int lp_opts);
+void lib1_gf_createNunitsatrandompointsinregion (int lp_n, string lp_ut, region lp_r, int lp_player, int lp_opts);
 void lib1_gf_debouncedmessageaddorset (structref<lib1_gs_debouncedmessage> lp_debouncedmessage);
 void lib1_gf_debouncedmessageremove (string lp_id);
 void lib1_gf_debouncedmessageset (structref<lib1_gs_debouncedmessage> lp_debouncedmessage, int lp_i);
 void lib1_gf_displaydebugmessage (text lp_msg);
 void lib1_gf_endgameforplayergroup (playergroup lp_pg, int lp_gameovertype);
+void lib1_gf_initdirection4 ();
 void lib1_gf_initeverysecondtimer ();
 void lib1_gf_initlocaldebuggingstate ();
 void lib1_gf_issueordertoallunitsinregion (order lp_o, region lp_r, int lp_p, int lp_orderqueue);
@@ -155,6 +159,9 @@ void lib1_InitVariables () {
 
     for (init_i = 0; init_i <= 100; init_i += 1) {
         lib1_gv_debouncedmessages[init_i].lv_id = "";
+    }
+    for (init_i = 0; init_i <= 4; init_i += 1) {
+        lib1_gv_direction4[init_i] = "";
     }
     lib1_gv_colorcalamity = StringExternal("Param/Value/lib_1_4A35FBAD");
     lib1_gv_colorsuccess = StringExternal("Param/Value/lib_1_1BE6C03F");
@@ -741,10 +748,34 @@ void lib1_gf_createunitatpoint (string lp_ut, point lp_point, int lp_player, int
     UnitCreate(1, lp_ut, lp_opts, lp_player, lp_point, 270.0);
 }
 
-void lib1_gf_createNunitsatpoint (int lp_n, string lp_ut, point lp_point, int lp_player) {
+void lib1_gf_createunitatrandompointinregion (string lp_ut, region lp_r, int lp_player, int lp_opts) {
     // Automatic Variable Declarations
     // Implementation
-    UnitCreate(lp_n, lp_ut, 0, lp_player, lp_point, 270.0);
+    UnitCreate(1, lp_ut, lp_opts, lp_player, RegionRandomPoint(lp_r), 270.0);
+}
+
+void lib1_gf_createNunitsatpoint (int lp_n, string lp_ut, point lp_point, int lp_player, int lp_opts) {
+    // Automatic Variable Declarations
+    // Implementation
+    UnitCreate(lp_n, lp_ut, lp_opts, lp_player, lp_point, 270.0);
+}
+
+void lib1_gf_createNunitsatrandompointsinregion (int lp_n, string lp_ut, region lp_r, int lp_player, int lp_opts) {
+    // Variable Declarations
+    int lv__i;
+
+    // Automatic Variable Declarations
+    int auto96CB641C_ae;
+    const int auto96CB641C_ai = 1;
+
+    // Variable Initialization
+
+    // Implementation
+    auto96CB641C_ae = lp_n;
+    lv__i = 1;
+    for ( ; ( (auto96CB641C_ai >= 0 && lv__i <= auto96CB641C_ae) || (auto96CB641C_ai < 0 && lv__i >= auto96CB641C_ae) ) ; lv__i += auto96CB641C_ai ) {
+        lib1_gf_createunitatrandompointinregion(lp_ut, lp_r, lp_player, lp_opts);
+    }
 }
 
 void lib1_gf_debouncedmessageaddorset (structref<lib1_gs_debouncedmessage> lp_debouncedmessage) {
@@ -859,6 +890,15 @@ void lib1_gf_endgameforplayergroup (playergroup lp_pg, int lp_gameovertype) {
         if (lv__p < 0) { break; }
         GameOver(lv__p, lp_gameovertype, true, true);
     }
+}
+
+void lib1_gf_initdirection4 () {
+    // Automatic Variable Declarations
+    // Implementation
+    lib1_gv_direction4[0] = "top";
+    lib1_gv_direction4[1] = "right";
+    lib1_gv_direction4[2] = "bot";
+    lib1_gv_direction4[3] = "left";
 }
 
 void lib1_gf_initeverysecondtimer () {
@@ -1279,6 +1319,7 @@ bool lib1_gt_utilsinitmap_Func (bool testConds, bool runActions) {
 
     lib1_gf_initeverysecondtimer();
     lib1_gf_initlocaldebuggingstate();
+    lib1_gf_initdirection4();
     return true;
 }
 
@@ -1685,6 +1726,9 @@ void gf_initroundtimerdialog ();
 void gf_initmultiplayerraces ();
 void gf_inittestdata ();
 void gf_inittestrace ();
+void gf_round1 ();
+void gf_round2 ();
+void gf_round3 ();
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
@@ -1926,6 +1970,69 @@ void gf_inittestrace () {
     // Automatic Variable Declarations
 }
 
+void gf_round1 () {
+    // Variable Declarations
+    string lv__d;
+
+    // Automatic Variable Declarations
+    int auto7692722A_i;
+
+    // Variable Initialization
+    lv__d = "";
+
+    // Implementation
+    for (auto7692722A_i = 0; auto7692722A_i < 4; auto7692722A_i +=1 )
+    {
+        lv__d = lib1_gv_direction4[auto7692722A_i];
+        lib1_gf_createNunitsatrandompointsinregion(20, "SwarmZerglingLz", RegionFromName(("enemy spawn - core - " + lv__d)), gv_g_enemy, c_unitCreateIgnoreBirth);
+        ;
+    }
+}
+
+void gf_round2 () {
+    // Variable Declarations
+    string lv__d;
+
+    // Automatic Variable Declarations
+    int auto1658EEAA_i;
+
+    // Variable Initialization
+    lv__d = "";
+
+    // Implementation
+    if ((lib2_gv_ur_currentround >= 2)) {
+        for (auto1658EEAA_i = 0; auto1658EEAA_i < 4; auto1658EEAA_i +=1 )
+        {
+            lv__d = lib1_gv_direction4[auto1658EEAA_i];
+            lib1_gf_createNunitsatrandompointsinregion(10, "SwarmRoachLz", RegionFromName(("enemy spawn - core - " + lv__d)), gv_g_enemy, c_unitCreateIgnoreBirth);
+            ;
+        }
+    }
+
+}
+
+void gf_round3 () {
+    // Variable Declarations
+    string lv__d;
+
+    // Automatic Variable Declarations
+    int autoA5455EC4_i;
+
+    // Variable Initialization
+    lv__d = "";
+
+    // Implementation
+    if ((lib2_gv_ur_currentround >= 3)) {
+        for (autoA5455EC4_i = 0; autoA5455EC4_i < 4; autoA5455EC4_i +=1 )
+        {
+            lv__d = lib1_gv_direction4[autoA5455EC4_i];
+            lib1_gf_createNunitsatrandompointsinregion(20, "SwarmZerglingLz", RegionFromName(("enemy spawn - core - " + lv__d)), gv_g_enemy, c_unitCreateIgnoreBirth);
+            ;
+        }
+    }
+
+}
+
 //--------------------------------------------------------------------------------------------------
 // Trigger: init
 //--------------------------------------------------------------------------------------------------
@@ -1958,7 +2065,13 @@ void gt_init_Init () {
 // Trigger: init testing
 //--------------------------------------------------------------------------------------------------
 bool gt_inittesting_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv__d;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+    lv__d = "";
+
     // Conditions
     if (testConds) {
         if (!(lib1_gf_istrue(lib1_gv_test))) {
@@ -1985,14 +2098,14 @@ bool gt_startround_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lib1_gf_displaydebugmessage(StringExternal("Param/Value/2E5F2AA9"));
+    gf_round1();
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_startround_Init () {
     gt_startround = TriggerCreate("gt_startround_Func");
-    TriggerAddEventGeneric(gt_startround, "uw_start round");
+    TriggerAddEventGeneric(gt_startround, lib2_gv_ur_startround);
 }
 
 //--------------------------------------------------------------------------------------------------

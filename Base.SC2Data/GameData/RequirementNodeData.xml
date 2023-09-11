@@ -142,4 +142,16 @@
     <CRequirementNot id="NotCountUpgradeSmartServosMultiLzQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeSmartServosMultiLzQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementCountUpgrade id="UpgradeRoach2CompleteOnly">
+        <Count Link="SwarmRoachLz"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeRoach2QueuedOrBetter">
+        <Count Link="SwarmRoachLz"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeZergling2CompleteOnly">
+        <Count Link="SwarmZerglingLz"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeZergling2QueuedOrBetter">
+        <Count Link="SwarmZerglingLz"/>
+    </CRequirementCountUpgrade>
 </Catalog>

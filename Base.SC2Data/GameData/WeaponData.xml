@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CWeaponLegacy id="AcidSalivaSwarmRoachLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="AcidSalivaDamageSwarmRoachLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="4"/>
+        <MinimumRange value="0.6"/>
+        <Period value="2"/>
+        <Effect value="AcidSalivaLMSwarmRoachLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AcidSpinesAirAttackSwarmQueenLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="AcidSpinesDamageSwarmQueenLz"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="7"/>
+        <Period value="1"/>
+        <Effect value="AcidSpinesLMSwarmQueenLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ClawsSwarmZerglingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="ClawsDamageSwarmZerglingLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="HotSZerglingClawsSwarmLz"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="LanceMissileLaunchers">
         <Range value="11"/>
         <Period value="1.28"/>
@@ -31,5 +60,42 @@
     <CWeaponLegacy id="P38ScytheGuassPistol">
         <Range value="5"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="NeedleSpinesMeleeSwarmRoachLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="NeedleSpinesMeleeDamageSwarmRoachLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.5"/>
+        <Marker Link="Weapon/AcidSaliva"/>
+        <Cost>
+            <Cooldown Link="Weapon/AcidSaliva"/>
+        </Cost>
+        <Period value="2"/>
+        <Effect value="NeedleSpinesSetSwarmRoachLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TalonsMeleeSwarmQueenLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="TalonsDamageSwarmQueenLz"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <Period value="1"/>
+        <Effect value="TalonsCPSwarmQueenLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TalonsRangedGroundSwarmQueenLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="TalonsMissileDamage2"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="5.5"/>
+        <MinimumRange value="3"/>
+        <Period value="1"/>
+        <Effect value="TalonsMissileBurst2"/>
     </CWeaponLegacy>
 </Catalog>

@@ -130,6 +130,9 @@ Button/Tooltip/StarportLz=Air-unit production facility. <n/><n/><c val="ffff8a">
 Button/Tooltip/StartingSCVLz=Basic worker unit. Can gather resources, build Terran structures, and repair.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/SuperMULELz=Prototype harvesting unit. Gathers minerals more quickly than regular SCVs. MULEs last <d time="90"/> before their systems fail.
 Button/Tooltip/SuperSCVLz=Basic worker unit. Can gather resources, build Terran structures, and repair.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/SwarmQueenLz=Support unit. Can use Spawn Creep Tumor and Rapid Transfusion.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/SwarmRoachLz=Assault unit. Regenerates life quickly when burrowed.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/SwarmZerglingLz=Fast melee creature. Can morph into a Baneling.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
 Button/Tooltip/TechLabLz=Enables additional units and research options. A Tech Lab can fit onto any production structure.
 Button/Tooltip/TestMarineLz=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/TrainSCVLz=More health and repairs fo free
@@ -140,6 +143,12 @@ Button/Tooltip/WallLz=Provides supply.<n/>Supply allows you to create more units
 DocInfo/DescLong=Completely devoid of any description whatsoever.
 DocInfo/DescShort=Any
 DocInfo/Name=Just Another StarCraft II Map
+Effect/Name/AcidSalivaDamageSwarmRoachLz=Acid Saliva Damage
+Effect/Name/AcidSalivaLMSwarmRoachLz=Acid Saliva LM
+Effect/Name/AcidSalivaSetSwarmRoachLz=Acid Saliva Set
+Effect/Name/AcidSalivaU=Needle Spines Melee Damage
+Effect/Name/AcidSpinesDamageSwarmQueenLz=Acid Spines Damage
+Effect/Name/AcidSpinesLMSwarmQueenLz=Acid Spines LM
 Effect/Name/BattlecruiserTacticalJumpCDMultiLz=Battlecruiser Tactical Jump CD
 Effect/Name/BattlecruiserYamatoCDMultiLz=Battlecruiser Yamato CD
 Effect/Name/CalldownSuperMULECPLz=Calldown Super MULE CP
@@ -148,11 +157,14 @@ Effect/Name/CalldownSuperMULECreateUnitLz=Calldown Super MULE Create Unit
 Effect/Name/CalldownSuperMULEFinalSetLz=Calldown Super MULE Final Set
 Effect/Name/CalldownSuperMULEIssueOrderLz=Calldown Super MULE Issue Order
 Effect/Name/CalldownSuperMULETimedLifeABLz=Calldown Super MULE Timed Life AB
+Effect/Name/ClawsDamageSwarmZerglingLz=Claws Damage
 Effect/Name/FreeRepairSCVLz=Free Repair
 Effect/Name/FreeSuperRepairLz=Free Super Repair
 Effect/Name/GuassRifleTestMarineLz=Guass Rifle Damage
 Effect/Name/HardenWallABOrbitalCommandLz=Harden Wall AB
 Effect/Name/HardenWallTempABOrbitalCommandLz=Harden Wall Temp AB
+Effect/Name/HotSZerglingClawsSwarmLz=Hot S Zergling Claws
+Effect/Name/NeedleSpinesSetSwarmRoachLz=Needle Spines Set
 Effect/Name/RavenScramblerDummyMultiLz=Raven Scrambler Dummy
 Effect/Name/RavenScramblerMissileABMultiLz=Raven Scrambler Missile AB
 Effect/Name/RavenScramblerMissileLMMultiLz=Raven Scrambler Missile LM
@@ -172,6 +184,10 @@ Effect/Name/RavenShredderMissileSuicideMultiLz=Raven Shredder Missile Suicide
 Effect/Name/RavenShredderMissileTintCPMultiLz=Raven Shredder Missile Tint CP
 Effect/Name/ScannerSweepLz=Scanner Sweep
 Effect/Name/SuperMULEFateDamageLz=Super MULE Fate Damage
+Effect/Name/TalonsCPSwarmQueenLz=Talons CP
+Effect/Name/TalonsDamageSwarmQueenLz=Talons Damage
+Effect/Name/TalonsLM2=Talons LM
+Effect/Name/TalonsMissileBurst2=Talons Missile Burst
 Effect/Name/TwinIbiksCannonDamagePlanetaryFortressLz=Twin Ibiks Cannon Damage
 Error/AlreadyHardenedLz=That wall is already hardened
 Error/MustTargetWallLz=Must target a wall
@@ -192,7 +208,6 @@ Param/Expression/lib_1_063C9B82=Unexpected race returned for player ~p~
 Param/Expression/lib_1_307E16AC=stage: ~ability_stage~
 Param/Expression/lib_2_F4DA299E=<c val="F1FF71">Starting Round #~r~</c>
 Param/Value/17E7CD71=Survive 20 Waves
-Param/Value/2E5F2AA9=round started
 Param/Value/4DB04D59=If anyone survives a wave, everyone is resurrected and casualties refunded.
 Param/Value/lib_1_0D4B38C5=Generic6 - Complete
 Param/Value/lib_1_0DDB8C11=<error: stage not found>
@@ -270,6 +285,8 @@ RequirementNode/Tooltip/CountUpgradeHighCapacityBarrelsMultiLzCompleteOnly313051
 RequirementNode/Tooltip/CountUpgradeLiberatorAGRangeMultiLzCompleteOnly1646137913=Advanced Ballistics
 RequirementNode/Tooltip/CountUpgradeMedivacIncreaseSpeedBoostMultiLzCompleteOnly3319945507=Rapid Reignition System
 RequirementNode/Tooltip/CountUpgradeNeosteelArmorMultiLzCompleteOnly2025896153=Research Neosteel Armor at the Engineering Bay
+Unit/Name/AcidSalivaWeaponLz=Acid Saliva
+Unit/Name/AcidSpinesWeaponSwarmQueenLz=Acid Spines Weapon
 Unit/Name/ArmoryLz=Armory
 Unit/Name/BarracksFlyingLz=Barracks
 Unit/Name/BarracksLz=Barracks
@@ -291,6 +308,10 @@ Unit/Name/StartingSCVLz=Starting SCV
 Unit/Name/SuperMULELz=Super MULE
 Unit/Name/SuperOrbitalCommandFlyingLz=Super Orbital Command
 Unit/Name/SuperSCVLz=Super SCV
+Unit/Name/SwarmQueenLz=Swarm Queen
+Unit/Name/SwarmRoachLz=Swarm Roach
+Unit/Name/SwarmZerglingLz=Swarm Zergling
+Unit/Name/TalonsMissileWeapon2=Talons Missile
 Unit/Name/TechLabBarracksLz=Tech Lab Barracks
 Unit/Name/TechLabFactoryLz=Tech Lab Factory
 Unit/Name/TechLabLz=Tech Lab
@@ -309,5 +330,13 @@ Upgrade/Name/MedivacIncreaseSpeedBoostMultiLz=Medivac Increase Speed Boost
 Upgrade/Name/NeosteelArmorMultiLz=Neosteel Armor
 Upgrade/Name/ShieldWall2=Combat Shield
 Upgrade/Name/SmartServosMultiLz=Smart Servos
+Weapon/Name/AcidSalivaSwarmRoachLz=Acid Saliva
+Weapon/Name/AcidSpinesAirAttackSwarmQueenLz=Acid Spines
 Weapon/Name/C14GaussRifleTestMarineLz=C-14 Gauss Rifle
+Weapon/Name/ClawsSwarmZerglingLz=Claws
 Weapon/Name/IbiksCannonPlanetaryFortressLz=Ibiks Cannon
+Weapon/Name/NeedleSpinesMeleeSwarmRoachLz=Needle Spines Melee
+Weapon/Name/TalonsMeleeSwarmQueenLz=Talons
+Weapon/Name/TalonsRangedGroundSwarmQueenLz=Talons
+Weapon/Tip/AcidSpinesAirAttackSwarmQueenLz=
+Weapon/Tip/TalonsMeleeSwarmQueenLz=

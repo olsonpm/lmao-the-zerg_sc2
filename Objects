@@ -2,7 +2,7 @@
 <PlacedObjects Version="27">
     <ObjectPoint Id="788266754" Position="32,64,0" Scale="1,1,1" Type="Normal" Name="defense point - left" Color="0,0,0,0"/>
     <ObjectPoint Id="128424714" Position="63.5,64.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 001" Color="0,0,0,0"/>
-    <ObjectPoint Id="393756790" Position="64,64,0" Scale="1,1,1" Type="Normal" Name="mining stations" Color="0,0,0,0"/>
+    <ObjectPoint Id="393756790" Position="64,64,0" Scale="1,1,1" Type="Normal" Name="center" Color="0,0,0,0"/>
     <ObjectPoint Id="2037288258" Position="65,61,0" Scale="1,1,1" Type="Normal" Name="init unit - p3" Color="0,0,0,0"/>
     <ObjectPoint Id="719559596" Position="61,65,0" Scale="1,1,1" Type="Normal" Name="init unit - p8" Color="0,0,0,0"/>
     <ObjectPoint Id="1134796180" Position="64,32,0" Scale="1,1,1" Type="Normal" Name="defense point - bot" Color="0,0,0,0"/>
@@ -14,4 +14,14 @@
     <ObjectPoint Id="1452725657" Position="63,61,0" Scale="1,1,1" Type="Normal" Name="init unit - p7" Color="0,0,0,0"/>
     <ObjectPoint Id="230195740" Position="61,63,0" Scale="1,1,1" Type="Normal" Name="init unit - p4" Color="0,0,0,0"/>
     <ObjectPoint Id="754412464" Position="63,67,0" Scale="1,1,1" Type="Normal" Name="init unit - p1" Color="0,0,0,0"/>
+    <ObjectUnit Id="168201115" Position="58,74.5,0" Rotation="5.756" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="1313846902" Position="54.5,71.5,0" Rotation="0.87" Scale="1,1,1" UnitType="Medivac" Player="10"/>
+    <ObjectUnit Id="1368520645" Position="57.5,73.5,0" Rotation="2.2924" Scale="1,1,1" UnitType="Medivac" Player="10"/>
+    <ObjectUnit Id="344546269" Position="56.5,67,0" Rotation="3.4147" Scale="1,1,1" UnitType="SwarmQueenLz" Player="1"/>
+    <ObjectUnit Id="717637416" Position="56,73.5,0" Rotation="1.6518" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="477775748" Position="59,75,0" Rotation="1.8908" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="1260971426" Position="54.5,70.5,0" Rotation="5.438" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="710773694" Position="57.5,73,0" Rotation="0.8972" Scale="1,1,1" UnitType="SCV" Player="10"/>
+    <ObjectUnit Id="1110480609" Position="62,71,0" Rotation="0.394" Scale="1,1,1" UnitType="SwarmQueenLz" Player="1"/>
+    <ObjectUnit Id="1057013600" Position="55.5,71,0" Rotation="5.8935" Scale="1,1,1" UnitType="SCV" Player="10"/>
 </PlacedObjects>

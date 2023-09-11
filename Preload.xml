@@ -8,7 +8,12 @@
 <Sound id="AnnounceWaveLz"/>
 <Sound id="MiningStationSelectedLz"/>
 <Terrain id="PurifierJungle"/>
+<Unit id="SCV"/>
+<Unit id="Medivac"/>
+<Unit id="SwarmQueenLz"/>
+<Unit id="SwarmRoachLz"/>
 <Unit id="MiningStationAllyLz"/>
 <Unit id="MiningStationPlayerLz"/>
 <Unit id="StartingSCVLz"/>
+<Unit id="SwarmZerglingLz"/>
 </Preload>

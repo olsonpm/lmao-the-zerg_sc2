@@ -3,9 +3,48 @@
     <CEffectDamage id="ATALaserBatteryU">
         <Amount value="5"/>
     </CEffectDamage>
+    <CEffectLaunchMissile id="AcidSalivaLMSwarmRoachLz">
+        <ValidatorArray index="0" value="RoachLMTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="AcidSalivaSetSwarmRoachLz"/>
+        <AmmoUnit value="AcidSalivaWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="AcidSalivaSetSwarmRoachLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="BileDuctsApplyBehavior"/>
+        <EffectArray value="AcidSalivaDamageSwarmRoachLz"/>
+    </CEffectSet>
+    <CEffectDamage id="AcidSalivaDamageSwarmRoachLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="16"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectDamage id="AcidSpinesDamageSwarmQueenLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="9"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="AcidSpinesLMSwarmQueenLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="AcidSpinesDamageSwarmQueenLz"/>
+        <AmmoUnit value="AcidSpinesWeaponSwarmQueenLz"/>
+        <Movers Link="AcidSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ClawsDamageSwarmZerglingLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="5"/>
+    </CEffectDamage>
     <CEffectDamage id="HellionTankDamage">
         <AttributeBonus index="Light" value="0"/>
     </CEffectDamage>
+    <CEffectSet id="HotSZerglingClawsSwarmLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="ZerglingFrenzy"/>
+        <EffectArray value="ZerglingSunder"/>
+        <EffectArray value="ZerglingRangeReapply"/>
+        <EffectArray value="ZerglingArmorShredTargetAB"/>
+        <EffectArray value="Claws"/>
+    </CEffectSet>
     <CEffectDamage id="LanceMissileLaunchersDamage">
         <AttributeBonus index="Massive" value="10"/>
         <Amount value="25"/>
@@ -188,6 +227,19 @@
         <Kind value="Ranged"/>
         <Amount value="40"/>
     </CEffectDamage>
+    <CEffectSet id="NeedleSpinesSetSwarmRoachLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="BileDuctsApplyBehavior"/>
+        <EffectArray value="NeedleSpinesMeleeDamageSwarmRoachLz"/>
+    </CEffectSet>
+    <CEffectDamage id="NeedleSpinesMeleeDamageSwarmRoachLz" parent="DU_WEAP_MISSILE">
+        <Name value="Effect/Name/AcidSalivaU"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/AcidSalivaU"/>
+        <Kind value="Melee"/>
+        <Amount value="16"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
     <CEffectDamage id="SuperMULEFateDamageLz">
         <EditorCategories value="Race:Terran"/>
         <Alert value="MULEExpired"/>
@@ -213,6 +265,45 @@
         <EditorCategories value="Race:Terran"/>
         <Behavior value="HardenWallEnRouteOrbitalCommandLz"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="TalonsDamageSwarmQueenLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeBonus index="Armored" value="2"/>
+        <Kind value="Ranged"/>
+        <Amount value="4"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="TalonsCPSwarmQueenLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="TalonsDamageSwarmQueenLz"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.3"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="TalonsLM2">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="TalonsMissileDamage2"/>
+        <AmmoUnit value="TalonsMissileWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="TalonsMissileBurst2">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="TalonsLM2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.3"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="TalonsMissileDamage2" parent="DU_WEAP">
+        <Name value="Effect/Name/Talons"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/Talons"/>
+        <AttributeBonus index="Armored" value="2"/>
+        <Kind value="Ranged"/>
+        <Amount value="4"/>
+    </CEffectDamage>
     <CEffectDamage id="TwinIbiksCannonDamagePlanetaryFortressLz" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
