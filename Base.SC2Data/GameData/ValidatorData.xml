@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorUnitCompareBehaviorCount id="NotBeingAttackedByTentacleSwarmLeviathanLz">
+        <Behavior value="BeingAttackedByTentacleSwarmLeviathanLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NotHaveWarpGateAutoCastDisablerLz">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="WarpGateAutoCastDisablerLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitFilters id="SwarmBroodlingEscortFiltersLz">
+        <WhichUnit Effect="SwarmBroodlingEscortLz"/>
+        <Filters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CValidatorUnitFilters>
     <CValidatorCombine id="CommandCenterTransportCombine">
         <CombineArray value="TransportSuperSCVCommandCenterLz"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="TentacleANotBusySwarmLeviathanLz">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleABusySwarmLeviathanLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TentacleBNotBusySwarmLeviathanLz">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleBBusySwarmLeviathanLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TentacleCNotBusySwarmLeviathanLz">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleCBusySwarmLeviathanLz"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="TentacleDNotBusySwarmLeviathanLz">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleDBusySwarmLeviathanLz"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="TransportSuperSCVCommandCenterLz">
         <Value value="SuperSCVLz"/>
     </CValidatorUnitType>
@@ -46,7 +73,7 @@
     </CValidatorLocationCompareRange>
     <CValidatorUnitType id="IsWallEitherFlavorLz">
         <ResultFailed value="MustTargetStructures,Error/MustTargetWallLz"/>
-        <Value value="WallLz"/>
+        <Value value="WallTerranLz"/>
         <Type value="SelectAlias"/>
     </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="NotHardenedWallLz">

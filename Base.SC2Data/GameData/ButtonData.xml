@@ -1,9 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="AdeptPiercingUpgrade">
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-resonatingglaives-orange.dds"/>
+    </CButton>
+    <CButton id="Carrier">
+        <Hotkey value="Button/Hotkey/Carrier"/>
+        <HotkeyAlias value="Carrier"/>
+    </CButton>
     <CButton id="ConcealmentMultiLz">
         <Icon value="Assets\Textures\btn-ability-terran-widowminehidden.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-widowminehidden.dds"/>
         <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="Explode">
+        <TooltipFlags index="ShowLevel" value="0"/>
+    </CButton>
+    <CButton id="PhotonOverchargeLz">
+        <Icon value="Assets\Textures\BTN-Ability-Protoss-Purify.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-Purify.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="MothershipCoreWeapon"/>
+        <HidesForSimpleText value="0"/>
+    </CButton>
+    <CButton id="SalvageXLz">
+        <Icon value="Assets\Textures\btn-ability-terran-salvage.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-salvage.dds"/>
+        <HotkeyAlias value=""/>
+    </CButton>
+    <CButton id="Tempest">
+        <Hotkey value="Button/Hotkey/Tempest"/>
+        <HotkeyAlias value="Tempest"/>
+    </CButton>
+    <CButton id="WarpInSuperProbeLz">
+        <Icon value="Assets\Textures\btn-unit-protoss-probe.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-protoss-probe.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="QuantumReactorTempestLz">
+        <Icon value="Assets\Textures\BTN-Upgrade-Protoss-ResearchGravitySling.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Upgrade-Protoss-ResearchGravitySling.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="TempestRangeUpgrade"/>
+    </CButton>
+    <CButton id="Stalker">
+        <ChargeText value="Button/ChargeText/Empty"/>
+    </CButton>
+    <CButton id="Sentry">
+        <ChargeText value="Button/ChargeText/Empty"/>
+    </CButton>
+    <CButton id="HighTemplar">
+        <ChargeText value="Button/ChargeText/Empty"/>
+    </CButton>
+    <CButton id="DarkTemplar">
+        <ChargeText value="Button/ChargeText/Empty"/>
+    </CButton>
+    <CButton id="FreeRechargeShieldLz">
+        <Icon value="Assets\Textures\BTN-Ability-Protoss-ShieldRecharge.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-ShieldRecharge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchQuantumReactorTempestLz">
+        <Icon value="Assets\Textures\BTN-Upgrade-Protoss-ResearchGravitySling.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Upgrade-Protoss-ResearchGravitySling.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="TempestRangeUpgrade"/>
+    </CButton>
+    <CButton id="WarpInAdept">
+        <ChargeText value="Button/ChargeText/Empty"/>
+        <Hotkey value="Button/Hotkey/Adept"/>
+        <HotkeyAlias value="WarpInAdept"/>
+    </CButton>
+    <CButton id="WarpInNexusLz">
+        <Icon value="Assets\Textures\btn-building-protoss-nexus.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-nexus.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Nexus"/>
+    </CButton>
+    <CButton id="RavagerCorrosiveBile">
+        <TooltipFlags index="ShowLevel" value="0"/>
+    </CButton>
+    <CButton id="SalvageVLz">
+        <Icon value="Assets\Textures\btn-ability-terran-salvage.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-salvage.dds"/>
+        <HotkeyAlias value=""/>
+    </CButton>
+    <CButton id="SalvageCLz">
+        <Icon value="Assets\Textures\btn-ability-terran-salvage.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-salvage.dds"/>
+        <HotkeyAlias value=""/>
+    </CButton>
+    <CButton id="UpgradeMiningLz">
+        <Icon value="Assets\Textures\icon-mineral.dds"/>
+        <AlertIcon value="Assets\Textures\icon-mineral.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <HotkeyAlias value="MineralCrystal"/>
     </CButton>
     <CButton id="UpgradetoOrbitalCommandLz">
         <Icon value="Assets\Textures\BTN-Building-Terran-SurveillanceStation.dds"/>
@@ -125,8 +215,8 @@
         <Icon value="Assets\Textures\btn-ability-terran-repair.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-repair.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <TintRacially value="1"/>
         <HotkeyAlias value="FreeRepairLz"/>
+        <TintRacially value="1"/>
         <Universal value="1"/>
     </CButton>
     <CButton id="ScannerSweepLz">
@@ -137,7 +227,6 @@
     <CButton id="CalldownHardenWallLz">
         <Icon value="Assets\Textures\BTN-Ability-Terran-CalldownExtraSupplies-color.dds"/>
         <AlertName value="Button/Name/CalldownExtraSuppliesLz"/>
-        <AlertTooltip value="Button/Tooltip/CalldownExtraSuppliesLz"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Terran-CalldownExtraSupplies-color.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
@@ -146,5 +235,30 @@
         <AlertIcon value="Assets\Textures\btn-unit-terran-scv.dds"/>
         <EditorCategories value="Race:Terran"/>
         <Universal value="1"/>
+    </CButton>
+    <CButton id="WarpInZeratulWarpPrism">
+        <Hotkey value="Button/Hotkey/WarpInZeratulWarpPrism"/>
+    </CButton>
+    <CButton id="WarpPrism">
+        <Hotkey value="Button/Hotkey/WarpinWarpPrism"/>
+        <HotkeyAlias value="WarpInWarPrism"/>
+    </CButton>
+    <CButton id="WarpInDisruptorLz">
+        <Icon value="Assets\Textures\btn-unit-protoss-disruptorfenix-purifier.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-protoss-disruptorfenix-purifier.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="Zealot">
+        <ChargeText value="Button/ChargeText/Empty"/>
+    </CButton>
+    <CButton id="ResearchBlinkDarkTemplarLz">
+        <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="BlinkDarkTemplarLz">
+        <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
     </CButton>
 </Catalog>

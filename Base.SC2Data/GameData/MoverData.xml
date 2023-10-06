@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CMoverAvoid id="Construction2" parent="Ground">
+        <PathMode value="Flying"/>
+    </CMoverAvoid>
     <CMoverMissile id="RavenScramblerMissileMultiLz" parent="MissileDefault">
         <MotionPhases index="0">
             <Driver value="Guidance"/>

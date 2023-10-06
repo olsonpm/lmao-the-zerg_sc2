@@ -14,7 +14,7 @@
             <ramp dir="6" hi="2" lo="1" leftLo="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(5.400000e+01, 8.000000e+01) w=2.000000e+00 h=2.000000e+00" leftHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(-2.000000e+00, -2.000000e+00) w=0.000000e+00 h=0.000000e+00" rightLo="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(5.800000e+01, 8.400000e+01) w=2.000000e+00 h=2.000000e+00" rightHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(0.000000e+00, 0.000000e+00) w=0.000000e+00 h=0.000000e+00" base="u(-7.071068e-01, 7.071068e-01) r(7.071068e-01, 7.071068e-01) c=(5.400000e+01, 8.400000e+01) w=2.828427e+00 h=0.000000e+00" mid="u(-7.071068e-01, 7.071068e-01) r(7.071068e-01, 7.071068e-01) c=(5.600000e+01, 8.200000e+01) w=2.828427e+00 h=2.828427e+00" cid="0" leftLoVar="0" leftHiVar="4294967295" rightLoVar="0" rightHiVar="4294967295"/>
             <ramp dir="7" hi="2" lo="1" leftLo="u(0.000000e+00, 1.000000e+00) r(1.000000e+00, 0.000000e+00) c=(7.000000e+01, 8.400000e+01) w=2.000000e+00 h=2.000000e+00" leftHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(0.000000e+00, 0.000000e+00) w=0.000000e+00 h=0.000000e+00" rightLo="u(0.000000e+00, 1.000000e+00) r(1.000000e+00, 0.000000e+00) c=(7.400000e+01, 8.000000e+01) w=2.000000e+00 h=2.000000e+00" rightHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(2.000000e+00, -2.000000e+00) w=0.000000e+00 h=0.000000e+00" base="u(7.071068e-01, 7.071068e-01) r(7.071068e-01, -7.071068e-01) c=(7.400000e+01, 8.400000e+01) w=2.828427e+00 h=0.000000e+00" mid="u(7.071068e-01, 7.071068e-01) r(7.071068e-01, -7.071068e-01) c=(7.200000e+01, 8.200000e+01) w=2.828427e+00 h=2.828427e+00" cid="0" leftLoVar="0" leftHiVar="4294967295" rightLoVar="0" rightHiVar="4294967295"/>
         </rampList>
-        <vertData quantizeBias="1.000152e+00" quantizeScale="1.525902e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
+        <vertData quantizeBias="1.000456e+00" quantizeScale="1.525902e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="PurifierJungle"/>
@@ -33,8 +33,8 @@
             <texture i="3" name="HavenGrassLight"/>
             <texture i="4" name="HavenGrassDark"/>
             <texture i="5" name="HavenGrassRocky"/>
-            <texture i="6" name=""/>
-            <texture i="7" name=""/>
+            <texture i="6" name="HavenRockRough"/>
+            <texture i="7" name="HavenRockSmooth"/>
             <texture i="8" name=""/>
             <texture i="9" name=""/>
             <texture i="10" name=""/>

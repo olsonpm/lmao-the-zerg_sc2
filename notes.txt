@@ -1,0 +1,70 @@
+bugs
+ ? tech lab not working with factory ?
+
+todo
+ - test with chris
+ - implement difficulties
+ - handle players who leave
+ - implement auto skip in ur
+
+
+<AbilArray Link="SalvageLz"/>
+<AbilArray Link="SalvageDisabledLz"/>
+<CardLayouts index="0">
+    <LayoutButtons Face="SalvageVLz" Type="AbilCmd" AbilCmd="SalvageLz,Execute" Row="2" Column="4"/>
+    <LayoutButtons Face="SalvageVLz" Type="AbilCmd" AbilCmd="SalvageDisabledLz,Execute" Row="2" Column="4"/>
+</CardLayouts>
+
+
+Robotics Bay
+ - research gravitic boosters
+ - research gravitic drive
+ - research extended thermal lance
+
+
+nexus
+ - strategic recall | nexus - nexus mass recall
+ - battery overcharge | nexus - battery overcharge
+
+
+mothership
+ - mass recall
+ - time warp
+ - cloaking field (passive)
+
+stargate
+ - phoenix
+ - oracle
+ - void ray
+ - tempest
+ - carrier
+
+
+toss buildings
+card 1
+row 0
+ - Nexus
+ - Wall
+
+row 1
+ - gateway
+ - forge
+ - shield battery
+
+row 2
+ - cybernetics core
+ - photon cannon
+
+card 2
+row 0
+ - twilight council
+ - stargate
+ - robotics facility
+
+row 1
+ - templar archives
+ - fleet beacon
+ - robotics bay
+
+row 2
+ - dark shrine

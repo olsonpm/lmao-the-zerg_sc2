@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CRequirement id="ArmSwarmBroodlingEscortLz">
+        <EditorCategories value="Race:Protoss,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="LTCountUnitSwarmBroodlingEscortLzQueuedOrBetterAtUnit2"/>
+    </CRequirement>
+    <CRequirement id="CanUpgradeMiningLast5RoundsLz">
+        <NodeArray index="Use" Link="Eq36004015510"/>
+    </CRequirement>
+    <CRequirement id="CanSalvageLz">
+        <NodeArray index="Use" Link="Eq244059699210"/>
+    </CRequirement>
+    <CRequirement id="CanUpgradeMiningBetweenRoundsLz">
+        <NodeArray index="Use" Link="Eq294906175510"/>
+    </CRequirement>
+    <CRequirement id="HasExtendedThermalLanceLz">
+        <NodeArray index="Use" Link="CountUpgradeExtendedThermalLanceCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HasQuantumReactorTempestLz">
+        <NodeArray index="Show" Link="NotCountUpgradeQuantumReactorTempestLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="HasQuantumReactorTempestLz2">
+        <NodeArray index="Use" Link="CountUpgradeQuantumReactorTempestLzCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="HaveAdvancedBallisticsMultiLz">
         <NodeArray index="Use" Link="CountUpgradeLiberatorAGRangeMultiLzCompleteOnly1646137913"/>
     </CRequirement>
@@ -11,6 +34,83 @@
     </CRequirement>
     <CRequirement id="HaveAttachedStarportTechLabAndFusionCore">
         <NodeArray index="Use" Link="AndCountUnitAlias_TechLabCompleteOnlyAtUnit2589852481TechTreeCheatCountUnitAlias_FusionCoreCompleteOnly3089280483TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveCyberneticsCore">
+        <NodeArray index="Use" Link="CountUnitAlias_CyberneticsCoreCompleteOnly1190316994TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveCyberneticsCoreAndHaveSOAWarpTech">
+        <NodeArray index="Use" Link="CountUnitAlias_CyberneticsCoreCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveCyberneticsCoreAndNotHaveSOAWarpTech">
+        <NodeArray index="Use" Link="CountUnitAlias_CyberneticsCoreCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveCyberneticsCoreandArtanisWarpTech">
+        <NodeArray index="Use" Link="CountUnitAlias_CyberneticsCoreCompleteOnly1190316994"/>
+    </CRequirement>
+    <CRequirement id="HaveDarkShrine">
+        <NodeArray index="Use" Link="CountUnitAlias_DarkShrineCompleteOnly3189908031TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveFleetBeacon">
+        <NodeArray index="Use" Link="CountUnitAlias_FleetBeaconCompleteOnly2730708737TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveForgeandCyberneticsCore">
+        <NodeArray index="Use" Link="AndCountUnitAlias_ForgeCompleteOnly1319962783CountUnitAlias_CyberneticsCoreCompleteOnly1190316994"/>
+    </CRequirement>
+    <CRequirement id="HaveRoboticsBay">
+        <NodeArray index="Use" Link="CountUnitAlias_RoboticsBayCompleteOnly2891222410TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveTemplarArchives">
+        <NodeArray index="Use" Link="CountUnitAlias_TemplarArchivesCompleteOnly916103744TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveTwilightCouncil">
+        <NodeArray index="Use" Link="CountUnitAlias_TwilightCouncilCompleteOnly177772081TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="LearnBlinkDarkTemplarLz">
+        <NodeArray index="Show" Link="NotCountUpgradeBlinkDarkTemplarLzQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossAirArmor3">
+        <NodeArray index="Use" Link="AndCountUnitAlias_FleetBeaconCompleteOnly2730708737Eq2731442398CountUpgradeProtossAirArmorsLevel2CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossAirWeapon3">
+        <NodeArray index="Use" Link="AndCountUnitAlias_FleetBeaconCompleteOnly2730708737Eq524089035CountUpgradeProtossAirWeaponsLevel2CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossArmor2">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq1773896888CountUpgradeProtossGroundArmorsLevel1CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossArmor3">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnlyEq3649763191CountUpgradeProtossGroundArmorsLevel2CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossGroundArmor2">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq3569156689CountUpgradeProtossGroundArmorsLevel1CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossGroundArmor3">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq419273267CountUpgradeProtossGroundArmorsLevel2CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossGroundWeapon2">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq1740904084CountUpgradeProtossGroundWeaponsLevel1CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossGroundWeapon3">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq629999927CountUpgradeProtossGroundWeaponsLevel2CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossShield2">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq3354561256CountUpgradeProtossShieldsLevel1CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossShield3">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq3751249461CountUpgradeProtossShieldsLevel2CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossWeapons2">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq2653633474CountUpgradeProtossGroundWeaponsLevel1CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="LearnProtossWeapons3">
+        <NodeArray index="Use" Link="AndCountUnitAlias_TwilightCouncilCompleteOnlyEq3056608045CountUpgradeProtossGroundWeaponsLevel2CompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="MothershipRequirements">
+        <NodeArray index="Use" Link="AndCountUnitAlias_FleetBeaconCompleteOnly2730708737TechTreeCheatEq1228785331CountUnitMothershipQueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="NotHaveAttachedTechLabLz">
+        <EditorCategories value="Race:Terran,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Show" Link="EqCountUnitAlias_TechLabQueuedOrBetterAtUnit0"/>
     </CRequirement>
     <CRequirement id="HaveBansheeSpeedMultiLz">
         <NodeArray index="Show" Link="CountUpgradeBansheeSpeedMultiLzCompleteOnly"/>
@@ -60,6 +160,9 @@
     </CRequirement>
     <CRequirement id="LearnNeosteelArmorMultiLz">
         <NodeArray index="Show" Link="EqCountUpgradeNeosteelArmorMultiLzQueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="UseBlinkDarkTemplarLz">
+        <NodeArray index="Use" Link="CountUpgradeBlinkDarkTemplarLzCompleteOnly"/>
     </CRequirement>
     <CRequirement id="UseNeosteelArmorMultiLz">
         <NodeArray index="Use" Link="CountUpgradeNeosteelArmorMultiLzCompleteOnly2025896153"/>

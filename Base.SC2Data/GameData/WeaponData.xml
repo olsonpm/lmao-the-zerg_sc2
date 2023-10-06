@@ -19,6 +19,42 @@
         <Period value="1"/>
         <Effect value="AcidSpinesLMSwarmQueenLz"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="BroodlingEscortSwarmBroodLordLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="9.5"/>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <Period value="10"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BroodlingStrikeLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="BroodlingEscortDamageSwarmBroodLordLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="10"/>
+        <Range value="9.5"/>
+        <Period value="2.5"/>
+        <Effect value=""/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BrutalizeSwarmBrutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="BrutalizeDamageSwarmBrutaliskLz"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquirePrioritization value="ByAngle"/>
+        <MinScanRange value="7"/>
+        <Range value="1"/>
+        <RangeSlop value="3"/>
+        <Period value="3"/>
+        <DamagePoint value="0.5"/>
+        <Effect value="BrutalizeCPSwarmBrutaliskLz"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="ClawsSwarmZerglingLz">
         <EditorCategories value="Race:Zerg"/>
         <Options index="Melee" value="1"/>
@@ -28,6 +64,361 @@
         <Range value="0.1"/>
         <Period value="0.696"/>
         <Effect value="HotSZerglingClawsSwarmLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ClawsRaptorlingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmRaptorlingClawsDamageLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="SwarmRaptorlingClawsLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FerociousSpewSwarmBrutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="FerociousSpewDamageSwarmBrutaliskLz"/>
+        <DisplayAttackCount value="1"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <Period value="2"/>
+        <DamagePoint value="0.3"/>
+        <Backswing value="0.25"/>
+        <Effect value="FerociousSpewLMSwarmBrutaliskLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GlaiveWurmSwarmMutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="GlaiveWurmDamage1SwarmMutaliskLz"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <RangeSlop value="2"/>
+        <ArcSlop value="45"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <Period value="1.5246"/>
+        <DamagePoint value="0"/>
+        <Effect value="GlaiveWurmLM1SwarmMutaliskLz"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HighTemplarWeapon">
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <!--Options index="Disabled" value="1"/>
+        <Options index="Hidden" value="1"/-->
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HornSwarmMitoscarabLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmMitosaurusDamageLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="5.5"/>
+        <Period value="1"/>
+        <DamagePoint value="0.5"/>
+        <Effect value="SwarmMitosaurusLMLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HornSwarmMitoscarabBLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmMitosaurusBDamageLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="5.5"/>
+        <Period value="1"/>
+        <DamagePoint value="0.5"/>
+        <Effect value="SwarmMitosaurusBLMLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HornSwarmMitoscarabCLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmMitosaurusCDamageLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="5.5"/>
+        <Period value="1"/>
+        <DamagePoint value="0.5"/>
+        <Effect value="SwarmMitosaurusCLMLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ClawsSwarmTanklingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="ClawsDamageSwarmTanklingLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="ClawsDamageSwarmTanklingLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BileSwarmSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="AirAttackDamageSwarmLeviathanLz"/>
+        <DisplayAttackCount value="6"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="12.5"/>
+        <Range value="12"/>
+        <Arc value="90"/>
+        <Period value="2.5"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value="AirAttackCPSwarmLeviathanLz"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="RepulsorCannonLz">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="RepulsorCannonWeaponDamageLz"/>
+        <TargetFilters value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="7.5"/>
+        <Range value="7"/>
+        <RangeSlop value="0"/>
+        <Arc value="360"/>
+        <Period value="1.25"/>
+        <Effect value="RepulsorCannonWeaponLMLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ParticleBeamProbeLz">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="ParticleBeamDamageProbeLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.5"/>
+        <Effect value="ParticleBeamDamageProbeLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PhotonCannonLz">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-building-protoss-photoncannon.dds"/>
+        <DisplayEffect value="PhotonCannonDamageLz"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="7.5"/>
+        <Range value="7"/>
+        <RangeSlop value="0"/>
+        <Period value="1.25"/>
+        <Effect value="PhotonCannonLMLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SpinesSwarmWasplingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="SwarmWasplingDamageLz"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="15"/>
+        <Range value="2"/>
+        <Period value="1.2"/>
+        <DamagePoint value="0.2666"/>
+        <Effect value="SwarmWasplingLMLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="MeleeSwarmHydraliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="MeleeDamageSwarmHydraliskLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.5"/>
+        <Marker Link="Weapon/NeedleSpinesSwarmHydraliskLz"/>
+        <Cost>
+            <Cooldown Link="Weapon/NeedleSpinesSwarmHydraliskLz"/>
+        </Cost>
+        <Period value="0.83"/>
+        <DamagePoint value="0.3"/>
+        <Effect value="MeleeDamageSwarmHydraliskLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="NeedleSpinesSwarmHydraliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="NeedleSpinesDamageSwarmHydraliskLz"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="5.5"/>
+        <Period value="0.83"/>
+        <DamagePoint value="0.208"/>
+        <Effect value="NeedleSpinesLMSwarmHydraliskLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TentaclesSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="GroundAttackDamageSwarmLeviathanLz"/>
+        <DisplayAttackCount value="4"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="12.5"/>
+        <Range value="12"/>
+        <Arc value="90"/>
+        <Period value="2.21"/>
+        <Effect value=""/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="VolatileBurstDummySwarmHunterBanelingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-banelingspooge.dds"/>
+        <DisplayEffect value="SwarmHunterBanelingExplodeLargeDirectLz"/>
+        <TargetFilters value="Ground,Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.25"/>
+        <Cost>
+            <Cooldown Link="Weapon/SwarmHunterBanelingExplodeLz"/>
+        </Cost>
+        <Period value="0.2"/>
+        <DamagePoint value="0"/>
+        <Effect value=""/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmHunterBanelingExplodeLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="Melee" value="1"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-explode.dds"/>
+        <DisplayEffect value="SwarmHunterBanelingExplodeLargeDirectLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireScanFilters value="-;Structure"/>
+        <Range value="0.25"/>
+        <Period value="0.2"/>
+        <DamagePoint value="0"/>
+        <Effect value="SwarmHunterBanelingExplodeLargeSetLz"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmHunterBanelingExplodeBuildingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Disabled" value="1"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="Melee" value="1"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-explode.dds"/>
+        <DisplayEffect value="SwarmHunterBanelingExplodeLargeDirectLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Ground,Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.25"/>
+        <Period value="0.2"/>
+        <DamagePoint value="0"/>
+        <Effect value="SwarmHunterBanelingExplodeLargeTargetLz"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmHunterBanelingLaunchLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-explode.dds"/>
+        <DisplayEffect value="SwarmHunterBanelingExplodeLargeDirectLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireScanFilters value="-;Structure"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <MinimumRange value="1"/>
+        <Period value="1"/>
+        <DamagePoint value="0"/>
+        <Effect value="SwarmHunterBanelingVolatileBurstLMLz"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmHunterBanelingLaunchBuildingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Disabled" value="1"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-explode.dds"/>
+        <DisplayEffect value="SwarmHunterBanelingExplodeLargeDirectLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Ground,Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <MinimumRange value="1"/>
+        <Period value="1"/>
+        <DamagePoint value="0"/>
+        <Effect value="SwarmHunterBanelingVolatileBurstLMLz"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="KaiserBladesSwarmUltraliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="KaiserBladesDamageSwarmUltraliskLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquirePrioritization value="ByAngle"/>
+        <Range value="1"/>
+        <Period value="0.86"/>
+        <DamagePoint value="0.3332"/>
+        <Effect value="KaiserBladesDamageSwarmUltraliskLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="NeedleClawsSwarmBroodlingLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="NeedleClawsDamageSwarmBroodlingLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="15"/>
+        <Range value="0.1"/>
+        <Period value="0.6455"/>
+        <Effect value="NeedleClawsDamageSwarmBroodlingLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PlasmaDischargeSwarmRavagerLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="SwarmRavagerWeaponDamageLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <Period value="1.6"/>
+        <DamagePoint value="0.2"/>
+        <Effect value="SwarmRavagerWeaponLMLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ScytheBladesSwarmOmegaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SuperzergBladesDamageSwarmOmegaliskLz"/>
+        <TargetFilters value="Ground,Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquirePrioritization value="ByAngle"/>
+        <Range value="1.5"/>
+        <Period value="1.2"/>
+        <DamagePoint value="0.3332"/>
+        <Effect value="SuperzergBladesSetSwarmOmegaliskLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HeadChargeSwarmOmegaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="HeadAttackDamageSwarmOmegaliskLz"/>
+        <TargetFilters value="Ground,Structure,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquirePrioritization value="ByAngle"/>
+        <Range value="1"/>
+        <Period value="1.6665"/>
+        <DamagePoint value="0.6665"/>
+        <Backswing value="1"/>
+        <Effect value="HeadAttackDamageSwarmOmegaliskLz"/>
+        <LegacyOptions index="KeepChanneling" value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ParasiteSporeSwarmCorruptorLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="ParasiteSporeDamageSwarmCorruptorLz"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <Period value="1.9"/>
+        <Effect value="ParasiteSporeLMSwarmCorruptorLz"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PustulantSmashSwarmAberrationLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquirePrioritization value="ByAngle"/>
+        <Range value="1.5"/>
+        <Period value="1.2"/>
+        <DamagePoint value="0.3332"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="LanceMissileLaunchers">
         <Range value="11"/>
@@ -80,22 +471,70 @@
         <EditorCategories value="Race:Zerg"/>
         <Options index="Hidden" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
-        <DisplayEffect value="TalonsDamageSwarmQueenLz"/>
+        <DisplayEffect value="TalonsMeleeDamageSwarmQueenLz"/>
         <DisplayAttackCount value="2"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="3"/>
         <Period value="1"/>
-        <Effect value="TalonsCPSwarmQueenLz"/>
+        <Effect value="TalonsMeleeCPSwarmQueenLz"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="TalonsRangedGroundSwarmQueenLz">
         <EditorCategories value="Race:Zerg"/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
-        <DisplayEffect value="TalonsMissileDamage2"/>
+        <DisplayEffect value="TalonsRangedGroundDamageSwarmQueenLz"/>
         <DisplayAttackCount value="2"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <MinScanRange value="5.5"/>
         <MinimumRange value="3"/>
         <Period value="1"/>
-        <Effect value="TalonsMissileBurst2"/>
+        <Effect value="TalonsRangedGroundCPSwarmQueenLz"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AcidSporesSwarmViperLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="SwarmViperAirDamageLz"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6.5"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+        <Effect value="SwarmViperAirLaunchMissileLz"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="LiberatorAGWeapon">
+        <Range value="10"/>
+        <RangeSlop value="0"/>
+        <MinScanRange value="5"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ParticleDisruptors">
+        <Period value="1.87"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Adept">
+        <MinScanRange value="5"/>
+        <Range value="4"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DisruptionBeam">
+        <MinScanRange value="5.5"/>
+        <Range value="5"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ThermalLances">
+        <MinScanRange value="7.5"/>
+        <Period value="1.5"/>
+        <Range value="7"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Tempest">
+        <MinScanRange value="14.5"/>
+        <Range value="14"/>
+        <Period value="3.3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TempestGround">
+        <Period value="3.3"/>
+    </CWeaponLegacy>
+    <CWeaponStrafe id="InterceptorBeam">
+        <Period value="1.5"/>
+    </CWeaponStrafe>
+    <CWeaponLegacy id="InterceptorsDummy">
+        <Period value="1.5"/>
     </CWeaponLegacy>
 </Catalog>

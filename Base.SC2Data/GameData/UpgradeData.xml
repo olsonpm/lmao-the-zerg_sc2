@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CUpgrade id="ChitinousPlating">
+        <AffectedUnitArray value="SwarmUltraliskLz"/>
+        <EffectArray Reference="Unit,SwarmUltraliskLz,LifeArmor" Value="2"/>
+    </CUpgrade>
+    <CUpgrade id="MiningLz">
+        <MaxLevel value="100"/>
+    </CUpgrade>
     <CUpgrade id="SmartServosMultiLz">
         <Flags index="TechTreeCheat" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-transformationservos.dds"/>
@@ -114,7 +121,6 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-advanceballistics.dds"/>
         <EffectArray Reference="Abil,LiberatorAGTarget,Range[0]" Value="3"/>
         <EffectArray Reference="Weapon,LiberatorAGWeapon,Range" Value="3"/>
-        <!--EffectArray Reference="Unit,LiberatorAG,Sight" Value="4"/-->
         <EditorCategories value="Race:Protoss,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="Liberator"/>
         <AffectedUnitArray value="LiberatorAG"/>
@@ -211,7 +217,6 @@
         <EffectArray Operation="Set" Reference="Actor,Bunker,GroupIcon.Image[0]" Value="Assets\Textures\wireframe-terran-bunker-neosteelframe.dds"/>
         <EffectArray Reference="Unit,RefineryRich,LifeArmor" Value="2"/>
         <EffectArray Reference="Unit,RefineryRich,LifeArmorLevel" Value="2"/>
-        <!-- lz buildings -->
         <EffectArray Reference="Unit,ArmoryLz,LifeArmor" Value="2.000000"/>
         <EffectArray Reference="Unit,ArmoryLz,LifeArmorLevel" Value="2"/>
         <EffectArray Reference="Unit,BarracksLz,LifeArmor" Value="2.000000"/>
@@ -250,11 +255,10 @@
         <EffectArray Reference="Unit,TechLabFactoryLz,LifeArmorLevel" Value="2"/>
         <EffectArray Reference="Unit,TechLabStarportLz,LifeArmor" Value="2.000000"/>
         <EffectArray Reference="Unit,TechLabStarportLz,LifeArmorLevel" Value="2"/>
-        <EffectArray Reference="Unit,WallLoweredLz,LifeArmor" Value="2.000000"/>
-        <EffectArray Reference="Unit,WallLoweredLz,LifeArmorLevel" Value="2"/>
-        <EffectArray Reference="Unit,WallLz,LifeArmor" Value="2.000000"/>
-        <EffectArray Reference="Unit,WallLz,LifeArmorLevel" Value="2"/>
-        <!-- end of lz buildings -->
+        <EffectArray Reference="Unit,WallLoweredTerranLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,WallLoweredTerranLz,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,WallTerranLz,LifeArmor" Value="2.000000"/>
+        <EffectArray Reference="Unit,WallTerranLz,LifeArmorLevel" Value="2"/>
         <EditorCategories value="Race:Terran,UpgradeType:ArmorBonus"/>
         <AffectedUnitArray value="Armory"/>
         <AffectedUnitArray value="Barracks"/>
@@ -307,5 +311,409 @@
         <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
         <AffectedUnitArray value="Marine"/>
         <AffectedUnitArray value="MengskMarine"/>
+    </CUpgrade>
+    <CUpgrade id="FluxVanesVoidRayLz">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-fluxvanes.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Prot"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Operation="Set" Reference="Unit,VoidRay,Speed" Value="3.320300"/>
+        <EffectArray Operation="Set" Reference="Unit,VoidRay,Acceleration" Value="2.687500"/>
+        <EffectArray Operation="Set" Reference="Behavior,VoidRaySwarmDamageBoost,Modification.MoveSpeedMultiplier" Value="0.5644"/>
+        <EffectArray Operation="Set" Reference="Behavior,VoidRaySwarmDamageBoost,Modification.AccelerationMultiplier" Value="0.7441"/>
+        <EditorCategories value="Race:Protoss,UpgradeType:Talents"/>
+        <AffectedUnitArray value="VoidRay"/>
+    </CUpgrade>
+    <CUpgrade id="QuantumReactorTempestLz">
+        <InfoTooltipPriority value="1"/>
+        <Icon value="Assets\Textures\BTN-Upgrade-Protoss-ResearchGravitySling.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Prot"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Effect,TempestDamage,AttributeBonus[Massive]" Value="35"/>
+        <EffectArray Operation="Set" Reference="Effect,TempestDamageGround,AttributeBonus[Massive]" Value="35"/>
+        <EditorCategories value="Race:Protoss,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Tempest"/>
+    </CUpgrade>
+    <CUpgrade id="BlinkDarkTemplarLz">
+        <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Prot"/>
+        <ScoreAmount value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <EditorCategories value="Race:Protoss,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="DarkTemplar"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossGroundArmorsLevel1">
+        <AffectedUnitArray value="NexusLz"/>
+        <AffectedUnitArray value="CyberneticsCoreLz"/>
+        <AffectedUnitArray value="DarkShrineLz"/>
+        <AffectedUnitArray value="FleetBeaconLz"/>
+        <AffectedUnitArray value="ForgeLz"/>
+        <AffectedUnitArray value="GatewayLz"/>
+        <AffectedUnitArray value="PhotonCannonLz"/>
+        <AffectedUnitArray value="WallProtossLz"/>
+        <AffectedUnitArray value="RoboticsBayLz"/>
+        <AffectedUnitArray value="RoboticsFacilityLz"/>
+        <AffectedUnitArray value="ShieldBatteryLz"/>
+        <AffectedUnitArray value="StargateLz"/>
+        <AffectedUnitArray value="TemplarArchivesLz"/>
+        <AffectedUnitArray value="TwilightCouncilLz"/>
+        <AffectedUnitArray value="WarpGateLz"/>
+        <EffectArray Operation="Set" Reference="Actor,NexusLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,CyberneticsCoreLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,DarkShrineLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,FleetBeaconLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ForgeLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,GatewayLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,PhotonCannonLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WallProtossLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsBayLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsFacilityLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ShieldBatteryLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,StargateLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TemplarArchivesLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TwilightCouncilLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WarpGateLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel1.dds"/>
+        <EffectArray Reference="Unit,NexusLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,NexusLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,LifeArmor" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossGroundArmorsLevel2">
+        <AffectedUnitArray value="NexusLz"/>
+        <AffectedUnitArray value="CyberneticsCoreLz"/>
+        <AffectedUnitArray value="DarkShrineLz"/>
+        <AffectedUnitArray value="FleetBeaconLz"/>
+        <AffectedUnitArray value="ForgeLz"/>
+        <AffectedUnitArray value="GatewayLz"/>
+        <AffectedUnitArray value="PhotonCannonLz"/>
+        <AffectedUnitArray value="WallProtossLz"/>
+        <AffectedUnitArray value="RoboticsBayLz"/>
+        <AffectedUnitArray value="RoboticsFacilityLz"/>
+        <AffectedUnitArray value="ShieldBatteryLz"/>
+        <AffectedUnitArray value="StargateLz"/>
+        <AffectedUnitArray value="TemplarArchivesLz"/>
+        <AffectedUnitArray value="TwilightCouncilLz"/>
+        <AffectedUnitArray value="WarpGateLz"/>
+        <EffectArray Operation="Set" Reference="Actor,NexusLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,CyberneticsCoreLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,DarkShrineLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,FleetBeaconLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ForgeLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,GatewayLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,PhotonCannonLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WallProtossLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsBayLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsFacilityLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ShieldBatteryLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,StargateLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TemplarArchivesLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TwilightCouncilLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WarpGateLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel2.dds"/>
+        <EffectArray Reference="Unit,NexusLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,NexusLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,LifeArmor" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossGroundArmorsLevel3">
+        <AffectedUnitArray value="NexusLz"/>
+        <AffectedUnitArray value="CyberneticsCoreLz"/>
+        <AffectedUnitArray value="DarkShrineLz"/>
+        <AffectedUnitArray value="FleetBeaconLz"/>
+        <AffectedUnitArray value="ForgeLz"/>
+        <AffectedUnitArray value="GatewayLz"/>
+        <AffectedUnitArray value="PhotonCannonLz"/>
+        <AffectedUnitArray value="WallProtossLz"/>
+        <AffectedUnitArray value="RoboticsBayLz"/>
+        <AffectedUnitArray value="RoboticsFacilityLz"/>
+        <AffectedUnitArray value="ShieldBatteryLz"/>
+        <AffectedUnitArray value="StargateLz"/>
+        <AffectedUnitArray value="TemplarArchivesLz"/>
+        <AffectedUnitArray value="TwilightCouncilLz"/>
+        <AffectedUnitArray value="WarpGateLz"/>
+        <EffectArray Operation="Set" Reference="Actor,NexusLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,CyberneticsCoreLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,DarkShrineLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,FleetBeaconLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ForgeLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,GatewayLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,PhotonCannonLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WallProtossLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsBayLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsFacilityLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ShieldBatteryLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,StargateLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TemplarArchivesLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TwilightCouncilLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WarpGateLz,LifeArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <EffectArray Reference="Unit,NexusLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,NexusLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,LifeArmor" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossShieldsLevel1">
+        <AffectedUnitArray value="NexusLz"/>
+        <AffectedUnitArray value="CyberneticsCoreLz"/>
+        <AffectedUnitArray value="DarkShrineLz"/>
+        <AffectedUnitArray value="FleetBeaconLz"/>
+        <AffectedUnitArray value="ForgeLz"/>
+        <AffectedUnitArray value="GatewayLz"/>
+        <AffectedUnitArray value="PhotonCannonLz"/>
+        <AffectedUnitArray value="WallProtossLz"/>
+        <AffectedUnitArray value="RoboticsBayLz"/>
+        <AffectedUnitArray value="RoboticsFacilityLz"/>
+        <AffectedUnitArray value="ShieldBatteryLz"/>
+        <AffectedUnitArray value="StargateLz"/>
+        <AffectedUnitArray value="TemplarArchivesLz"/>
+        <AffectedUnitArray value="TwilightCouncilLz"/>
+        <AffectedUnitArray value="WarpGateLz"/>
+        <EffectArray Operation="Set" Reference="Actor,NexusLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,CyberneticsCoreLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,DarkShrineLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,FleetBeaconLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ForgeLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,GatewayLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,PhotonCannonLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WallProtossLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsBayLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsFacilityLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ShieldBatteryLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,StargateLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TemplarArchivesLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TwilightCouncilLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WarpGateLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+        <EffectArray Reference="Unit,NexusLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,NexusLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,ShieldArmor" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossShieldsLevel2">
+        <AffectedUnitArray value="NexusLz"/>
+        <AffectedUnitArray value="CyberneticsCoreLz"/>
+        <AffectedUnitArray value="DarkShrineLz"/>
+        <AffectedUnitArray value="FleetBeaconLz"/>
+        <AffectedUnitArray value="ForgeLz"/>
+        <AffectedUnitArray value="GatewayLz"/>
+        <AffectedUnitArray value="PhotonCannonLz"/>
+        <AffectedUnitArray value="WallProtossLz"/>
+        <AffectedUnitArray value="RoboticsBayLz"/>
+        <AffectedUnitArray value="RoboticsFacilityLz"/>
+        <AffectedUnitArray value="ShieldBatteryLz"/>
+        <AffectedUnitArray value="StargateLz"/>
+        <AffectedUnitArray value="TemplarArchivesLz"/>
+        <AffectedUnitArray value="TwilightCouncilLz"/>
+        <AffectedUnitArray value="WarpGateLz"/>
+        <EffectArray Operation="Set" Reference="Actor,NexusLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,CyberneticsCoreLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,DarkShrineLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,FleetBeaconLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ForgeLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,GatewayLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,PhotonCannonLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WallProtossLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsBayLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsFacilityLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ShieldBatteryLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,StargateLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TemplarArchivesLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TwilightCouncilLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WarpGateLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel2.dds"/>
+        <EffectArray Reference="Unit,NexusLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,NexusLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,ShieldArmor" Value="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossShieldsLevel3">
+        <AffectedUnitArray value="NexusLz"/>
+        <AffectedUnitArray value="CyberneticsCoreLz"/>
+        <AffectedUnitArray value="DarkShrineLz"/>
+        <AffectedUnitArray value="FleetBeaconLz"/>
+        <AffectedUnitArray value="ForgeLz"/>
+        <AffectedUnitArray value="GatewayLz"/>
+        <AffectedUnitArray value="PhotonCannonLz"/>
+        <AffectedUnitArray value="WallProtossLz"/>
+        <AffectedUnitArray value="RoboticsBayLz"/>
+        <AffectedUnitArray value="RoboticsFacilityLz"/>
+        <AffectedUnitArray value="ShieldBatteryLz"/>
+        <AffectedUnitArray value="StargateLz"/>
+        <AffectedUnitArray value="TemplarArchivesLz"/>
+        <AffectedUnitArray value="TwilightCouncilLz"/>
+        <AffectedUnitArray value="WarpGateLz"/>
+        <EffectArray Operation="Set" Reference="Actor,NexusLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,CyberneticsCoreLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,DarkShrineLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,FleetBeaconLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ForgeLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,GatewayLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,PhotonCannonLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WallProtossLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsBayLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,RoboticsFacilityLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,ShieldBatteryLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,StargateLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TemplarArchivesLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,TwilightCouncilLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,WarpGateLz,ShieldArmorIcon" Value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+        <EffectArray Reference="Unit,NexusLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,NexusLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,CyberneticsCoreLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,DarkShrineLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,FleetBeaconLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ForgeLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,GatewayLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,PhotonCannonLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WallProtossLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsBayLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,RoboticsFacilityLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,ShieldBatteryLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,StargateLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TemplarArchivesLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,TwilightCouncilLz,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,ShieldArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,WarpGateLz,ShieldArmor" Value="1"/>
     </CUpgrade>
 </Catalog>

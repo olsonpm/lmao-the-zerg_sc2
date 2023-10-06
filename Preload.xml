@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Preload>
 <Actor id="SYSTEM_ActorConfig"/>
+<Behavior id="RockTeleportStunLz"/>
+<Behavior id="DisableEnergyRegenLz"/>
+<Button id="UpgradeMiningLz"/>
+<Effect id="ExitEffectLz"/>
 <Model id="PingArrow"/>
 <Race id="Terr"/>
+<Race id="Prot"/>
 <Sound id="UI_GenericError"/>
 <Sound id="Alert_TerranNeedMoreMinerals"/>
+<Sound id="Ultralisk_Death_Fall_Impact"/>
 <Sound id="AnnounceWaveLz"/>
 <Sound id="MiningStationSelectedLz"/>
+<Sound id="GenericErrorLz"/>
 <Terrain id="PurifierJungle"/>
-<Unit id="SCV"/>
-<Unit id="Medivac"/>
+<Unit id="Carrier"/>
+<Unit id="SwarmBroodLordLz"/>
+<Unit id="SwarmMutaliskLz"/>
+<Unit id="TechLabFactoryLz"/>
+<Unit id="TechLabStarportLz"/>
+<Unit id="TechLabBarracksLz"/>
+<Unit id="SwarmCorruptorLz"/>
+<Unit id="SwarmViperLz"/>
+<Unit id="SwarmLeviathanLz" UserTag="Zerg"/>
+<Unit id="SwarmWasplingLz"/>
+<Unit id="SwarmHydraliskLz"/>
+<Unit id="SwarmHunterBanelingLz"/>
+<Unit id="SwarmRavagerLz"/>
+<Unit id="SwarmOmegaliskLz"/>
+<Unit id="SwarmBrutaliskLz"/>
+<Unit id="SwarmDefilerLz"/>
+<Unit id="SwarmInfestorLz"/>
+<Unit id="SwarmOverseerLz"/>
+<Unit id="SwarmTanklingLz"/>
+<Unit id="SwarmMitoscarabLz"/>
+<Unit id="SwarmAberrationLz"/>
+<Unit id="SwarmRaptorlingLz"/>
 <Unit id="SwarmQueenLz"/>
 <Unit id="SwarmRoachLz"/>
 <Unit id="MiningStationAllyLz"/>
 <Unit id="MiningStationPlayerLz"/>
-<Unit id="StartingSCVLz"/>
+<Unit id="SwarmUltraliskLz"/>
 <Unit id="SwarmZerglingLz"/>
 </Preload>

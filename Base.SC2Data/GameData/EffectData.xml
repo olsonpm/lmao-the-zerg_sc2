@@ -1,5 +1,744 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="AdeptDamage">
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="AirAttackCPSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <PeriodCount value="6"/>
+        <PeriodicEffectArray value="AirAttackLMSwarmLeviathanLz"/>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="AirAttackDamageSwarmLeviathanLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Visibility value="Visible"/>
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="AirAttackLMSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="AirAttackDamageSwarmLeviathanLz"/>
+        <Flags index="Retarget" value="1"/>
+        <AmmoUnit value="ScourgeMissileSwarmLeviathanLz"/>
+        <RetargetFilters value="Air,Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <RetargetRange value="4"/>
+        <Movers Link="ScourgeMissileLeftRear" IfRangeLTE="500"/>
+        <Movers Link="ScourgeMissileLeftForward" IfRangeLTE="500"/>
+        <Movers Link="ScourgeMissileRightForward" IfRangeLTE="500"/>
+        <Movers Link="ScourgeMissileRightRear" IfRangeLTE="500"/>
+        <MoverExecuteJump value="1"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="BioPlasmidDischargeDamage">
+        <Amount value="200"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="CloakingFieldSearch">
+        <AreaArray index="0" Radius="1"/>
+    </CEffectEnumArea>
+    <CEffectSet id="GroundAttackASetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="GroundAttackUnderAttackABSwarmLeviathanLz"/>
+        <EffectArray value="GroundAttackABusyABSwarmLeviathanLz"/>
+    </CEffectSet>
+    <CEffectSet id="GroundAttackBSetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="GroundAttackUnderAttackABSwarmLeviathanLz"/>
+        <EffectArray value="GroundAttackBBusyABSwarmLeviathanLz"/>
+    </CEffectSet>
+    <CEffectSet id="GroundAttackCSetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="GroundAttackUnderAttackABSwarmLeviathanLz"/>
+        <EffectArray value="GroundAttackCBusyABSwarmLeviathanLz"/>
+    </CEffectSet>
+    <CEffectSet id="GroundAttackDSetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="GroundAttackUnderAttackABSwarmLeviathanLz"/>
+        <EffectArray value="GroundAttackDBusyABSwarmLeviathanLz"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="GroundAttackABusyABSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleABusySwarmLeviathanLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GroundAttackBBusyABSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleBBusySwarmLeviathanLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GroundAttackCBusyABSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleCBusySwarmLeviathanLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GroundAttackDBusyABSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TentacleDBusySwarmLeviathanLz"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GroundAttackUnderAttackABSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="BeingAttackedByTentacleSwarmLeviathanLz"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="GroundAttackDamageSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Visibility value="Visible"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="GroundAttackALMSwarmLeviathanLz">
+        <ValidatorArray index="0" value="CasterNotHaveTimeStop"/>
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="GroundAttackDamageSwarmLeviathanLz"/>
+        <Flags index="Return" value="1"/>
+        <AmmoUnit value="TentacleAMissileSwarmLviathanLz"/>
+        <ReturnDelay value="0.25"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractLong" IfRangeLTE="500"/>
+        <Movers Link="SpineCrawlerTentacleExtendLong" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="GroundAttackBLMSwarmLeviathanLz">
+        <ValidatorArray index="0" value="CasterNotHaveTimeStop"/>
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="GroundAttackDamageSwarmLeviathanLz"/>
+        <Flags index="Return" value="1"/>
+        <AmmoUnit value="TentacleBMissileSwarmLviathanLz"/>
+        <ReturnDelay value="0.25"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractLong" IfRangeLTE="500"/>
+        <Movers Link="SpineCrawlerTentacleExtendLong" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="GroundAttackCLMSwarmLeviathanLz">
+        <ValidatorArray index="0" value="CasterNotHaveTimeStop"/>
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="GroundAttackDamageSwarmLeviathanLz"/>
+        <Flags index="Return" value="1"/>
+        <AmmoUnit value="TentacleCMissileSwarmLviathanLz"/>
+        <ReturnDelay value="0.25"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractLong" IfRangeLTE="500"/>
+        <Movers Link="SpineCrawlerTentacleExtendLong" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="GroundAttackDLMSwarmLeviathanLz">
+        <ValidatorArray index="0" value="CasterNotHaveTimeStop"/>
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="GroundAttackDamageSwarmLeviathanLz"/>
+        <Flags index="Return" value="1"/>
+        <AmmoUnit value="TentacleDMissileSwarmLviathanLz"/>
+        <ReturnDelay value="0.25"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractLong" IfRangeLTE="500"/>
+        <Movers Link="SpineCrawlerTentacleExtendLong" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectRemoveBehavior id="GroundAttackABusyRBSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="TentacleABusySwarmLeviathanLz"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="GroundAttackBBusyRBSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="TentacleBBusySwarmLeviathanLz"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="GroundAttackCBusyRBSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="TentacleCBusySwarmLeviathanLz"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="GroundAttackDBusyRBSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="TentacleDBusySwarmLeviathanLz"/>
+    </CEffectRemoveBehavior>
+    <CEffectCreatePersistent id="GroundAttackScanCPSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="CasterUnit"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffectArray value="GroundAttackASASwarmLeviathanLz"/>
+        <PeriodicEffectArray value="GroundAttackBSASwarmLeviathanLz"/>
+        <PeriodicEffectArray value="GroundAttackCSASwarmLeviathanLz"/>
+        <PeriodicEffectArray value="GroundAttackDSASwarmLeviathanLz"/>
+        <PeriodicPeriodArray value="0.125"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="GroundAttackASASwarmLeviathanLz">
+        <ValidatorArray value="TentacleANotBusySwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <SearchFilters value="Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray MaxCount="1" Radius="12" Effect="GroundAttackATargetCPSwarmLeviathanLz"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GroundAttackBSASwarmLeviathanLz">
+        <ValidatorArray value="TentacleBNotBusySwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <SearchFilters value="Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray MaxCount="1" Radius="12" Effect="GroundAttackBTargetCPSwarmLeviathanLz"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GroundAttackCSASwarmLeviathanLz">
+        <ValidatorArray value="TentacleCNotBusySwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <SearchFilters value="Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray MaxCount="1" Radius="12" Effect="GroundAttackCTargetCPSwarmLeviathanLz"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GroundAttackDSASwarmLeviathanLz">
+        <ValidatorArray value="TentacleDNotBusySwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <SearchFilters value="Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray MaxCount="1" Radius="12" Effect="GroundAttackDTargetCPSwarmLeviathanLz"/>
+    </CEffectEnumArea>
+    <CEffectCreatePersistent id="GroundAttackATargetCPSwarmLeviathanLz">
+        <ValidatorArray value="NotBeingAttackedByTentacleSwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+        <InitialEffect value="GroundAttackASetSwarmLeviathanLz"/>
+        <FinalEffect value="GroundAttackABusyRBSwarmLeviathanLz"/>
+        <PeriodicValidator value="LeviathanPeriodicAttackValidator"/>
+        <PeriodicEffectArray value="GroundAttackALMSwarmLeviathanLz"/>
+        <PeriodicPeriodArray value="2.21"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="GroundAttackBTargetCPSwarmLeviathanLz">
+        <ValidatorArray value="NotBeingAttackedByTentacleSwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+        <InitialEffect value="GroundAttackBSetSwarmLeviathanLz"/>
+        <FinalEffect value="GroundAttackBBusyRBSwarmLeviathanLz"/>
+        <PeriodicValidator value="LeviathanPeriodicAttackValidator"/>
+        <PeriodicEffectArray value="GroundAttackBLMSwarmLeviathanLz"/>
+        <PeriodicPeriodArray value="2.21"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="GroundAttackCTargetCPSwarmLeviathanLz">
+        <ValidatorArray value="NotBeingAttackedByTentacleSwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+        <InitialEffect value="GroundAttackCSetSwarmLeviathanLz"/>
+        <FinalEffect value="GroundAttackCBusyRBSwarmLeviathanLz"/>
+        <PeriodicValidator value="LeviathanPeriodicAttackValidator"/>
+        <PeriodicEffectArray value="GroundAttackCLMSwarmLeviathanLz"/>
+        <PeriodicPeriodArray value="2.21"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="GroundAttackDTargetCPSwarmLeviathanLz">
+        <ValidatorArray value="NotBeingAttackedByTentacleSwarmLeviathanLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+        <InitialEffect value="GroundAttackDSetSwarmLeviathanLz"/>
+        <FinalEffect value="GroundAttackDBusyRBSwarmLeviathanLz"/>
+        <PeriodicValidator value="LeviathanPeriodicAttackValidator"/>
+        <PeriodicEffectArray value="GroundAttackDLMSwarmLeviathanLz"/>
+        <PeriodicPeriodArray value="2.21"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="HighTemplarWeaponDamage">
+        <Amount value="4"/>
+    </CEffectDamage>
+    <CEffectDamage id="RepulsorCannonWeaponDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Kind value="Ranged"/>
+        <Amount value="40"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="RepulsorCannonWeaponLMLz">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="RepulsorCannonWeaponDamageLz"/>
+        <AmmoUnit value="RepulsorCannonWeaponWeaponLz"/>
+        <Movers Link="MothershipCoreWeaponWeaponClose" IfRangeLTE="4"/>
+        <Movers Link="MothershipCoreWeaponWeapon" IfRangeLTE="20"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ParticleBeamDamageProbeLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="PhotonCannonLMLz">
+        <ValidatorArray index="0" value="PhotonCannonTargetFilters"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="PhotonCannonDamageLz"/>
+        <AmmoUnit value="PhotonCannonWeaponLz"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="PhotonCannonDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="PhotonOverchargeABNexusLz">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectCreateHealer id="ShieldBatteryRechargeLz">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="ShieldsNotFull"/>
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="NotVortexd"/>
+        <ValidatorArray value="NotUncommandable"/>
+        <ValidatorArray value="SourceNotHidden"/>
+        <ValidatorArray value="NotInterceptor"/>
+        <ValidatorArray value="IsNotK5Kerrigan"/>
+        <EditorCategories value="Race:Terran"/>
+        <PeriodicValidator value="ShieldsNotFull"/>
+        <PeriodicEffect value="ShieldBatteryRechargeChanneledRevealSearch"/>
+        <DrainVital value="Energy"/>
+        <DrainVitalCostFactor value="0.33"/>
+        <RechargeVital value="Shields"/>
+        <RechargeVitalRate value="72"/>
+    </CEffectCreateHealer>
+    <CEffectCreateHealer id="RechargeShieldLz">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="ShieldsNotFull"/>
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="NotVortexd"/>
+        <ValidatorArray value="NotUncommandable"/>
+        <ValidatorArray value="SourceNotHidden"/>
+        <ValidatorArray value="NotInterceptor"/>
+        <ValidatorArray value="IsNotK5Kerrigan"/>
+        <EditorCategories value="Race:Terran"/>
+        <PeriodicValidator value="ShieldsNotFull"/>
+        <PeriodicEffect value="ShieldBatteryRechargeChanneledRevealSearch"/>
+        <RechargeVital value="Shields"/>
+        <RechargeVitalRate value="15"/>
+    </CEffectCreateHealer>
+    <CEffectCreateUnit id="SpawnBroodLordCUSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <CreateFlags index="Birth" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
+        <SpawnUnit value="SwarmBroodLordLz"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="SpawnBroodLordEggCUSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="SpawnBroodLordEggSetSwarmLeviathanLz"/>
+        <SpawnUnit value="BroodLordCocoonSwarmLviathanLz"/>
+    </CEffectCreateUnit>
+    <CEffectLaunchMissile id="SpawnBroodLordEggLMSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetUnitOrPoint"/>
+        <FinishEffect value="RemovePrecursor"/>
+        <AmmoUnit value="SwarmBroodLordEggMissileLz"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="SpawnBroodLordEggSetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SpawnBroodLordEggLMSwarmLeviathanLz"/>
+        <EffectArray value="MakePrecursor"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="SpawnBroodLordEggCPSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="CasterUnit"/>
+        <Flags index="RandomOffset" value="1"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="SpawnBroodLordEggCUSwarmLeviathanLz"/>
+        <PeriodicOffsetArray value="6,1,0"/>
+        <PeriodicOffsetArray value="-6,1,0"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="SpawnBroodLordSetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SpawnBroodLordCUSwarmLeviathanLz"/>
+        <EffectArray value="Kill"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="SpawnMutaliskCUSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <CreateFlags index="Birth" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
+        <SpawnUnit value="SwarmMutaliskLz"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="SpawnMutaliskEggCUSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnEffect value="SpawnMutaliskEggSetSwarmLeviathanLz"/>
+        <SpawnUnit value="MutaliskCocoonSwarmLviathanLz"/>
+    </CEffectCreateUnit>
+    <CEffectLaunchMissile id="SpawnMutaliskEggLMSwarmLeviathanLz">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <FinishEffect value="RemovePrecursor"/>
+        <AmmoUnit value="SwarmMutaliskEggMissileLz"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="SpawnMutaliskEggSetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SpawnMutaliskEggLMSwarmLeviathanLz"/>
+        <EffectArray value="MakePrecursor"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="SpawnMutaliskEggCPSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="CasterUnit"/>
+        <Flags index="RandomOffset" value="1"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="SpawnMutaliskEggCUSwarmLeviathanLz"/>
+        <PeriodicOffsetArray value="6,1,0"/>
+        <PeriodicOffsetArray value="-6,1,0"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="SpawnMutaliskSetSwarmLeviathanLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SpawnMutaliskCUSwarmLeviathanLz"/>
+        <EffectArray value="Kill"/>
+    </CEffectSet>
+    <CEffectDamage id="SwarmWasplingDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="15"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SwarmWasplingLMLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="SwarmWasplingDamageLz"/>
+        <AmmoUnit value="SwarmWasplingWeaponLz"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="MeleeDamageSwarmHydraliskLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="12"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectSet id="MeleeSetSwarmHydraliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="ParalyticSpines"/>
+        <EffectArray value="MeleeDamageSwarmHydraliskLz"/>
+    </CEffectSet>
+    <CEffectDamage id="NeedleSpinesDamageSwarmHydraliskLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="NeedleSpinesLMSwarmHydraliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="NeedleSpinesDamageSwarmHydraliskLz"/>
+        <AmmoUnit value="NeedleSpinesWeaponSwarmHydraliskLz"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="SwarmHunterBanelingLaunchLandDummyLz"/>
+    <CEffectApplyBehavior id="SwarmHunterBanelingTimedLifeLz">
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="SwarmHunterBanelingLaunchDisableLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="SwarmHunterBanelingSuicideRBLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="SwarmHunterBanelingExplodeLz"/>
+    </CEffectRemoveBehavior>
+    <CEffectDamage id="SwarmHunterBanelingVolatileBurstBuildingDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="0"/>
+        <ResponseFlags index="Flee" value="0"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0"/>
+        <Flags index="Notification" value="0"/>
+        <Kind value="Splash"/>
+        <Amount value="80"/>
+        <Death value="Disintegrate"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="SwarmHunterBanelingVolatileBurstUnitDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="0"/>
+        <ResponseFlags index="Flee" value="0"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Notification" value="0"/>
+        <Kind value="Splash"/>
+        <Amount value="40"/>
+        <Death value="Disintegrate"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectSet id="SwarmHunterBanelingVolatileBurstSetLz">
+        <ValidatorArray value="CasterIsNotHidden"/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmHunterBanelingSuicideRBLz"/>
+        <EffectArray value="SwarmHunterBanelingVolatileBurstBuildingDamageLz"/>
+        <EffectArray value="SwarmHunterBanelingVolatileBurstUnitDamageLz"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="SwarmHunterBanelingVolatileBurstLMLz">
+        <ValidatorArray index="0" value="CasterNotHoldingPosition"/>
+        <ValidatorArray value="HunterCliffCompare"/>
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="SwarmHunterBanelingLaunchDisableLz"/>
+        <InterruptEffect value="SwarmHunterBanelingLaunchLandDummyLz"/>
+        <Flags index="2D" value="1"/>
+        <Flags index="Placement" value="1"/>
+        <Flags index="PlacementIgnoreCliffTest" value="1"/>
+        <Flags index="PlacementOriginSideOfFootprints" value="1"/>
+        <PlacementRange value="3"/>
+        <Movers Link="HotSHunterMissile"/>
+        <DeathType value="Unknown"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="SwarmHunterBanelingExplodeDelayABLz">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="SwarmHunterBanelingExplodeDelayLz"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="SwarmHunterBanelingExplodeDelaySetLz">
+        <EffectArray value="GrantKillCreditDummy"/>
+        <EffectArray value="SwarmHunterBanelingExplodeLargeDeathRBLz"/>
+        <EffectArray value="SwarmHunterBanelingExplodeDelayABLz"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="BroodlingAttackSwarmBroodLordLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Abil value="attack"/>
+        <Target Effect="BroodlingEscortSwarmBroodLordLz" Value="TargetUnitOrPoint"/>
+    </CEffectIssueOrder>
+    <CEffectSet id="SwarmHunterBanelingDeathExplodeLargeSetLz">
+        <EffectArray value="SwarmHunterBanelingExplodeLargeDeathRBLz"/>
+        <EffectArray value="SwarmHunterBanelingExplodeLargeAllSALz"/>
+        <EffectArray value="SuicideDelay"/>
+    </CEffectSet>
+    <CEffectDamage id="SwarmHunterBanelingExplodeLargeDirectLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <AttributeBonus index="Structure" value="40"/>
+        <Kind value="Splash"/>
+        <Amount value="40"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="SwarmHunterBanelingExplodeLargeSALz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2.2" Effect="SwarmHunterBanelingExplodeLargeDamageLz"/>
+        <SearchFlags index="SameCliff" value="1"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SwarmHunterBanelingExplodeLargeAllSALz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2.2" Effect="SwarmHunterBanelingExplodeLargeDamageLz"/>
+        <SearchFlags index="SameCliff" value="1"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="SwarmHunterBanelingExplodeLargeDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <AttributeBonus index="Structure" value="40"/>
+        <Kind value="Splash"/>
+        <Amount value="40"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectSet id="SwarmHunterBanelingExplodeLargeSetLz">
+        <EffectArray value="SwarmHunterBanelingExplodeLargeDeathRBLz"/>
+        <EffectArray value="SwarmHunterBanelingExplodeLargeDirectLz"/>
+        <EffectArray value="SwarmHunterBanelingExplodeLargeSALz"/>
+        <EffectArray value="SuicideDelay"/>
+    </CEffectSet>
+    <CEffectRemoveBehavior id="SwarmHunterBanelingExplodeLargeDeathRBLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="SwarmHunterBanelingExplodeLz"/>
+    </CEffectRemoveBehavior>
+    <CEffectDamage id="NoxiousFumesDamageLz">
+        <Amount value="5"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="NoxiousFumesSearchLz">
+        <EditorCategories value="Race:Terran"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2" Effect="NoxiousFumesDamageLz"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="SwarmRavagerWeaponDamageLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="16"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SwarmRavagerWeaponLMLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="SwarmRavagerWeaponDamageLz"/>
+        <AmmoUnit value="SwarmRavagerWeaponMissileLz"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="SuperzergBladesSetSwarmOmegaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SuperzergBladesDamageSwarmOmegaliskLz"/>
+        <EffectArray value="SuperzergBladesCleaveSASwarmOmegaliskLz"/>
+    </CEffectSet>
+    <CEffectEnumArea id="SuperzergBladesCleaveSASwarmOmegaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetSorts RequestCount="3">
+            <SortArray value="TSMarker"/>
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+        <AreaArray Radius="1.5" Effect="SuperzergBladesCleaveDamageSwarmOmegaliskLz"/>
+        <MaxCount value="3"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="SuperzergBladesCleaveDamageSwarmOmegaliskLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="15"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="HeadAttackDamageSwarmOmegaliskLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="120"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="SuperzergBladesDamageSwarmOmegaliskLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="60"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectSet id="SwarmBroodlingEscortDamageSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmBroodlingEscortDamageUnitLz"/>
+        <EffectArray value="SwarmBroodlingEscortImpactALz"/>
+    </CEffectSet>
+    <CEffectSet id="BroodlingEscortImpactSwarmBroodLordLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="RemovePrecursor"/>
+        <EffectArray value="SwarmBroodlingEscortImpactTransferLz"/>
+        <EffectArray value="BroodlingAttackSwarmBroodLordLz"/>
+        <EffectArray value="SuicideRemove"/>
+    </CEffectSet>
+    <CEffectSwitch id="BroodlingEscortSwarmBroodLordLz">
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Validator="IsStructure" Effect="SwarmBroodlingEscortStructureLz"/>
+        <CaseDefault value="SwarmBroodlingEscortUnitSetLz"/>
+    </CEffectSwitch>
+    <CEffectDamage id="BroodlingEscortDamageSwarmBroodLordLz" parent="DU_WEAP_MISSILE">
+        <ValidatorArray value="SwarmBroodlingEscortFiltersLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Effect="BroodlingEscortSwarmBroodLordLz" Value="TargetUnit"/>
+        <Visibility value="Visible"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectSet id="BroodlingEscortLaunchSwarmBroodLordLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="BroodlingEscortReleaseSwarmBroodLordLz"/>
+        <EffectArray value="BroodlingEscortMissileSwarmBroodLordLz"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="SwarmBroodlingTimedLifeLz"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="BroodlingEscortMissileSwarmBroodLordLz">
+        <DeathType value="Unknown"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetUnitOrPoint"/>
+        <ImpactEffect value="BroodlingEscortDamageSwarmBroodLordLz"/>
+        <FinishEffect value="BroodlingEscortImpactSwarmBroodLordLz"/>
+        <Movers Link="BroodLordWeaponRight" IfRangeLTE="500"/>
+        <Movers Link="BroodLordWeaponLeft" IfRangeLTE="500"/>
+        <Flags index="ValidateWeapon" value="0"/>
+        <MoverRollingJump value="1"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectLaunchMissile>
+    <CEffectReleaseMagazine id="BroodlingEscortReleaseSwarmBroodLordLz">
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectReleaseMagazine>
+    <CEffectCreateUnit id="SwarmBroodlingEscortCULz">
+        <ValidatorArray value="NotNonTerrazineHallucination"/>
+        <EditorCategories value="Race:Zerg"/>
+        <CreateFlags index="Birth" value="0"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="BroodlingEscortLaunchSwarmBroodLordLz"/>
+        <SpawnUnit value="SwarmBroodlingLz"/>
+        <SpawnRange value="5"/>
+    </CEffectCreateUnit>
+    <CEffectDamage id="SwarmBroodlingEscortDamageUnitLz" parent="DU_WEAP_MISSILE">
+        <ValidatorArray value="SwarmBroodlingEscortFiltersLz"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Visibility value="Visible"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SwarmBroodlingEscortFallbackMissileLz">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetUnitOrPoint"/>
+        <FinishEffect value="BroodlingEscortDamageSwarmBroodLordLz"/>
+        <Flags index="ValidateWeapon" value="0"/>
+        <Movers Link="BroodLordWeaponRight" IfRangeLTE="500"/>
+        <Movers Link="BroodLordWeaponLeft" IfRangeLTE="500"/>
+        <MoverRollingJump value="1"/>
+    </CEffectLaunchMissile>
+    <CEffectCreateUnit id="SwarmBroodlingEscortImpactALz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <CreateFlags index="Birth" value="0"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="SwarmBroodlingEscortLaunchBLz"/>
+        <SpawnUnit value="SwarmBroodlingLz"/>
+        <SpawnRange value="5"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SwarmBroodlingEscortImpactBLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="RemovePrecursor"/>
+        <EffectArray value="BroodlingAttackSwarmBroodLordLz"/>
+        <EffectArray value="SuicideRemove"/>
+    </CEffectSet>
+    <CEffectTransferBehavior id="SwarmBroodlingEscortImpactTransferLz">
+        <LaunchUnit Effect="BroodlingEscortMissileSwarmBroodLordLz" Value="Source"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="KillsToCaster"/>
+    </CEffectTransferBehavior>
+    <CEffectLaunchMissile id="SwarmBroodlingEscortLaunchALz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="SwarmBroodlingEscortDamageUnitLz"/>
+        <FinishEffect value="SwarmBroodlingEscortImpactALz"/>
+        <Flags index="ValidateWeapon" value="0"/>
+        <Movers Link="BroodLordWeaponRight" IfRangeLTE="500"/>
+        <Movers Link="BroodLordWeaponLeft" IfRangeLTE="500"/>
+        <MoverRollingJump value="1"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="SwarmBroodlingEscortLaunchBLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmBroodlingEscortMissileBLz"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="SwarmBroodlingTimedLifeLz"/>
+        <EffectArray value="SwarmBroodlingEscortLaunchBTransferLz"/>
+    </CEffectSet>
+    <CEffectTransferBehavior id="SwarmBroodlingEscortLaunchBTransferLz">
+        <LaunchUnit Effect="SwarmBroodlingEscortLaunchALz" Value="Source"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="KillsToCaster"/>
+    </CEffectTransferBehavior>
+    <CEffectLaunchMissile id="SwarmBroodlingEscortMissileBLz">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <FinishEffect value="SwarmBroodlingEscortImpactBLz"/>
+        <AmmoUnit value="SwarmBroodLordWeaponBLz"/>
+    </CEffectLaunchMissile>
+    <CEffectSwitch id="SwarmBroodlingEscortStructureLz">
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Effect="SwarmBroodlingEscortCULz" FallThrough="1"/>
+        <CaseDefault value="SwarmBroodlingEscortFallbackMissileLz"/>
+    </CEffectSwitch>
+    <CEffectSet id="SwarmBroodlingEscortUnitSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="BroodlingEscortReleaseSwarmBroodLordLz"/>
+        <EffectArray value="SwarmBroodlingEscortLaunchALz"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="SwarmBroodlingTimedLifeLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="SpawnFateSwarmBroodLordLz"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="ExitEffectLz">
+        <EditorCategories value=""/>
+        <InitialDelay value="1"/>
+    </CEffectCreatePersistent>
     <CEffectDamage id="ATALaserBatteryU">
         <Amount value="5"/>
     </CEffectDamage>
@@ -30,12 +769,299 @@
         <AmmoUnit value="AcidSpinesWeaponSwarmQueenLz"/>
         <Movers Link="AcidSpinesWeapon"/>
     </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="BrutalizeCPSwarmBrutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="BrutalizeDamageSwarmBrutaliskLz"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.5"/>
+        <HeightMap value="Ground"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="BrutalizeDamageSwarmBrutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Melee"/>
+        <Amount value="30"/>
+        <Death value="Eviscerate"/>
+        <AreaArray>
+            <Arc value="270"/>
+            <Radius value="2"/>
+            <Fraction value="1"/>
+            <Validator value="IsAbathurCoopCommander"/>
+        </AreaArray>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground,Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+        <SearchFlags index="OffsetAreaByAngle" value="1"/>
+    </CEffectDamage>
     <CEffectDamage id="ClawsDamageSwarmZerglingLz" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Amount value="5"/>
     </CEffectDamage>
+    <CEffectDamage id="FerociousSpewDamageSwarmBrutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Ranged"/>
+        <Amount value="50"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FerociousSpewLMSwarmBrutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="FerociousSpewDamageSwarmBrutaliskLz"/>
+        <AmmoUnit value="SwarmBrutaliskWeaponLz"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="GlaiveWurmLM1SwarmMutaliskLz">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="GlaiveWurmSet1LzSwarmMutaliskLz"/>
+        <AmmoUnit value="GlaveWurm1Lz"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="GlaiveWurmSA1SwarmMutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="GlaiveWurmLM2SwarmMutaliskLz"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GlaiveWurmSA2SwarmMutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="GlaiveWurmLM3SwarmMutaliskLz"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="GlaiveWurmLM2SwarmMutaliskLz">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="TargetNotChangeling"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="GlaiveWurmSet2SwarmMutaliskLz"/>
+        <AmmoUnit value="GlaveWurm2Lz"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="GlaiveWurmLM3SwarmMutaliskLz">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="TargetNotChangeling"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="GlaiveWurmS3"/>
+        <AmmoUnit value="GlaveWurm3Lz"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="GlaiveWurmSet1LzSwarmMutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="GlaiveWurmDamage1SwarmMutaliskLz"/>
+        <EffectArray value="GlaiveWurmSA1SwarmMutaliskLz"/>
+        <EffectArray value="MutaliskDoubleDamageRB"/>
+        <EffectArray value="MutaliskRapidRegenRB"/>
+        <EffectArray value="MutaliskOutOfCombat2RB"/>
+    </CEffectSet>
+    <CEffectSet id="GlaiveWurmSet2SwarmMutaliskLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="GlaiveWurmDamage2SwarmMutaliskLz"/>
+        <EffectArray value="GlaiveWurmSA2SwarmMutaliskLz"/>
+    </CEffectSet>
+    <CEffectDamage id="GlaiveWurmDamage1SwarmMutaliskLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Visibility value="Visible"/>
+        <Amount value="9"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectDamage id="GlaiveWurmDamage2SwarmMutaliskLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Visibility value="Visible"/>
+        <Amount value="5"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectDamage id="GlaiveWurmDamage3SwarmMutaliskLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Visibility value="Visible"/>
+        <Amount value="3"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
     <CEffectDamage id="HellionTankDamage">
         <AttributeBonus index="Light" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ClawsDamageSwarmTanklingLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectDamage id="KaiserBladesDamageSwarmUltraliskLz" parent="DU_WEAP">
+        <KindSplash value="Melee"/>
+        <Amount value="35"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="NeedleClawsDamageSwarmBroodlingLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="4"/>
+    </CEffectDamage>
+    <CEffectDamage id="ParasiteSporeDamageSwarmCorruptorLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeBonus index="Massive" value="6"/>
+        <Visibility value="Visible"/>
+        <Amount value="14"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ParasiteSporeLMSwarmCorruptorLz">
+        <ValidatorArray index="0" value="ParasiteSporeInfestMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="ParasiteSporeDamageSwarmCorruptorLz"/>
+        <AmmoUnit value="ParasiteSporeWeaponSwarmCorruptorLz"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="SalvageABLz">
+        <EditorCategories value=""/>
+        <Behavior value="SalvageLz"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="SwarmMitosaurusCDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="3"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SwarmMitosaurusCLMLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="SwarmMitosaurusCDamageLz"/>
+        <AmmoUnit value="SwarmMitosaurusCWeaponLz"/>
+        <Movers Link="MissileDefault"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="SwarmMitosaurusBDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="4"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SwarmMitosaurusBLMLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="SwarmMitosaurusBDamageLz"/>
+        <AmmoUnit value="SwarmMitosaurusBWeaponLz"/>
+        <Movers Link="MissileDefault"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="SwarmMitosaurusBSplitLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Flags index="RandomOffset" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="SwarmMitosaurusBSplitCreateUnitLz"/>
+        <PeriodicOffsetArray value="-2,0,0"/>
+        <PeriodicOffsetArray value="2,0,0"/>
+        <PeriodicOffsetArray value="0,-2,0"/>
+        <PeriodicOffsetArray value="0,2,0"/>
+        <PeriodicOffsetArray value="-1.5,-1.5,0"/>
+        <PeriodicOffsetArray value="1.5,-1.5,0"/>
+        <PeriodicOffsetArray value="-1.5,1.5,0"/>
+        <PeriodicOffsetArray value="1.5,1.5,0"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="SwarmMitosaurusBSplitCreateSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmMitosaurusBSplitLMLz"/>
+        <EffectArray value="MakePrecursor"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="SwarmMitosaurusBSplitCreateUnitLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="Birth" value="0"/>
+        <SpawnOwner Value="Caster"/>
+        <SpawnEffect value="SwarmMitosaurusBSplitCreateSetLz"/>
+        <SpawnUnit value="SwarmMitoscarabSmallLz"/>
+        <SpawnRange value="4"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SwarmMitosaurusBSplitImpactSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmMitosaurusEggABLz"/>
+        <EffectArray value="RemovePrecursor"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="SwarmMitosaurusBSplitLMLz">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="SwarmMitosaurusBSplitImpactSetLz"/>
+        <AmmoUnit value="SwarmMitosaurusBSplitWeaponLz"/>
+        <Movers Link="MitosaurusSplit"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="SwarmMitosaurusBSplitSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmMitosaurusBSplitLz"/>
+        <EffectArray value="MitosaurusShockwaveBCreatePersistent"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="SwarmMitosaurusASplitLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Flags index="RandomOffset" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="SwarmMitosaurusASplitCreateUnitLz"/>
+        <PeriodicOffsetArray value="-2,0,0"/>
+        <PeriodicOffsetArray value="2,0,0"/>
+        <PeriodicOffsetArray value="0,-2,0"/>
+        <PeriodicOffsetArray value="0,2,0"/>
+        <PeriodicOffsetArray value="-1.5,-1.5,0"/>
+        <PeriodicOffsetArray value="1.5,-1.5,0"/>
+        <PeriodicOffsetArray value="-1.5,1.5,0"/>
+        <PeriodicOffsetArray value="1.5,1.5,0"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="SwarmMitosaurusASplitCreateSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmMitosaurusASplitLMLz"/>
+        <EffectArray value="MakePrecursor"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="SwarmMitosaurusASplitCreateUnitLz">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="Birth" value="0"/>
+        <SpawnOwner Value="Caster"/>
+        <SpawnEffect value="SwarmMitosaurusASplitCreateSetLz"/>
+        <SpawnUnit value="SwarmMitoscarabMediumLz"/>
+        <SpawnRange value="4"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SwarmMitosaurusASplitImpactSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmMitosaurusEggABLz"/>
+        <EffectArray value="RemovePrecursor"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="SwarmMitosaurusASplitLMLz">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="SwarmMitosaurusASplitImpactSetLz"/>
+        <AmmoUnit value="SwarmMitosaurusASplitWeaponLz"/>
+        <Movers Link="MitosaurusSplit"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="SwarmMitosaurusASplitSetLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="SwarmMitosaurusASplitLz"/>
+        <EffectArray value="MitosaurusShockwaveACreatePersistent"/>
+    </CEffectSet>
+    <CEffectDamage id="SwarmMitosaurusDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="5"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="SwarmMitosaurusEggABLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="SwarmMitosaurusEggLz"/>
+    </CEffectApplyBehavior>
+    <CEffectLaunchMissile id="SwarmMitosaurusLMLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="SwarmMitosaurusDamageLz"/>
+        <AmmoUnit value="SwarmMitosaurusAWeaponLz"/>
+        <Movers Link="MissileDefault"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="PustulantSmashSwarmAberrationLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeBonus index="Armored" value="20"/>
+        <Amount value="20"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectSet id="SwarmRaptorlingClawsLz">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="ZerglingFrenzy"/>
+        <EffectArray value="ZerglingSunder"/>
+        <EffectArray value="ZerglingArmorShredTargetAB"/>
+        <EffectArray value="SwarmRaptorlingClawsDamageLz"/>
+    </CEffectSet>
+    <CEffectDamage id="SwarmRaptorlingClawsDamageLz" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="7"/>
     </CEffectDamage>
     <CEffectSet id="HotSZerglingClawsSwarmLz">
         <EditorCategories value="Race:Zerg"/>
@@ -155,7 +1181,7 @@
     </CEffectDamage>
     <CEffectEnumArea id="RavenShredderMissileImpactSearchAreaMultiLz">
         <EditorCategories value="Race:Terran"/>
-        <SearchFilters value="-;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="-;Player,Ally,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="2.88" Effect="RavenShredderMissileSearchImpactSetMultiLz"/>
     </CEffectEnumArea>
     <CEffectAddTrackedUnit id="BattlecruiserTacticalJumpCDMultiLz">
@@ -265,42 +1291,40 @@
         <EditorCategories value="Race:Terran"/>
         <Behavior value="HardenWallEnRouteOrbitalCommandLz"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="TalonsDamageSwarmQueenLz" parent="DU_WEAP">
+    <CEffectDamage id="TalonsMeleeDamageSwarmQueenLz" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <AttributeBonus index="Armored" value="2"/>
         <Kind value="Ranged"/>
         <Amount value="4"/>
     </CEffectDamage>
-    <CEffectCreatePersistent id="TalonsCPSwarmQueenLz">
+    <CEffectCreatePersistent id="TalonsMeleeCPSwarmQueenLz">
         <EditorCategories value="Race:Zerg"/>
         <WhichLocation Value="TargetUnit"/>
         <TimeScaleSource Value="Caster"/>
         <Flags index="Channeled" value="1"/>
         <PeriodCount value="2"/>
-        <PeriodicEffectArray value="TalonsDamageSwarmQueenLz"/>
+        <PeriodicEffectArray value="TalonsMeleeDamageSwarmQueenLz"/>
         <PeriodicPeriodArray value="0"/>
         <PeriodicPeriodArray value="0.3"/>
     </CEffectCreatePersistent>
-    <CEffectLaunchMissile id="TalonsLM2">
+    <CEffectLaunchMissile id="TalonsRangedGroundLMSwarmQueenLz">
         <EditorCategories value="Race:Zerg"/>
-        <ImpactEffect value="TalonsMissileDamage2"/>
+        <ImpactEffect value="TalonsRangedGroundDamageSwarmQueenLz"/>
         <AmmoUnit value="TalonsMissileWeapon"/>
     </CEffectLaunchMissile>
-    <CEffectCreatePersistent id="TalonsMissileBurst2">
+    <CEffectCreatePersistent id="TalonsRangedGroundCPSwarmQueenLz">
         <EditorCategories value="Race:Zerg"/>
         <WhichLocation Value="TargetUnit"/>
         <TimeScaleSource Value="Caster"/>
         <Flags index="Channeled" value="1"/>
         <PeriodCount value="2"/>
-        <PeriodicEffectArray value="TalonsLM2"/>
+        <PeriodicEffectArray value="TalonsRangedGroundLMSwarmQueenLz"/>
         <PeriodicPeriodArray value="0"/>
         <PeriodicPeriodArray value="0.3"/>
     </CEffectCreatePersistent>
-    <CEffectDamage id="TalonsMissileDamage2" parent="DU_WEAP">
+    <CEffectDamage id="TalonsRangedGroundDamageSwarmQueenLz" parent="DU_WEAP">
         <Name value="Effect/Name/Talons"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/Talons"/>
-        <AttributeBonus index="Armored" value="2"/>
         <Kind value="Ranged"/>
         <Amount value="4"/>
     </CEffectDamage>
@@ -317,5 +1341,69 @@
         <ExcludeArray Value="Target"/>
         <SearchFilters value="Ground;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="SalvageLz">
+        <EditorCategories value=""/>
+        <Flags index="Kill" value="1"/>
+        <Death value="Salvage"/>
+    </CEffectDamage>
+    <CEffectSet id="UpgradeMiningLz">
+        <EditorCategories value=""/>
+    </CEffectSet>
+    <CEffectDamage id="SwarmViperAirDamageLz" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeBonus index="Armored" value="5"/>
+        <Visibility value="Visible"/>
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SwarmViperAirLaunchMissileLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="SwarmViperAirDamageLz"/>
+        <AmmoUnit value="SwarmViperWeaponLz"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="WarpGateAutoCastDisablerLz">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="WarpGateAutoCastOffLz">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Abil value="MorphToWarpGateGatewayLz"/>
+        <CmdFlags index="SetAutoCast" value="1"/>
+        <Player Value="Caster"/>
+    </CEffectIssueOrder>
+    <CEffectTeleport id="BlinkDarkTemplarLz">
+        <ValidatorArray value="CasterNotFungalGrowthed"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="8"/>
+        <Range value="8"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportEffect value="BlinkAttackDelayABDarkTemplarLz"/>
+    </CEffectTeleport>
+    <CEffectApplyBehavior id="BlinkAttackDelayABDarkTemplarLz">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="BlinkAttackDelayDarkTemplarLz"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="ThermalLancesMU">
+        <Amount value="10"/>
+        <AttributeBonus index="Light" value="5"/>
+    </CEffectDamage>
+    <CEffectDamage id="OracleWeaponDamage">
+        <AttributeBonus index="Light" value="7"/>
+    </CEffectDamage>
+    <CEffectDamage id="TempestDamage">
+        <Amount value="30"/>
+        <AttributeBonus index="Massive" value="22"/>
+    </CEffectDamage>
+    <CEffectDamage id="TempestDamageGround">
+        <Amount value="40"/>
+    </CEffectDamage>
+    <CEffectDamage id="InterceptorBeamDamage" parent="DU_WEAP">
+        <Amount value="10"/>
     </CEffectDamage>
 </Catalog>
