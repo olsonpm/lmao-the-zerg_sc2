@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CModel id="BioLifeImpactLz" parent="ImpactFX">
+        <Model value="Assets\Effects\Zerg\CausticSpray_Missile_Impact\CausticSpray_Missile_Impact.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="BioLifeWeaponLz" parent="MissileFX">
+        <Model value="Assets\Effects\Zerg\CausticSpray_Missile\CausticSpray_Missile.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
     <CModel id="ExitEffectLz" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Protoss\DarkArchon_MindControl_Beam\DarkArchon_MindControl_Beam.m3"/>
         <EditorCategories value="Race:Protoss"/>

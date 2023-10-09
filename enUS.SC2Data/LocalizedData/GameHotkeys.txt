@@ -5,6 +5,7 @@ Button/Hotkey/Adep=S
 Button/Hotkey/Adept=H
 Button/Hotkey/AdvancedBallisticsMultiLz=
 Button/Hotkey/BansheeSpeedMultiLz=B
+Button/Hotkey/BioLifeLz=F
 Button/Hotkey/BlinkDarkTemplarLz=B
 Button/Hotkey/BuildCommandCenterLz=C
 Button/Hotkey/BuildWallLz=S

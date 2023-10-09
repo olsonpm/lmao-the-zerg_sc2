@@ -2372,6 +2372,9 @@ void gf_initunitperplayer () {
         else if (auto5F001571_val == "Prot") {
             lv__ut = "StartingProbeLz";
         }
+        else if (auto5F001571_val == "Zerg") {
+            lv__ut = "StartingDroneLz";
+        }
         else {
         }
         lib1_gf_createunitatpoint(lv__ut, lv__initunitpoint, lv__p, 0);

@@ -7,6 +7,11 @@
         <Hotkey value="Button/Hotkey/Carrier"/>
         <HotkeyAlias value="Carrier"/>
     </CButton>
+    <CButton id="BioLifeLz">
+        <Icon value="Assets\Textures\btn-ability-zerg-causticspray.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-causticspray.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="ConcealmentMultiLz">
         <Icon value="Assets\Textures\btn-ability-terran-widowminehidden.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-widowminehidden.dds"/>

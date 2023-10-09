@@ -165,6 +165,70 @@
             <Cooldown Link="BaseSCVLz/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit default="1" id="BaseDroneLz">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Worker" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <DefaultAcquireLevel value="Defensive"/>
+        <Response value="Flee"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="8"/>
+        <CostCategory value="Economy"/>
+        <CostResource index="Minerals" value="50"/>
+        <AttackTargetPriority value="20"/>
+        <AIOverideTargetPriority value="10"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="ZergBuild"/>
+        <BehaviorArray Link="AllUnitBehaviorController"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons>
+                <Face value="ZergBuild"/>
+                <Type value="Submenu"/>
+                <AbilCmd value="255,255"/>
+                <SubmenuCardId value="ZBl1"/>
+                <Row value="2"/>
+                <Column value="0"/>
+            </LayoutButtons>
+            <LayoutButtons>
+                <Face value="ZergBuildAdvanced"/>
+                <Type value="Submenu"/>
+                <AbilCmd value="255,255"/>
+                <SubmenuCardId value="ZBl2"/>
+                <Row value="2"/>
+                <Column value="1"/>
+            </LayoutButtons>
+        </CardLayouts>
+        <CardLayouts CardId="ZBl1">
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="ZBl2">
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="104"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="Drone"/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="20"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <RankDisplay value="Never"/>
+    </CUnit>
     <CUnit id="AcidSalivaWeaponLz" parent="MISSILE">
         <Race value="Zerg"/>
         <Mover value="AcidSalivaWeapon"/>
@@ -296,6 +360,10 @@
         <ReviveType value="CarrierTaldarim"/>
         <!--LayoutButtons Face="CarrierHyperjump" Type="AbilCmd" AbilCmd="CarrierHyperjump,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="GravitonCatapult" Type="Passive" Row="2" Column="2"/-->
+    </CUnit>
+    <CUnit id="BioLifeMissileLz" parent="MISSILE_INVULNERABLE">
+        <Race value="Zerg"/>
+        <Mover value="CausticSprayMissile"/>
     </CUnit>
     <CUnit id="Colossus">
         <CostResource index="Minerals" value="400"/>
@@ -1210,6 +1278,44 @@
         <TechTreeProducedUnitArray value="TechTreeVoidRay"/>
         <TechTreeProducedUnitArray value="TechTreeCarrier"/>
     </CUnit>
+    <CUnit id="StartingDroneLz" parent="BaseDroneLz">
+        <FlagArray index="Invulnerable" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Collide index="Air4" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <LifeStart value="40"/>
+        <LifeMax value="40"/>
+        <Speed value="10"/>
+        <Acceleration value="50"/>
+        <KillDisplay value="Never"/>
+        <DeathTime value="-1"/>
+        <Mover value="Fly"/>
+    </CUnit>
+    <CUnit id="SuperDroneLz" parent="BaseDroneLz">
+        <Food value="-1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <Speed value="2.8125"/>
+        <Acceleration value="2.5"/>
+        <WeaponArray Link="SpinesSuperDroneLz"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="BioLifeLz"/>
+        <AbilArray Link="BurrowDroneDown"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowDroneDown,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AttackWorker" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="BioLifeLz" Type="AbilCmd" AbilCmd="BioLifeLz,Execute" Row="2" Column="3"/>
+        </CardLayouts>
+        <CargoSize value="1"/>
+        <KillDisplay value="Always"/>
+    </CUnit>
     <CUnit id="SuperProbeLz" parent="BaseProbeLz">
         <Name value="Unit/Name/SuperProbeLz"/>
         <Description value="Button/Tooltip/SuperProbeLz"/>
@@ -1230,7 +1336,7 @@
             <LayoutButtons index="4" Face="AttackWorker" Type="AbilCmd" AbilCmd="AttackEnemyLz,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="SalvageCLz" Type="AbilCmd" AbilCmd="SalvageLz,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="SalvageCLz" Type="AbilCmd" AbilCmd="SalvageDisabledLz,Execute" Row="2" Column="4"/>
-            <LayoutButtons Face="VoidSentryShieldRepair" Type="AbilCmd" AbilCmd="RechargeShieldLz,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="FreeRechargeShieldLz" Type="AbilCmd" AbilCmd="RechargeShieldLz,Execute" Row="2" Column="2"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="TechTreeCarrier">

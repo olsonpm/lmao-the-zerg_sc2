@@ -63,6 +63,41 @@
         <UnitFlags index="ShowBlobShadow" value="0"/>
         <Model value="BroodLordEgg"/>
     </CActorUnit>
+    <CActorAction id="BioLifeDummyAttackLz" parent="GenericAttackBase">
+        <On Terms="Effect.BioLifeBaseCPLz.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.BioLifeDummy.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+        <On Terms="Effect.BioLifeBaseCPLz.Stop; At Caster; FromEffectTreeDescendant" Send="Destroy WhenReady"/>
+        <LaunchAttachQuery Methods="Weapon"/>
+        <Beam value="BioLifeDummyAttackBeamLz"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance SOpForwardLaunchGuide"/>
+        <ShieldFlashType value="None"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+        <Lifetime value="-1.000000"/>
+    </CActorAction>
+    <CActorBeamSimple id="BioLifeDummyAttackBeamLz" parent="BeamSimpleAnimationStyleContinuous">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <Supporter Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Effect.BioLifeBaseCPLz.Stop; At Effect" Send="TimerSet 0.125000 DelayDestroy"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetVisibility"/>
+        <Host Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <Model value="VoidRayAttackBeam"/>
+    </CActorBeamSimple>
+    <CActorAction id="BioLifeLz" parent="GenericAttack" effectImpact="BioLifeHealLz" effectLaunch="BioLifeLMLz">
+        <LaunchAttachQuery Methods="Weapon"/>
+        <Missile value="BioLifeMissileLz"/>
+        <HostImpactSource Subject="BioLifeDummyAttackLz" ReachAcrossEffectTrees="1"/>
+        <ImpactMap index="None" Model="BioLifeImpactLz"/>
+        <AcquisitionYawHalfArc value="2.000000"/>
+        <AcquisitionPitchHalfArc value="2.000000"/>
+        <AccuracyHalfArc value="0.000000"/>
+    </CActorAction>
+    <CActorMissile id="BioLifeMissileLz" parent="GenericAttackMissile" unitName="BioLifeMissileLz">
+        <Model value="BioLifeWeaponLz"/>
+    </CActorMissile>
     <CActorUnit id="CyberneticsCoreLz" parent="ProtossBuildingEx" unitName="CyberneticsCoreLz">
         <Aliases value="_UnitHuge"/>
         <Macros value="QueueAnim"/>
@@ -187,6 +222,128 @@
     <CActorSplat id="DarkShrineSplat2" parent="GenericUnitSplat" unitName="DarkShrineLz">
         <Model value="DarkShrineSplat"/>
     </CActorSplat>
+    <CActorBeamSimple id="ShieldBatteryRechargeChanneledBeamLz" parent="BeamSimpleAnimationStyleContinuous">
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Effect.ShieldBatteryRechargeChanneled.TargetStart" Send="Create"/>
+        <On Terms="Effect.ShieldBatteryRechargeChanneled.TargetStop" Send="Destroy"/>
+        <HostForProps Subject="_Unit" Scope="Target" Actor="Find"/>
+        <Model value="ShieldBatteryRechargeChanneledBeam"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <HostLaunch Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <HostLaunchSiteOps Ops="SOpAttachWeapon"/>
+        <HostImpact Subject="_Unit" Scope="Target" Actor="Find"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+    </CActorBeamSimple>
+    <CActorUnit id="SuperDroneLz" parent="GenericBurrowerStandard" unitName="SuperDroneLz">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="CarryAnim"/>
+        <Macros value="BuildAnim"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergSmallBurrowEffects"/>
+        <Macros value="MacroWorkerHat"/>
+        <Macros value="CarryTerrazineNodeAnim"/>
+        <Macros value="CarryAnimCampaign"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.DroneHarvest.Start" Send="AnimPlay Work Work PlayForever"/>
+        <On Terms="Abil.DroneHarvest.Stop" Send="AnimClear Work"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Drone; MorphTo DroneBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Drone; MorphFrom DroneBurrowed" Send="AnimBracketStop Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Drone; MorphFrom DroneBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="Abil.DroneHarvest.Start" Send="StatusSet CloakSound 1"/>
+        <On Terms="Behavior.CarryHarvestableVespeneGeyserGasZerg.Create" Send="StatusSet CloakSound 1"/>
+        <On Terms="Confirmation.Drone.Start" Send="StatusSet CloakSound 0"/>
+        <On Terms="Behavior.CloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.CloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="UnitBirth.SuperDroneLz" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Drone; MorphFrom DroneBurrowed" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo DroneBurrowed; MorphFrom Drone" Send="TerrainSquibDeactivate"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Drone_Land"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStart" Send="AnimPlay Work Pickup PlayForever -1.000000 -1.000000 4.000000 AsDuration"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStop" Send="AnimClear Work"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastCancel" Send="AnimClear Work"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStart" Send="Create DroneEatingCast"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStop" Target="DroneEatingCast" Send="Destroy"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastCancel" Target="DroneEatingCast" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo DroneFull; MorphFrom Drone" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="HostSiteOpsSet ::Host SOpBasicScopeFollow"/>
+        <On Terms="Effect.CarryCarcassCreatePersistent.Start" Send="Create SOpMeatSite"/>
+        <On Terms="Effect.CarryCarcassCreatePersistent.Start" Send="HostSiteOpsSet ::Host SOpForwardMeatGuide"/>
+        <On Terms="Effect.CarryCarcassCreatePersistent.Stop" Send="HostSiteOpsSet ::Host SOpBasicScopeFollow"/>
+        <Model value="Drone"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Drone"/>
+        <DeathArray index="Normal" ModelLink="DroneDeath" SoundLink="Drone_Explode"/>
+        <DeathArray index="Disintegrate" ModelLink="DroneDeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="DroneDeathFire" SoundLink="Uni_DeathFXFire"/>
+        <DeathCustoms ActorModel="DroneDeathRagdoll" ModelLink="DroneDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="FireOnMetal"/>
+            <BodySquibs Name="BloodReduced" IsFallback="1"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdoll" ModelLink="DroneDeathRagdoll" Name="RagdollSpineCrawlerHurl"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PlacementModel value="Drone"/>
+        <PortraitModel value="DronePortrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium"/>
+        </TerrainSquibs>
+        <BarOffset value="40"/>
+        <BarWidth value="42"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Drone.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Ready" value="Drone_Ready"/>
+        <SoundArray index="Help" value="Alert_ZergEconomyUnderAttack"/>
+        <SoundArray index="What" value="Drone_What"/>
+        <SoundArray index="Yes" value="Drone_Yes"/>
+        <SoundArray index="Attack" value="Drone_Attack"/>
+        <SoundArray index="Pissed" value="Drone_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Drone.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
+    <CActorAction id="SuperDroneAttackLz" parent="GenericAttack" effectAttack="SpinesDamageSuperDroneLz">
+        <ImpactMap index="None" Model="DroneAttackImpact" Sound="Drone_AttackImpact"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
     <CActorUnit id="FleetBeaconLz" parent="ProtossBuildingEx" unitName="FleetBeaconLz">
         <Aliases value="_UnitHuge"/>
         <Macros value="QueueAnim"/>
@@ -972,6 +1129,113 @@
     <CActorSplat id="StargateSplatLz" parent="GenericUnitSplat" unitName="StargateLz">
         <Model value="StargateSplat"/>
     </CActorSplat>
+    <CActorUnit id="StartingDroneLz" parent="GenericBurrowerStandard" unitName="StartingDroneLz">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="CarryAnim"/>
+        <Macros value="BuildAnim"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergSmallBurrowEffects"/>
+        <Macros value="MacroWorkerHat"/>
+        <Macros value="CarryTerrazineNodeAnim"/>
+        <Macros value="CarryAnimCampaign"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.DroneHarvest.Start" Send="AnimPlay Work Work PlayForever"/>
+        <On Terms="Abil.DroneHarvest.Stop" Send="AnimClear Work"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Drone; MorphTo DroneBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Drone; MorphFrom DroneBurrowed" Send="AnimBracketStop Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Drone; MorphFrom DroneBurrowed" Send="AnimClear Burrow"/>
+        <On Terms="Abil.DroneHarvest.Start" Send="StatusSet CloakSound 1"/>
+        <On Terms="Behavior.CarryHarvestableVespeneGeyserGasZerg.Create" Send="StatusSet CloakSound 1"/>
+        <On Terms="Confirmation.Drone.Start" Send="StatusSet CloakSound 0"/>
+        <On Terms="Behavior.CloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.CloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="UnitBirth.StartingDroneLz" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Drone; MorphFrom DroneBurrowed" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo DroneBurrowed; MorphFrom Drone" Send="TerrainSquibDeactivate"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Drone_Land"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStart" Send="AnimPlay Work Pickup PlayForever -1.000000 -1.000000 4.000000 AsDuration"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStop" Send="AnimClear Work"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastCancel" Send="AnimClear Work"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStart" Send="Create DroneEatingCast"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastStop" Target="DroneEatingCast" Send="Destroy"/>
+        <On Terms="Abil.DroneCarcassHarvest.SourceCastCancel" Target="DroneEatingCast" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo DroneFull; MorphFrom Drone" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="HostSiteOpsSet ::Host SOpBasicScopeFollow"/>
+        <On Terms="Effect.CarryCarcassCreatePersistent.Start" Send="Create SOpMeatSite"/>
+        <On Terms="Effect.CarryCarcassCreatePersistent.Start" Send="HostSiteOpsSet ::Host SOpForwardMeatGuide"/>
+        <On Terms="Effect.CarryCarcassCreatePersistent.Stop" Send="HostSiteOpsSet ::Host SOpBasicScopeFollow"/>
+        <Model value="Drone"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Drone"/>
+        <DeathArray index="Normal" ModelLink="DroneDeath" SoundLink="Drone_Explode"/>
+        <DeathArray index="Disintegrate" ModelLink="DroneDeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Fire" ModelLink="DroneDeathFire" SoundLink="Uni_DeathFXFire"/>
+        <DeathCustoms ActorModel="DroneDeathRagdoll" ModelLink="DroneDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="FireOnMetal"/>
+            <BodySquibs Name="BloodReduced" IsFallback="1"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdoll" ModelLink="DroneDeathRagdoll" Name="RagdollSpineCrawlerHurl"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PlacementModel value="Drone"/>
+        <PortraitModel value="DronePortrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium"/>
+        </TerrainSquibs>
+        <BarOffset value="40"/>
+        <BarWidth value="42"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Drone.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="Ready" value="Drone_Ready"/>
+        <SoundArray index="Help" value="Alert_ZergEconomyUnderAttack"/>
+        <SoundArray index="What" value="Drone_What"/>
+        <SoundArray index="Yes" value="Drone_Yes"/>
+        <SoundArray index="Attack" value="Drone_Attack"/>
+        <SoundArray index="Pissed" value="Drone_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Drone.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+        <Scale value="1.400000"/>
+    </CActorUnit>
     <CActorBeamSimple id="SuperProbeAttackBeamLz" parent="GenericAttackBeam">
         <Model value="ProbeAttackBeam"/>
     </CActorBeamSimple>

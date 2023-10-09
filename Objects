@@ -18,4 +18,9 @@
     <ObjectPoint Id="509698823" Position="21,107,0" Scale="1,1,1" Type="Normal" Name="enemy spawn - random - tl" Color="0,0,0,0"/>
     <ObjectPoint Id="833331447" Position="107,107,0" Scale="1,1,1" Type="Normal" Name="enemy spawn - random - tr" Color="0,0,0,0"/>
     <ObjectPoint Id="754412464" Position="63,67,0" Scale="1,1,1" Type="Normal" Name="init unit - p1" Color="0,0,0,0"/>
+    <ObjectUnit Id="764903996" Position="26,67,0" Rotation="0.607" Scale="1,1,1" UnitType="Overseer" Player="10"/>
+    <ObjectUnit Id="316763809" Position="58,66,0" Rotation="0.0476" Scale="1,1,1" UnitType="SuperDroneLz" Player="1"/>
+    <ObjectUnit Id="958960325" Position="55,65.5,0" Rotation="4.394" Scale="1,1,1" UnitType="Roach" Player="1"/>
+    <ObjectUnit Id="1372464002" Position="50.5,65,0" Rotation="1.066" Scale="1,1,1" UnitType="Roach" Player="10"/>
+    <ObjectUnit Id="148587767" Position="59,68,0" Rotation="3.8605" Scale="1,1,1" UnitType="StartingDroneLz" Player="1"/>
 </PlacedObjects>

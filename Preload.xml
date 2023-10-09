@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Preload>
 <Actor id="SYSTEM_ActorConfig"/>
-<Behavior id="RockTeleportStunLz"/>
 <Behavior id="DisableEnergyRegenLz"/>
+<Behavior id="RockTeleportStunLz"/>
 <Button id="UpgradeMiningLz"/>
 <Effect id="ExitEffectLz"/>
 <Model id="PingArrow"/>
@@ -16,6 +16,8 @@
 <Sound id="GenericErrorLz"/>
 <Terrain id="PurifierJungle"/>
 <Unit id="Carrier"/>
+<Unit id="Roach"/>
+<Unit id="Overseer"/>
 <Unit id="SwarmBroodLordLz"/>
 <Unit id="SwarmMutaliskLz"/>
 <Unit id="TechLabFactoryLz"/>
@@ -23,6 +25,8 @@
 <Unit id="TechLabBarracksLz"/>
 <Unit id="SwarmCorruptorLz"/>
 <Unit id="SwarmViperLz"/>
+<Unit id="StartingDroneLz"/>
+<Unit id="SuperDroneLz"/>
 <Unit id="SwarmLeviathanLz" UserTag="Zerg"/>
 <Unit id="SwarmWasplingLz"/>
 <Unit id="SwarmHydraliskLz"/>

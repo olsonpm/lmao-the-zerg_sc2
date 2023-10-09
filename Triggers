@@ -13998,6 +13998,7 @@
         <Parameter Type="Param" Id="DCE595EE"/>
         <FunctionCall Type="FunctionCall" Id="DDFF42AA"/>
         <FunctionCall Type="FunctionCall" Id="D68C3799"/>
+        <FunctionCall Type="FunctionCall" Id="21621242"/>
     </Element>
     <Element Type="Param" Id="DCE595EE">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="B4ACF12A"/>
@@ -14064,6 +14065,34 @@
     <Element Type="Param" Id="C25B1CC9">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="00000220"/>
         <Value>StartingProbeLz</Value>
+        <ValueType Type="gamelink"/>
+        <ValueGameType Type="Unit"/>
+    </Element>
+    <Element Type="FunctionCall" Id="21621242">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="3A1227AB"/>
+        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="AD43BC93"/>
+        <Parameter Type="Param" Id="9E6C19B9"/>
+        <FunctionCall Type="FunctionCall" Id="8DB816E2"/>
+    </Element>
+    <Element Type="Param" Id="9E6C19B9">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="9A8F1093"/>
+        <Value>Zerg</Value>
+        <ValueType Type="gamelink"/>
+        <ValueGameType Type="Race"/>
+    </Element>
+    <Element Type="FunctionCall" Id="8DB816E2">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000136"/>
+        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="363CE97C"/>
+        <Parameter Type="Param" Id="E23A1949"/>
+        <Parameter Type="Param" Id="9D22504F"/>
+    </Element>
+    <Element Type="Param" Id="E23A1949">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000219"/>
+        <Variable Type="Variable" Id="777904D5"/>
+    </Element>
+    <Element Type="Param" Id="9D22504F">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000220"/>
+        <Value>StartingDroneLz</Value>
         <ValueType Type="gamelink"/>
         <ValueGameType Type="Unit"/>
     </Element>

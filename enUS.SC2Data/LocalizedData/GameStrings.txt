@@ -7,6 +7,7 @@ Abil/Name/BarracksLandLz=Barracks Land
 Abil/Name/BarracksLiftOffLz=Barracks Lift Off
 Abil/Name/BarracksTechLabResearchLz=Barracks Tech Lab Research
 Abil/Name/BarracksTrainLz=Barracks Train
+Abil/Name/BioLifeLz=Bio Life
 Abil/Name/BlinkDarkTemplarLz=Blink
 Abil/Name/BuildProbeLz=Build
 Abil/Name/BuildSCVLz=Build
@@ -98,6 +99,7 @@ Behavior/Tooltip/PhotonOverchargeLz=This Pylon has a powerful long-ranged attack
 Button/ChargeText/Empty=</sp>
 Button/Name/AdvancedBallisticsMultiLz=Advanced Ballistics
 Button/Name/BansheeSpeedMultiLz=Research Hyperflight Rotors
+Button/Name/BioLifeLz=Bio Life
 Button/Name/BlinkDarkTemplarLz=Shadow Stride
 Button/Name/BuildCommandCenterLz=Build Command Center
 Button/Name/BuildWallLz=Build Wall
@@ -145,6 +147,7 @@ Button/Tooltip/BansheeSpeedMultiLz=Increases the movement speed of <c val="ffff8
 Button/Tooltip/BarracksFlyingLz=Barracks must land to start unit production.
 Button/Tooltip/BarracksLz=Infantry-production facility.<n/><n/><c val="ffff8a">Enables:</c><n/>- Marines<n/>- Reapers<n/>- Bunkers from SCVs<n/>- Orbital Commands from Command Centers
 Button/Tooltip/BaseStartingProbeLz=Basic worker unit. Can gather resources and warp in Protoss structures.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/BioLifeLz=Heals biological units and structures
 Button/Tooltip/BlinkDarkTemplarLz=Teleports the Dark Templar to a nearby target location. Ability can only be used once every <d ref="Abil,BlinkDarkTemplarLz,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/BroodLordCocoonSwarmLviathanLz=This cocoon contains a Corruptor that is morphing into a Brood Lord.
 Button/Tooltip/BuildCommandCenterLz=Can build scvs and upgrade into an Orbital Command or a Planetary Fortress
@@ -207,7 +210,9 @@ Button/Tooltip/ShieldBatteryLz=Restores shields to nearby friendly units and str
 Button/Tooltip/StargateLz=Warps in Protoss air units.
 Button/Tooltip/StarportFlyingLz=Starport must land to start unit production.
 Button/Tooltip/StarportLz=Air-unit production facility. <n/><n/><c val="ffff8a">Enables:</c><n/>- Vikings<n/>- Medivacs
+Button/Tooltip/StartingDroneLz=Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/StartingSCVLz=Basic worker unit. Can gather resources, build Terran structures, and repair.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/SuperDroneLz=Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/SuperMULELz=Prototype harvesting unit. Gathers minerals more quickly than regular SCVs. MULEs last <d time="90"/> before their systems fail.
 Button/Tooltip/SuperProbeLz=Basic worker unit. Can gather resources and warp in Protoss structures.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/SuperSCVLz=Basic worker unit. Can gather resources, build Terran structures, and repair.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
@@ -264,6 +269,15 @@ Effect/Name/AirAttackDamageSwarmLeviathanLz=Air Attack Damage
 Effect/Name/AirAttackLMSwarmLeviathanLz=Air Attack LM
 Effect/Name/BattlecruiserTacticalJumpCDMultiLz=Battlecruiser Tactical Jump CD
 Effect/Name/BattlecruiserYamatoCDMultiLz=Battlecruiser Yamato CD
+Effect/Name/BioLifeBaseCPLz=Bio Life Base CP
+Effect/Name/BioLifeCPLz=Bio Life CP
+Effect/Name/BioLifeChanneledSALz=Bio Life Channeled SA
+Effect/Name/BioLifeDamageLz=Bio Life Damage
+Effect/Name/BioLifeDummyLz=Bio Life Dummy
+Effect/Name/BioLifeHealLz=Bio Life Heal
+Effect/Name/BioLifeLMLz=Bio Life LM
+Effect/Name/BioLifePersistentSetLz=Bio Life Persistent Set
+Effect/Name/BiolifeChanneledDamageDummyLz=Bio life Channeled Damage Dummy
 Effect/Name/BlinkAttackDelayABDarkTemplarLz=Blink Attack Delay AB
 Effect/Name/BlinkDarkTemplarLz=Blink
 Effect/Name/BroodlingAttackSwarmBroodLordLz=Broodling Attack
@@ -382,6 +396,7 @@ Effect/Name/SpawnMutaliskEggCUSwarmLeviathanLz=Spawn Mutalisk Egg CU
 Effect/Name/SpawnMutaliskEggLMSwarmLeviathanLz=Spawn Mutalisk Egg LM
 Effect/Name/SpawnMutaliskEggSetSwarmLeviathanLz=Spawn Mutalisk Egg Set
 Effect/Name/SpawnMutaliskSetSwarmLeviathanLz=Spawn Mutalisk Set
+Effect/Name/SpinesDamageSuperDroneLz=Spines Damage
 Effect/Name/SuperMULEFateDamageLz=Super MULE Fate Damage
 Effect/Name/SuperzergBladesCleaveDamageSwarmOmegaliskLz=Superzerg Blades Cleave Damage
 Effect/Name/SuperzergBladesCleaveSASwarmOmegaliskLz=Superzerg Blades Cleave SA
@@ -604,6 +619,7 @@ Unit/Name/BarracksFlyingLz=Barracks
 Unit/Name/BarracksLz=Barracks
 Unit/Name/BaseProbeLz=Base Probe
 Unit/Name/BaseSCVLz=Base SCV
+Unit/Name/BioLifeMissileLz=Bio Life Missile
 Unit/Name/BroodLordCocoonSwarmLviathanLz=Brood Lord Cocoon
 Unit/Name/CommandCenterLz=Command Center
 Unit/Name/CyberneticsCoreLz=Cybernetics Core
@@ -636,8 +652,10 @@ Unit/Name/ScourgeMissileSwarmLeviathanLz=Scourge Missile
 Unit/Name/ShieldBatteryLz=Shield Battery
 Unit/Name/StargateLz=Stargate
 Unit/Name/StarportLz=Starport
+Unit/Name/StartingDroneLz=Starting Drone
 Unit/Name/StartingProbeLz=Starting Probe
 Unit/Name/StartingSCVLz=Starting SCV
+Unit/Name/SuperDroneLz=Super Drone
 Unit/Name/SuperMULELz=Super MULE
 Unit/Name/SuperOrbitalCommandFlyingLz=Super Orbital Command
 Unit/Name/SuperProbeLz=Super Probe
@@ -747,6 +765,7 @@ Weapon/Name/PlasmaDischargeSwarmRavagerLz=Plasma Discharge
 Weapon/Name/PustulantSmashSwarmAberrationLz=Pustulant Smash
 Weapon/Name/RepulsorCannonLz=Repulsor Cannon
 Weapon/Name/ScytheBladesSwarmOmegaliskLz=Scythe Blades
+Weapon/Name/SpinesSuperDroneLz=Spines
 Weapon/Name/SpinesSwarmWasplingLz=Spines
 Weapon/Name/SwarmHunterBanelingExplodeBuildingLz=Swarm Hunter Baneling Explode Building
 Weapon/Name/SwarmHunterBanelingExplodeLz=Swarm Hunter Baneling Explode

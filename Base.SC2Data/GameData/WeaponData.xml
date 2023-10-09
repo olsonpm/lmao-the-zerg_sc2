@@ -201,6 +201,16 @@
         <Period value="1.25"/>
         <Effect value="PhotonCannonLMLz"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="SpinesSuperDroneLz">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SpinesDamageSuperDroneLz"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.5"/>
+        <Effect value="SpinesDamageSuperDroneLz"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="SpinesSwarmWasplingLz">
         <EditorCategories value="Race:Zerg"/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>

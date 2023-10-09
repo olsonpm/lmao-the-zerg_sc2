@@ -9,9 +9,6 @@
     <CRace id="TerH">
         <Flags index="Selectable" value="0"/>
     </CRace>
-    <CRace id="Zerg">
-        <Flags index="Selectable" value="0"/>
-    </CRace>
     <CRace id="TerT">
         <Flags index="Selectable" value="0"/>
     </CRace>
