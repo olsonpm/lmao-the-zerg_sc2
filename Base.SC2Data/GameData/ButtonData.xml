@@ -17,6 +17,11 @@
         <AlertIcon value="Assets\Textures\btn-ability-terran-widowminehidden.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="MorphtoSuperDroneLz">
+        <Icon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="Explode">
         <TooltipFlags index="ShowLevel" value="0"/>
     </CButton>

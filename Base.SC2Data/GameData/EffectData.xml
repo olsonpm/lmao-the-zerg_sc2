@@ -299,6 +299,17 @@
         <PeriodicEffectArray value="GroundAttackDLMSwarmLeviathanLz"/>
         <PeriodicPeriodArray value="2.21"/>
     </CEffectCreatePersistent>
+    <CEffectDamage id="LarvaDeathHatcheryLz">
+        <ImpactLocation Value="TargetUnit"/>
+        <ImpactUnitValidator value="IsLarvaLz"/>
+        <Flags index="Kill" value="1"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="LarvaDeathSAHatcheryLz">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <SearchFilters value="Ground;Ally,Neutral,Enemy,Heroic,Missile,Item,Dead,Hidden"/>
+        <AreaArray Radius="4" Effect="LarvaDeathHatcheryLz"/>
+    </CEffectEnumArea>
     <CEffectDamage id="HighTemplarWeaponDamage">
         <Amount value="4"/>
     </CEffectDamage>
@@ -342,6 +353,9 @@
         <AreaArray Radius="10" Effect="BiolifeChanneledDamageDummyLz"/>
         <MaxCount value="1"/>
     </CEffectEnumArea>
+    <CEffectSet id="SelectLarvaLz">
+        <EditorCategories value=""/>
+    </CEffectSet>
     <CEffectCreateHealer id="ShieldBatteryRechargeLz">
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="ShieldsNotFull"/>
@@ -457,6 +471,11 @@
         <EffectArray value="SpawnMutaliskCUSwarmLeviathanLz"/>
         <EffectArray value="Kill"/>
     </CEffectSet>
+    <CEffectAddTrackedUnit id="TrackSpawnedUnitLz">
+        <EditorCategories value=""/>
+        <BehaviorLink value="SpawnedUnitLz"/>
+        <TrackedUnit Value="Target"/>
+    </CEffectAddTrackedUnit>
     <CEffectDamage id="SpinesDamageSuperDroneLz" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Amount value="5"/>

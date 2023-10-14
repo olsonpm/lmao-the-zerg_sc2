@@ -23,6 +23,10 @@
     <CRequirement id="HasQuantumReactorTempestLz2">
         <NodeArray index="Use" Link="CountUpgradeQuantumReactorTempestLzCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="SpawnLarvaHatcheryLz">
+        <EditorCategories value="Race:Zerg,TechType:Unit"/>
+        <NodeArray index="Show" Link="LTCountUnitLarvaCompleteOnlyAtUnit24"/>
+    </CRequirement>
     <CRequirement id="HaveAdvancedBallisticsMultiLz">
         <NodeArray index="Use" Link="CountUpgradeLiberatorAGRangeMultiLzCompleteOnly1646137913"/>
     </CRequirement>

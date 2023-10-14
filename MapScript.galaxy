@@ -2152,6 +2152,7 @@ int gv_g_secondstilroundtimershows;
 bool gv_g_roundactive;
 bool gv_g_roundhandled;
 bool gv_g_roundlock;
+bool gv_g_selectlarvaelock;
 
 void InitGlobals () {
     gv_g_activeplayers = PlayerGroupEmpty();
@@ -2257,10 +2258,11 @@ trigger gt_buildbarrackstechlab;
 trigger gt_buildfactorytechlab;
 trigger gt_buildstarporttechlab;
 trigger gt_allyminingstationselected;
-trigger gt_startingworkerplacementafterbuild;
-trigger gt_upgrademining;
 trigger gt_salvage;
+trigger gt_selectlarvae;
+trigger gt_startingworkerplacementafterbuild;
 trigger gt_teleportunitsinspawnarea;
+trigger gt_upgrademining;
 
 //--------------------------------------------------------------------------------------------------
 // Global Functions
@@ -2304,7 +2306,7 @@ void gf_initmaxpopperplayer () {
     playergroup auto9D1A76C3_g;
 
     // Variable Initialization
-    lv__maxpopperplayerwith8people = 200;
+    lv__maxpopperplayerwith8people = 120;
     lv__maxpoptotal = (lv__maxpopperplayerwith8people * 8);
     lv__maxpopperplayer = (lv__maxpoptotal / PlayerGroupCount(gv_g_activeplayers));
 
@@ -2730,7 +2732,7 @@ void gf_initmultiplayerraces () {
 void gf_inittestrace () {
     // Automatic Variable Declarations
     // Implementation
-    PlayerSetRace(1, "Prot");
+    PlayerSetRace(1, "Zerg");
 }
 
 void gf_preinittest () {
@@ -2849,13 +2851,15 @@ bool gf_canspawnlonglastingunits (unit lp_u) {
 bool gf_shouldignoreunitfortrackingcasualty (unit lp_u) {
     // Variable Declarations
     string lv__ut;
+    int lv__cost;
 
     // Automatic Variable Declarations
     // Variable Initialization
     lv__ut = UnitGetType(lp_u);
+    lv__cost = UnitTypeGetCost(lv__ut, c_unitCostMinerals);
 
     // Implementation
-    return ((lv__ut == "StartingSCVLz") || (lv__ut == "Interceptor") || (lv__ut == "Nuke") || lib1_gf_and2((lv__ut == "Battlecruiser"), EventUnitDamageDeathCheck(c_deathTypeRemove)));
+    return ((lv__ut == "StartingSCVLz") || (lv__cost == 0) || (lv__ut == "Nuke") || lib1_gf_and2((lv__ut == "Battlecruiser"), EventUnitDamageDeathCheck(c_deathTypeRemove)));
 }
 
 void gf_endgame (int lp__got) {
@@ -3805,7 +3809,7 @@ bool gf_unitisstartingworker (unit lp_u) {
     lv__ut = UnitGetType(lp_u);
 
     // Implementation
-    return ((lv__ut == "StartingSCVLz") || (lv__ut == "StartingProbeLz"));
+    return ((lv__ut == "StartingSCVLz") || (lv__ut == "StartingProbeLz") || (lv__ut == "StartingDroneLz"));
 }
 
 void gf_trytechlab (int lp_p, unit lp_u, string lp_ut, abilcmd lp_abilitycommand) {
@@ -4511,72 +4515,6 @@ void gt_allyminingstationselected_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: starting worker placement after build
-//--------------------------------------------------------------------------------------------------
-bool gt_startingworkerplacementafterbuild_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv__builder;
-    unit lv__building;
-    string lv__buildingtype;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv__builder = EventUnit();
-    lv__building = EventUnitProgressUnit();
-    lv__buildingtype = libNtve_gf_TriggeringProgressUnitType();
-
-    // Conditions
-    if (testConds) {
-        if (!(gf_unitisstartingworker(lv__builder))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitIssueOrder(lv__builder, OrderTargetingPoint(AbilityCommand("move", 0), PointWithOffsetPolar(UnitGetPosition(lv__building), UnitTypeGetProperty(lv__buildingtype, c_unitPropRadius), -90.0)), c_orderQueueAddToFront);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_startingworkerplacementafterbuild_Init () {
-    gt_startingworkerplacementafterbuild = TriggerCreate("gt_startingworkerplacementafterbuild_Func");
-    TriggerAddEventUnitConstructProgress(gt_startingworkerplacementafterbuild, null, c_unitProgressStageComplete);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: upgrade mining
-//--------------------------------------------------------------------------------------------------
-bool gt_upgrademining_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv__p;
-    unit lv__u;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv__p = EventPlayer();
-    lv__u = EventUnit();
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gv_g_incomeperplayer[lv__p] = gv_g_incomeperplayer[lv__p] + gv_g_mineralsperincomeupgrade;
-    gf_updateminingbutton(lv__p);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_upgrademining_Init () {
-    gt_upgrademining = TriggerCreate("gt_upgrademining_Func");
-    TriggerAddEventUnitAbility(gt_upgrademining, null, AbilityCommand("UpgradeMiningLz", 0), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: salvage
 //--------------------------------------------------------------------------------------------------
 bool gt_salvage_Func (bool testConds, bool runActions) {
@@ -4622,6 +4560,105 @@ bool gt_salvage_Func (bool testConds, bool runActions) {
 void gt_salvage_Init () {
     gt_salvage = TriggerCreate("gt_salvage_Func");
     TriggerAddEventUnitDied(gt_salvage, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: select larvae
+//--------------------------------------------------------------------------------------------------
+bool gt_selectlarvae_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv__p;
+    unit lv__u;
+    unitgroup lv__larvae;
+    unitgroup lv__hatcheries;
+    bool lv__hashatcheriesselected;
+
+    // Automatic Variable Declarations
+    unitgroup autoCF7F9841_g;
+    int autoCF7F9841_u;
+    unitgroup auto5D73F54C_g;
+    int auto5D73F54C_u;
+
+    // Variable Initialization
+    lv__p = EventPlayer();
+    lv__larvae = UnitGroupEmpty();
+    lv__hatcheries = UnitGroupEmpty();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while (gv_g_selectlarvaelock) {
+        Wait(1.0, c_timeGame);
+    }
+    gv_g_selectlarvaelock = true;
+    autoCF7F9841_g = UnitSubgroupSelected(lv__p);
+    autoCF7F9841_u = UnitGroupCount(autoCF7F9841_g, c_unitCountAll);
+    for (;; autoCF7F9841_u -= 1) {
+        lv__u = UnitGroupUnitFromEnd(autoCF7F9841_g, autoCF7F9841_u);
+        if (lv__u == null) { break; }
+        lv__hashatcheriesselected = (UnitGetType(lv__u) == "HatcheryLz");
+        break;
+    }
+    if (lib1_gf_istrue(lv__hashatcheriesselected)) {
+        lv__hatcheries = UnitSubgroupSelected(lv__p);
+        UnitClearSelection(lv__p);
+        Wait(0.1, c_timeReal);
+        auto5D73F54C_g = lv__hatcheries;
+        auto5D73F54C_u = UnitGroupCount(auto5D73F54C_g, c_unitCountAll);
+        for (;; auto5D73F54C_u -= 1) {
+            lv__u = UnitGroupUnitFromEnd(auto5D73F54C_g, auto5D73F54C_u);
+            if (lv__u == null) { break; }
+            UnitGroupSelect(UnitGetTrackedUnitGroup(lv__u, "SpawnedUnitTracker"), lv__p, true);
+        }
+    }
+
+    gv_g_selectlarvaelock = false;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_selectlarvae_Init () {
+    gt_selectlarvae = TriggerCreate("gt_selectlarvae_Func");
+    TriggerAddEventUnitAbility(gt_selectlarvae, null, AbilityCommand("SelectLarvaLz", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: starting worker placement after build
+//--------------------------------------------------------------------------------------------------
+bool gt_startingworkerplacementafterbuild_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv__builder;
+    unit lv__building;
+    string lv__buildingtype;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__builder = EventUnit();
+    lv__building = EventUnitProgressUnit();
+    lv__buildingtype = libNtve_gf_TriggeringProgressUnitType();
+
+    // Conditions
+    if (testConds) {
+        if (!(gf_unitisstartingworker(lv__builder))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitIssueOrder(lv__builder, OrderTargetingPoint(AbilityCommand("move", 0), PointWithOffsetPolar(UnitGetPosition(lv__building), UnitTypeGetProperty(lv__buildingtype, c_unitPropRadius), -90.0)), c_orderQueueAddToFront);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_startingworkerplacementafterbuild_Init () {
+    gt_startingworkerplacementafterbuild = TriggerCreate("gt_startingworkerplacementafterbuild_Func");
+    TriggerAddEventUnitConstructProgress(gt_startingworkerplacementafterbuild, null, c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -4681,6 +4718,35 @@ void gt_teleportunitsinspawnarea_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: upgrade mining
+//--------------------------------------------------------------------------------------------------
+bool gt_upgrademining_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv__p;
+    unit lv__u;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__p = EventPlayer();
+    lv__u = EventUnit();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_g_incomeperplayer[lv__p] = gv_g_incomeperplayer[lv__p] + gv_g_mineralsperincomeupgrade;
+    gf_updateminingbutton(lv__p);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_upgrademining_Init () {
+    gt_upgrademining = TriggerCreate("gt_upgrademining_Func");
+    TriggerAddEventUnitAbility(gt_upgrademining, null, AbilityCommand("UpgradeMiningLz", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
@@ -4701,10 +4767,11 @@ void InitTriggers () {
     gt_buildfactorytechlab_Init();
     gt_buildstarporttechlab_Init();
     gt_allyminingstationselected_Init();
-    gt_startingworkerplacementafterbuild_Init();
-    gt_upgrademining_Init();
     gt_salvage_Init();
+    gt_selectlarvae_Init();
+    gt_startingworkerplacementafterbuild_Init();
     gt_teleportunitsinspawnarea_Init();
+    gt_upgrademining_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -105,6 +105,25 @@
         </Cost>
         <TargetFilters index="0" value="Ground,Visible;Self,Player,Ally,Neutral,Massive,Structure,Heroic,Destructible,Invulnerable"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="SelectLarvaLz">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Larva"/>
+    </CAbilEffectInstant>
+    <CAbilTrain id="TrainLarvaLz">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
+        <Activity value="UI/Morphing"/>
+        <Flags index="DisableCollision" value="1"/>
+        <Flags index="KillOnCancel" value="1"/>
+        <Flags index="KillOnFinish" value="1"/>
+        <Flags index="Select" value="1"/>
+        <Flags index="WaitForFood" value="0"/>
+        <MorphUnit value="Egg"/>
+        <Range value="4"/>
+        <InfoArray index="Train1" Time="0.1" Alert="TrainWorkerComplete" Effect="Pop">
+            <Button DefaultButtonFace="MorphtoSuperDroneLz"/>
+            <Unit value="SuperDroneLz"/>
+        </InfoArray>
+    </CAbilTrain>
     <CAbilEffectInstant id="PhotonOverchargeNexusLz">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="PhotonOverchargeABNexusLz"/>
@@ -1300,7 +1319,6 @@
     </CAbilEffectTarget>
     <CAbilBuild id="BuildSCVLz">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <FlagArray index="Interruptible" value="1"/>
         <FlagArray index="PeonDisableCollision" value="1"/>
         <InfoArray index="Build1" Unit="CommandCenterLz" Time="0.1">
             <Button DefaultButtonFace="CommandCenter"/>
@@ -1338,8 +1356,6 @@
         <InfoArray index="Build12" Unit="FusionCoreLz" Time="0.1">
             <Button DefaultButtonFace="Starport" Requirements="HaveStarport"/>
         </InfoArray>
-        <FidgetDelayMin value="5"/>
-        <FidgetDelayMax value="10"/>
         <ConstructionMover value="Construction"/>
     </CAbilBuild>
     <CAbilMorph id="MorphToOrbitalCommandCommandCenterLz">
@@ -1474,4 +1490,12 @@
         <Arc value="0"/>
         <Range index="0" value="5"/>
     </CAbilEffectTarget>
+    <CAbilBuild id="BuildDroneLz">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
+        <FlagArray index="PeonDisableCollision" value="1"/>
+        <ConstructionMover value="Construction"/>
+        <InfoArray index="Build1" Unit="HatcheryLz" Time="0.1">
+            <Button DefaultButtonFace="Hatchery"/>
+        </InfoArray>
+    </CAbilBuild>
 </Catalog>

@@ -186,13 +186,16 @@
         <AIOverideTargetPriority value="10"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
-        <AbilArray Link="ZergBuild"/>
+        <AbilArray Link="BuildDroneLz"/>
         <BehaviorArray Link="AllUnitBehaviorController"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="ZergBuild" Type="Submenu" SubmenuCardId="ZBl1" Row="2" Column="0"/>
+        </CardLayouts>
+        <!--
             <LayoutButtons>
                 <Face value="ZergBuild"/>
                 <Type value="Submenu"/>
@@ -209,13 +212,16 @@
                 <Row value="2"/>
                 <Column value="1"/>
             </LayoutButtons>
-        </CardLayouts>
+-->
         <CardLayouts CardId="ZBl1">
+            <LayoutButtons Face="Hatchery" Type="AbilCmd" AbilCmd="BuildDroneLz,Build1" Row="0" Column="0"/>
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
         </CardLayouts>
+        <!--
         <CardLayouts CardId="ZBl2">
             <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
         </CardLayouts>
+-->
         <Radius value="0.375"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.375"/>
@@ -778,6 +784,92 @@
         <TechTreeProducedUnitArray value="TechTreeHighTemplar"/>
         <TechTreeProducedUnitArray value="TechTreeDarkTemplar"/>
     </CUnit>
+    <CUnit id="HatcheryLz">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FlagArray index="TownStructureTownHall" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <LifeArmor value="1"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="10"/>
+        <CostCategory value="Economy"/>
+        <CostResource index="Minerals" value="200"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5CancelToSelection"/>
+        <AbilArray Link="UpgradeToLair"/>
+        <AbilArray Link="RallyHatchery"/>
+        <AbilArray Link="TrainQueen"/>
+        <AbilArray Link="LairResearch"/>
+        <AbilArray Link="SelectLarvaLz"/>
+        <BehaviorArray Link="SpawnLarvaHatcheryLz"/>
+        <BehaviorArray Link="ZergBuildingDies9"/>
+        <BehaviorArray Link="HatcheryLarvaDeath"/>
+        <CardLayouts>
+            <!--<LayoutButtons Face="Larva" Type="SelectLarva" Row="0" Column="0"/>-->
+            <LayoutButtons Face="Larva" Type="AbilCmd" AbilCmd="SelectLarvaLz,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5CancelToSelection,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelMutateMorph" Type="AbilCmd" AbilCmd="UpgradeToLair,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Lair" Type="AbilCmd" AbilCmd="UpgradeToLair,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="RallyEgg" Type="AbilCmd" AbilCmd="RallyHatchery,Rally2" Row="1" Column="3"/>
+            <LayoutButtons Face="QueenCoop" Type="AbilCmd" AbilCmd="TrainQueen,Train4" Row="0" Column="1"/>
+            <LayoutButtons Face="SetRallyPoint2" Type="AbilCmd" AbilCmd="RallyHatchery,Rally1" Row="1" Column="4"/>
+            <LayoutButtons Face="overlordspeed" Type="AbilCmd" AbilCmd="LairResearch,Research2" Row="1" Column="0"/>
+            <LayoutButtons Face="EvolveVentralSacks" Type="AbilCmd" AbilCmd="LairResearch,Research3" Row="1" Column="1"/>
+            <LayoutButtons Face="RespawnZergling" Type="AbilCmd" AbilCmd="ZerglingRespawn,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="K5TwoDrones" Type="Passive" Requirements="HaveK5TwoDrones" Row="0" Column="4"/>
+            <LayoutButtons Face="RallyEgg" Type="AbilCmd" AbilCmd="RallyHatchery,Rally3" Row="1" Column="3"/>
+            <LayoutButtons Face="Queen" Type="AbilCmd" AbilCmd="TrainQueen,Train1" Row="0" Column="1"/>
+            <LayoutButtons Face="BuildCreepTumor" Type="AbilCmd" AbilCmd="CreepTumorBuild,Build3" Row="0" Column="1"/>
+            <LayoutButtons Face="overlordspeed" Type="AbilCmd" AbilCmd="LairResearch,Research7" Row="1" Column="0"/>
+        </CardLayouts>
+        <CardLayouts>
+            <LayoutButtons Face="RallyBlock" Type="AbilCmd" AbilCmd="RallyBlock,Execute" Row="2" Column="3"/>
+        </CardLayouts>
+        <Radius value="2"/>
+        <SeparationRadius value="2"/>
+        <Footprint value="Footprint5x5NormalCreepContour"/>
+        <PlacementFootprint value="Footprint5x5DropOffCreepNormal"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="67"/>
+        <MinimapRadius value="2.5"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <TacticalAI value="Hatchery"/>
+        <AIEvalFactor value="0"/>
+        <TechAliasArray value="Alias_Hatchery"/>
+        <GlossaryPriority value="10"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <TechTreeProducedUnitArray value="Larva"/>
+        <TechTreeProducedUnitArray value="LarvaLz"/>
+        <TechTreeProducedUnitArray value="Queen"/>
+    </CUnit>
     <CUnit id="HighTemplar">
         <Speed value="2.0156"/>
         <CostResource index="Minerals" value="250"/>
@@ -826,6 +918,152 @@
         <LifeMax value="160"/>
         <ShieldsStart value="160"/>
         <ShieldsMax value="160"/>
+    </CUnit>
+    <CUnit id="Larva2">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Larva" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeArmor value="10"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Mover value="Creep"/>
+        <Speed value="0.5625"/>
+        <Acceleration value="1000"/>
+        <Sight value="5"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="LarvaTrain"/>
+        <AbilArray Link="que1"/>
+        <AbilArray Link="LarvaTrainSwarm"/>
+        <AbilArray Link="LarvaTrainSwarmling"/>
+        <BehaviorArray Link="LarvaWander"/>
+        <BehaviorArray Link="DeathOffCreep"/>
+        <BehaviorArray Link="ChronoBoostTarget"/>
+        <CardLayouts>
+            <LayoutButtons Face="Drone" Type="AbilCmd" AbilCmd="LarvaTrain,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="Zergling" Type="AbilCmd" AbilCmd="LarvaTrain,Train2" Row="0" Column="2"/>
+            <LayoutButtons Face="MorphToSwarmling" Type="AbilCmd" AbilCmd="LarvaTrainSwarmling,Train1" Row="0" Column="2"/>
+            <LayoutButtons Face="MorphToRaptor" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train7" Row="0" Column="2"/>
+            <LayoutButtons Face="Overlord" Type="AbilCmd" AbilCmd="LarvaTrain,Train3" Row="0" Column="1"/>
+            <LayoutButtons Face="Roach" Type="AbilCmd" AbilCmd="LarvaTrain,Train10" Row="1" Column="0"/>
+            <LayoutButtons Face="MorphToCorpser" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train23" Row="1" Column="0"/>
+            <LayoutButtons Face="MorphToVile" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train1" Row="1" Column="0"/>
+            <LayoutButtons Face="Mutalisk" Type="AbilCmd" AbilCmd="LarvaTrain,Train5" Row="2" Column="0"/>
+            <LayoutButtons Face="Infestor" Type="AbilCmd" AbilCmd="LarvaTrain,Train11" Row="1" Column="2"/>
+            <LayoutButtons Face="SwarmHostMP" Type="AbilCmd" AbilCmd="LarvaTrain,Train16" Row="1" Column="1"/>
+            <LayoutButtons Face="MorphToSwarmHostSplitA" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train26" Row="1" Column="1"/>
+            <LayoutButtons Face="MorphToMutaliskViper" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train25" Row="2" Column="0"/>
+            <LayoutButtons Face="MorphToMutaliskBroodlord" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train24" Row="2" Column="0"/>
+            <LayoutButtons Face="MorphToSwarmHostSplitB" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train27" Row="1" Column="1"/>
+            <LayoutButtons Face="Hydralisk" Type="AbilCmd" AbilCmd="LarvaTrain,Train4" Row="1" Column="1"/>
+            <LayoutButtons Face="MorphToHydraliskImpaler" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train21" Row="1" Column="1"/>
+            <LayoutButtons Face="MorphToHydraliskLurker" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train22" Row="1" Column="1"/>
+            <LayoutButtons Face="Ultralisk" Type="AbilCmd" AbilCmd="LarvaTrain,Train7" Row="1" Column="3"/>
+            <LayoutButtons Face="MorphToHotSTorrasque" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train17" Row="1" Column="3"/>
+            <LayoutButtons Face="MorphToHotSNoxious" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train18" Row="1" Column="3"/>
+            <LayoutButtons Face="Aberration" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train28" Row="0" Column="3"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que1,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="QueenClassic" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train19" Row="1" Column="0"/>
+            <LayoutButtons Face="Scourge" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train30" Row="1" Column="0"/>
+            <LayoutButtons Face="Defiler" Type="AbilCmd" AbilCmd="LarvaTrainSwarm,Train3" Row="1" Column="2"/>
+            <LayoutButtons Face="Corruptor" Type="AbilCmd" AbilCmd="LarvaTrain,Train12" Row="1" Column="1"/>
+            <LayoutButtons Face="SwarmHostMP" Type="AbilCmd" AbilCmd="LarvaTrain,Train15" Row="1" Column="1"/>
+            <LayoutButtons Face="Viper" Type="AbilCmd" AbilCmd="LarvaTrain,Train13" Row="2" Column="1"/>
+            <LayoutButtons Face="BuildViperLocked" Type="Passive" Requirements="AbathurLevel08" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.125"/>
+        <SeparationRadius value="0"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="0.25"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <AIEvalFactor value="0"/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="10"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <TechTreeProducedUnitArray value="Drone"/>
+        <TechTreeProducedUnitArray value="Overlord"/>
+        <TechTreeProducedUnitArray value="Zergling"/>
+        <TechTreeProducedUnitArray value="HotSRaptor"/>
+        <TechTreeProducedUnitArray value="HotSSwarmling"/>
+        <TechTreeProducedUnitArray value="Roach"/>
+        <TechTreeProducedUnitArray value="RoacVile"/>
+        <TechTreeProducedUnitArray value="RoachCorpser"/>
+        <TechTreeProducedUnitArray value="Hydralisk"/>
+        <TechTreeProducedUnitArray value="HydraliskLurker"/>
+        <TechTreeProducedUnitArray value="HydraliskImpaler"/>
+        <TechTreeProducedUnitArray value="SwarmHost"/>
+        <TechTreeProducedUnitArray value="SwarmHostSplitA"/>
+        <TechTreeProducedUnitArray value="SwarmHostSplitB"/>
+        <TechTreeProducedUnitArray value="Infestor"/>
+        <TechTreeProducedUnitArray value="Mutalisk"/>
+        <TechTreeProducedUnitArray value="MutaliskBroodlord"/>
+        <TechTreeProducedUnitArray value="MutaliskViper"/>
+        <TechTreeProducedUnitArray value="InfestedAbomination"/>
+        <TechTreeProducedUnitArray value="Ultralisk"/>
+        <TechTreeProducedUnitArray value="HotSTorrasque"/>
+        <TechTreeProducedUnitArray value="HotSNoxious"/>
+    </CUnit>
+    <CUnit id="LarvaLz">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Larva" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeArmor value="10"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Speed value="0.5625"/>
+        <Acceleration value="1000"/>
+        <Sight value="5"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="TrainLarvaLz"/>
+        <AbilArray Link="que1"/>
+        <BehaviorArray Link="LarvaWander"/>
+        <CardLayouts>
+            <LayoutButtons Face="MorphtoSuperDroneLz" Type="AbilCmd" AbilCmd="TrainLarvaLz,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que1,CancelLast" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.125"/>
+        <SeparationRadius value="0"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="0.25"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <AIEvalFactor value="0"/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="10"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <TechTreeProducedUnitArray value="SuperDroneLz"/>
+        <TechTreeProducedUnitArray value="Overlord"/>
+        <TechTreeProducedUnitArray value="Zergling"/>
+        <TechTreeProducedUnitArray value="Roach"/>
+        <TechTreeProducedUnitArray value="Hydralisk"/>
+        <TechTreeProducedUnitArray value="SwarmHost"/>
+        <TechTreeProducedUnitArray value="SwarmHostSplitA"/>
+        <TechTreeProducedUnitArray value="SwarmHostSplitB"/>
+        <TechTreeProducedUnitArray value="Infestor"/>
+        <TechTreeProducedUnitArray value="Mutalisk"/>
+        <TechTreeProducedUnitArray value="Ultralisk"/>
     </CUnit>
     <CUnit id="Mothership">
         <CostResource index="Minerals" value="800"/>

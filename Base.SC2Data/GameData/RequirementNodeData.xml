@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CRequirementAnd id="AndCountUnitAlias_FleetBeaconCompleteOnly2730708737Eq2731442398CountUpgradeProtossAirArmorsLevel2CompleteOnly1">
+    <CRequirementConst id="24">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Value value="24"/>
+    </CRequirementConst>
+    <CRequirementConst id="30">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Value value="30"/>
+    </CRequirementConst>
+    <CRequirementAnd id="AndCountUnitAlias_FleetBeaconCompleteOnly2730708737Eq2731442398CountUpgradeProtossAirArmorsLevel2CompleteOnly1">
         <OperandArray value="CountUnitAlias_FleetBeaconCompleteOnly2730708737"/>
         <OperandArray value="Eq2731442398CountUpgradeProtossAirArmorsLevel2CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_FleetBeaconCompleteOnly2730708737Eq524089035CountUpgradeProtossAirWeaponsLevel2CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_FleetBeaconCompleteOnly2730708737"/>
         <OperandArray value="Eq524089035CountUpgradeProtossAirWeaponsLevel2CompleteOnly1"/>
     </CRequirementAnd>
@@ -31,52 +37,42 @@
         <OperandArray value="CountUnitGhostAcademyLzCompleteOnlyTechTreeCheat"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq1740904084CountUpgradeProtossGroundWeaponsLevel1CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq1740904084CountUpgradeProtossGroundWeaponsLevel1CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq1773896888CountUpgradeProtossGroundArmorsLevel1CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq1773896888CountUpgradeProtossGroundArmorsLevel1CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq2653633474CountUpgradeProtossGroundWeaponsLevel1CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq2653633474CountUpgradeProtossGroundWeaponsLevel1CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq3354561256CountUpgradeProtossShieldsLevel1CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq3354561256CountUpgradeProtossShieldsLevel1CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq3569156689CountUpgradeProtossGroundArmorsLevel1CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq3569156689CountUpgradeProtossGroundArmorsLevel1CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq3751249461CountUpgradeProtossShieldsLevel2CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq3751249461CountUpgradeProtossShieldsLevel2CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq419273267CountUpgradeProtossGroundArmorsLevel2CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq419273267CountUpgradeProtossGroundArmorsLevel2CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnly177772081Eq629999927CountUpgradeProtossGroundWeaponsLevel2CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly177772081"/>
         <OperandArray value="Eq629999927CountUpgradeProtossGroundWeaponsLevel2CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnlyEq3056608045CountUpgradeProtossGroundWeaponsLevel2CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly"/>
         <OperandArray value="Eq3056608045CountUpgradeProtossGroundWeaponsLevel2CompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitAlias_TwilightCouncilCompleteOnlyEq3649763191CountUpgradeProtossGroundArmorsLevel2CompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitAlias_TwilightCouncilCompleteOnly"/>
         <OperandArray value="Eq3649763191CountUpgradeProtossGroundArmorsLevel2CompleteOnly1"/>
     </CRequirementAnd>
@@ -137,7 +133,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitAlias_TwilightCouncilCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Alias_TwilightCouncil" State="CompleteOnly"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitAlias_TwilightCouncilCompleteOnly177772081">
@@ -276,6 +271,11 @@
         <OperandArray index="0" value="CountUpgradeNeosteelArmorMultiLzQueuedOrBetter"/>
         <OperandArray index="1" value="0"/>
     </CRequirementEq>
+    <CRequirementLT id="LTCountUnitLarvaCompleteOnlyAtUnit24">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUnitLarvaCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="24"/>
+    </CRequirementLT>
     <CRequirementLT id="LTCountUnitSwarmBroodlingEscortLzQueuedOrBetterAtUnit2">
         <OperandArray index="0" value="CountUnitSwarmBroodlingEscortLzQueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="2"/>

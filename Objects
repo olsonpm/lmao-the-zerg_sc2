@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PlacedObjects Version="27">
-    <ObjectPoint Id="1372290180" Position="107,21.5,0" Scale="1,1,1" Type="Normal" Name="enemy spawn - random - br" Color="0,0,0,0"/>
     <ObjectPoint Id="788266754" Position="24,64,0" Scale="1,1,1" Type="Normal" Name="defense point - left" Color="0,0,0,0"/>
+    <ObjectPoint Id="1372290180" Position="107,21.5,0" Scale="1,1,1" Type="Normal" Name="enemy spawn - random - br" Color="0,0,0,0"/>
     <ObjectPoint Id="128424714" Position="63.5,64.5,0" Scale="1,1,1" Type="StartLoc" Name="start location" Color="0,0,0,0"/>
     <ObjectPoint Id="393756790" Position="64,64,0" Scale="1,1,1" Type="Normal" Name="center" Color="0,0,0,0"/>
     <ObjectPoint Id="2037288258" Position="65,61,0" Scale="1,1,1" Type="Normal" Name="init unit - p3" Color="0,0,0,0"/>
     <ObjectPoint Id="719559596" Position="61,65,0" Scale="1,1,1" Type="Normal" Name="init unit - p8" Color="0,0,0,0"/>
     <ObjectPoint Id="1134796180" Position="64,24,0" Scale="1,1,1" Type="Normal" Name="defense point - bot" Color="0,0,0,0"/>
     <ObjectPoint Id="1004528095" Position="65,67,0" Scale="1,1,1" Type="Normal" Name="init unit - p5" Color="0,0,0,0"/>
-    <ObjectPoint Id="646624821" Position="67,63,0" Scale="1,1,1" Type="Normal" Name="init unit - p6" Color="0,0,0,0"/>
     <ObjectPoint Id="1688955913" Position="67,65,0" Scale="1,1,1" Type="Normal" Name="init unit - p2" Color="0,0,0,0"/>
+    <ObjectPoint Id="646624821" Position="67,63,0" Scale="1,1,1" Type="Normal" Name="init unit - p6" Color="0,0,0,0"/>
     <ObjectPoint Id="734070339" Position="64,104,0" Scale="1,1,1" Type="Normal" Name="defense point - top" Color="0,0,0,0"/>
-    <ObjectPoint Id="445186026" Position="104,64,0" Scale="1,1,1" Type="Normal" Name="defense point - right" Color="0,0,0,0"/>
     <ObjectPoint Id="1452725657" Position="63,61,0" Scale="1,1,1" Type="Normal" Name="init unit - p7" Color="0,0,0,0"/>
+    <ObjectPoint Id="445186026" Position="104,64,0" Scale="1,1,1" Type="Normal" Name="defense point - right" Color="0,0,0,0"/>
     <ObjectPoint Id="777528751" Position="21,21.5,0" Scale="1,1,1" Type="Normal" Name="enemy spawn - random - bl" Color="0,0,0,0"/>
     <ObjectPoint Id="230195740" Position="61,63,0" Scale="1,1,1" Type="Normal" Name="init unit - p4" Color="0,0,0,0"/>
     <ObjectPoint Id="509698823" Position="21,107,0" Scale="1,1,1" Type="Normal" Name="enemy spawn - random - tl" Color="0,0,0,0"/>
     <ObjectPoint Id="833331447" Position="107,107,0" Scale="1,1,1" Type="Normal" Name="enemy spawn - random - tr" Color="0,0,0,0"/>
     <ObjectPoint Id="754412464" Position="63,67,0" Scale="1,1,1" Type="Normal" Name="init unit - p1" Color="0,0,0,0"/>
-    <ObjectUnit Id="764903996" Position="26,67,0" Rotation="0.607" Scale="1,1,1" UnitType="Overseer" Player="10"/>
-    <ObjectUnit Id="316763809" Position="58,66,0" Rotation="0.0476" Scale="1,1,1" UnitType="SuperDroneLz" Player="1"/>
-    <ObjectUnit Id="958960325" Position="55,65.5,0" Rotation="4.394" Scale="1,1,1" UnitType="Roach" Player="1"/>
-    <ObjectUnit Id="1372464002" Position="50.5,65,0" Rotation="1.066" Scale="1,1,1" UnitType="Roach" Player="10"/>
-    <ObjectUnit Id="148587767" Position="59,68,0" Rotation="3.8605" Scale="1,1,1" UnitType="StartingDroneLz" Player="1"/>
+    <ObjectUnit Id="1660807669" Position="55.5,71.5,0" Scale="1,1,1" UnitType="HatcheryLz" Player="1"/>
+    <ObjectUnit Id="436836112" Position="72.5,71.5,0" Scale="1,1,1" UnitType="HatcheryLz" Player="1">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1419853349" Position="56.5,63.5,0" Scale="1,1,1" UnitType="HatcheryLz" Player="1">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1663836337" Position="63.5,71.5,0" Scale="1,1,1" UnitType="HatcheryLz" Player="1">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectUnit>
 </PlacedObjects>

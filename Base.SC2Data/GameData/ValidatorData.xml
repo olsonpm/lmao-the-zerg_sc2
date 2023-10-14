@@ -3,6 +3,9 @@
     <CValidatorUnitFilters id="BioLifeTargetFiltersLz">
         <Filters value="Biological,Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CValidatorUnitFilters>
+    <CValidatorUnitType id="IsLarvaLz">
+        <Value value="LarvaLz"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="NotBeingAttackedByTentacleSwarmLeviathanLz">
         <Behavior value="BeingAttackedByTentacleSwarmLeviathanLz"/>
     </CValidatorUnitCompareBehaviorCount>

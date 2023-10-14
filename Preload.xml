@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Preload>
 <Actor id="SYSTEM_ActorConfig"/>
+<Behavior id="SpawnedUnitTracker"/>
 <Behavior id="DisableEnergyRegenLz"/>
 <Behavior id="RockTeleportStunLz"/>
 <Button id="UpgradeMiningLz"/>
 <Effect id="ExitEffectLz"/>
 <Model id="PingArrow"/>
 <Race id="Terr"/>
-<Race id="Prot"/>
+<Race id="Zerg"/>
 <Sound id="UI_GenericError"/>
 <Sound id="Alert_TerranNeedMoreMinerals"/>
 <Sound id="Ultralisk_Death_Fall_Impact"/>
@@ -16,8 +17,6 @@
 <Sound id="GenericErrorLz"/>
 <Terrain id="PurifierJungle"/>
 <Unit id="Carrier"/>
-<Unit id="Roach"/>
-<Unit id="Overseer"/>
 <Unit id="SwarmBroodLordLz"/>
 <Unit id="SwarmMutaliskLz"/>
 <Unit id="TechLabFactoryLz"/>
@@ -25,8 +24,6 @@
 <Unit id="TechLabBarracksLz"/>
 <Unit id="SwarmCorruptorLz"/>
 <Unit id="SwarmViperLz"/>
-<Unit id="StartingDroneLz"/>
-<Unit id="SuperDroneLz"/>
 <Unit id="SwarmLeviathanLz" UserTag="Zerg"/>
 <Unit id="SwarmWasplingLz"/>
 <Unit id="SwarmHydraliskLz"/>
@@ -47,4 +44,5 @@
 <Unit id="MiningStationPlayerLz"/>
 <Unit id="SwarmUltraliskLz"/>
 <Unit id="SwarmZerglingLz"/>
+<Unit id="HatcheryLz"/>
 </Preload>

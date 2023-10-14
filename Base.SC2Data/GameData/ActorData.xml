@@ -222,6 +222,118 @@
     <CActorSplat id="DarkShrineSplat2" parent="GenericUnitSplat" unitName="DarkShrineLz">
         <Model value="DarkShrineSplat"/>
     </CActorSplat>
+    <CActorUnit id="HatcheryLz" parent="ZergBuildingEx" unitName="HatcheryLz">
+        <Aliases value="_ZergLairMorph"/>
+        <Aliases value="_UnitHuge"/>
+        <Macros value="MacroTownhallDeco_Zerg"/>
+        <Macros value="ZergHatcheryPlayerDecalMacro"/>
+        <Macros value="SprayHelperMacro"/>
+        <Macros value="ZerglingRespawnAnim"/>
+        <Macros value="ZergHatcheryPlayerDecalMacro"/>
+        <Macros value="SprayHelperMacroCoop"/>
+        <AcceptedHostedPropTransfers index="Decal" value="0"/>
+        <On index="69" Terms="UnitConstruction.HatcheryLz.Start" Send="Create HatcheryBuild"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom Hatchery; MorphTo Lair" Send="Create ZergHatcheryToLair"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom Hatchery; MorphTo Lair" Send="AnimGroupApply B"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Hatchery; MorphTo Lair" Send="AnimGroupRemove B"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Hatchery; MorphTo Lair" Send="AnimClearAllBut Stand"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Hatchery; MorphTo Lair" Send="AnimBaselineStart"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom Hatchery; MorphTo Lair" Send="AnimPlay MorphCancel Cover,End,A"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom Hatchery; MorphTo Lair" Send="Destroy"/>
+        <On Terms="UnitBirth.HatcheryLz" Send="Create PlayerLogoDoodadList"/>
+        <On Terms="UnitBirth.HatcheryLz; PlayerHasClanDecal" Send="Create ZergClanFlag"/>
+        <On Terms="UnitBirth.HatcheryLz; PlayerHasTrophy" Send="Create ZergPlayerTrophy"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
+        <On Terms="UnitBirth.HatcheryLz; PlayerHasClanDecal" Send="Create ZergClanFlag"/>
+        <On Terms="UnitBirth.HatcheryLz; PlayerHasTrophy" Send="Create ZergPlayerTrophy"/>
+        <Model value="Hatchery"/>
+        <BuildModel value="Hatchery"/>
+        <DeathArray index="Normal" ModelLink="HatcheryDeath" SoundLink=""/>
+        <DeathArray index="UnderConstruction" ModelLink="HatcheryDeathUnderConstruction" SoundLink="Hatchery_Explode"/>
+        <DeathCustoms ModelLink="ZergGenericBuildingDeath" Name="Detached"/>
+        <PlacementModel value="HatcheryPlacement"/>
+        <PortraitModel value="HatcheryPortrait"/>
+        <BarOffset value="135"/>
+        <BarWidth value="200"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Hatchery.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-zerg-hatchery.dds"/>
+        <NameOffset value="130"/>
+        <SoundArray index="Ready" value="Hatchery_Ready"/>
+        <SoundArray index="What" value="Hatchery_What"/>
+        <StatusHarvesterData Text="UI/HarvesterCountMinerals" SearchFilters="HarvestableResource;Player,Ally,Enemy" SearchRadius="8"/>
+        <UnitIcon value="Assets\Textures\btn-building-zerg-hatchery.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Hatchery.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="Larva2" parent="GenericUnitMorph" unitName="Larva2">
+        <Aliases value="_UnitSmall"/>
+        <Model value="Larva"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Larva"/>
+        <DeathArray index="Normal" ModelLink="LarvaDeath" SoundLink="Larva_Explode"/>
+        <DeathArray index="TrainingComplete" SoundLink="Uni_DeathFXSilentKill"/>
+        <PlacementModel value="Larva"/>
+        <PortraitModel value="LarvaPortrait"/>
+        <WalkAnimMoveSpeed value="0.3984"/>
+        <BarOffset value="5"/>
+        <BarWidth value="30"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Larva.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-larva.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="What" value="Larva_What"/>
+        <SoundArray index="Pissed" value="Larva_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-larva.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Larva.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
+    <CActorUnit id="LarvaLz" parent="GenericUnitMorph" unitName="LarvaLz">
+        <Aliases value="_UnitSmall"/>
+        <Model value="Larva"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Larva"/>
+        <DeathArray index="Normal" ModelLink="LarvaDeath" SoundLink="Larva_Explode"/>
+        <DeathArray index="TrainingComplete" SoundLink="Uni_DeathFXSilentKill"/>
+        <PlacementModel value="Larva"/>
+        <PortraitModel value="LarvaPortrait"/>
+        <WalkAnimMoveSpeed value="0.3984"/>
+        <BarOffset value="5"/>
+        <BarWidth value="30"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-Larva.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-larva.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-zerg-swarmfrenzy.dds"/>
+        <SoundArray index="What" value="Larva_What"/>
+        <SoundArray index="Pissed" value="Larva_Pissed"/>
+        <StatusColors index="Shields">
+            <ColorArray index="0" value="255,0,128,0"/>
+        </StatusColors>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-larva.dds"/>
+        <VitalColors index="Shields">
+            <ColorArray value="255,0,128,0"/>
+        </VitalColors>
+        <VitalNames index="Shields" value="Vital/ZergShields"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-Larva.dds"/>
+        </Wireframe>
+        <WireframeShieldColor value="255,0,128,0"/>
+    </CActorUnit>
     <CActorBeamSimple id="ShieldBatteryRechargeChanneledBeamLz" parent="BeamSimpleAnimationStyleContinuous">
         <Inherits index="Visibility" value="1"/>
         <On Terms="Effect.ShieldBatteryRechargeChanneled.TargetStart" Send="Create"/>

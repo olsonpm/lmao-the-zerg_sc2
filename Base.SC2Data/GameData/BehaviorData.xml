@@ -18,6 +18,10 @@
         <Period value="0.5"/>
         <PeriodicEffect value="GroundAttackScanCPSwarmLeviathanLz"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="LarvaDeathHatcheryLz">
+        <InfoFlags index="Hidden" value="1"/>
+        <FinalEffect value="LarvaDeathSAHatcheryLz"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="PhotonOverchargeLz">
         <InfoIcon value="Assets\Textures\btn-ability-protoss-purify.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -35,6 +39,46 @@
         <Duration value="4"/>
         <ExpireEffect value="SpawnBroodLordSetSwarmLeviathanLz"/>
     </CBehaviorBuff>
+    <CBehaviorSpawn id="SpawnLarvaHatcheryLz">
+        <InfoFlags index="Hidden" value="1"/>
+        <Effect value="SpawnedUnitTrackerSet"/>
+        <ConjoinedLink value="SpawnLarvaConjoined"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <InfoArray>
+            <Unit value="LarvaLz"/>
+            <MaxCount value="24"/>
+            <Requirements value="SpawnLarvaHatcheryLz"/>
+            <Delay value="0.01"/>
+        </InfoArray>
+        <Center value="0,-3"/>
+        <Offset value="0,-3"/>
+        <Offset value="1,-3"/>
+        <Offset value="2,-3"/>
+        <Offset value="3,-3"/>
+        <Offset value="3,-2"/>
+        <Offset value="3,-1"/>
+        <Offset value="3,0"/>
+        <Offset value="3,1"/>
+        <Offset value="3,2"/>
+        <Offset value="3,3"/>
+        <Offset value="2,3"/>
+        <Offset value="1,3"/>
+        <Offset value="0,3"/>
+        <Offset value="-1,3"/>
+        <Offset value="-2,3"/>
+        <Offset value="-3,3"/>
+        <Offset value="-3,2"/>
+        <Offset value="-3,1"/>
+        <Offset value="-3,0"/>
+        <Offset value="-3,-1"/>
+        <Offset value="-3,-2"/>
+        <Offset value="-3,-3"/>
+        <Offset value="-2,-3"/>
+        <Offset value="-1,-3"/>
+        <Slop value="1"/>
+        <Range value="1"/>
+        <Limit value="25"/>
+    </CBehaviorSpawn>
     <CBehaviorBuff id="SpawnMutaliskCountdownSwarmLeviathanLz">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -48,6 +92,9 @@
         </Modification>
         <InfoIcon value="Assets\Textures\stunswirl1_orange.dds"/>
     </CBehaviorBuff>
+    <CBehaviorUnitTracker id="SpawnedUnitLz">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorUnitTracker>
     <CBehaviorBuff id="SwarmHunterBanelingExplodeLz">
         <Alignment value="Positive"/>
         <InfoFlags index="Hidden" value="1"/>

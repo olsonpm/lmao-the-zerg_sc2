@@ -22,6 +22,7 @@ Button/Hotkey/CycloneResearchLockOnDamageUpgradeMultiLz=R
 Button/Hotkey/FreeRechargeShieldLz=Q
 Button/Hotkey/FreeRepairLz=R
 Button/Hotkey/FreeSuperRepairLz=R
+Button/Hotkey/MorphtoSuperDroneLz=D
 Button/Hotkey/PhotonOverchargeLz=F
 Button/Hotkey/QuantumReactorTempestLz=T
 Button/Hotkey/RapidReignitionSystemMultiLz=
